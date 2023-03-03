@@ -1,0 +1,206 @@
+<!-- reviews photo gallery -->
+<div
+  class="positionel modal"
+  data-positionel-type="modal"
+  data-modal-type="gallery"
+  data-positionel-name="reviews-photo-gallery"
+  data-active="false"
+  data-position="fixed"
+  data-load-spinner="false"
+  data-animation="translate-fade"
+  data-pointer-position="none"
+  data-show-event="click"
+  data-delay-hide="false"
+  data-static="false"
+  data-has-defined-class="true"
+  data-child-positionel="false"
+  data-width="md"
+>
+  <div class="overlay"></div>
+  <div class="positionel-container modal-container">
+    <div class="modal-header">
+      <button class="btn-icon positionel-closebtn">
+        <i class="fa fa-times"></i>
+      </button>
+    </div>
+
+    <div class="modal-windows">
+      <div
+        class="modal-window"
+        data-window="review-photos-and-text"
+        data-active="true"
+      >
+        <!-- view all photos -->
+        <div class="mg-b-lw modal-tab" data-window="review-photos-gallery">
+          <i class="fa fa-th icon-bg"></i>
+          <p class="s-7 s-d">View Image Gallery</p>
+        </div>
+
+        <div class="modal-gallery-container">
+          <div
+            class="modal-gallery"
+            data-review-index="0"
+            data-cur-img-index="0"
+            data-total-imgs="5"
+          >
+            <!-- gallery main img -->
+            <div class="modal-gallery-cur-photo-container">
+              <div class="modal-gallery-cur-photo-box">
+                <img
+                  src="../../img/products/1.jpg"
+                  class="modal-gallery-cur-photo"
+                  alt="I at MrPena Seminar within 2 year."
+                />
+
+                <div class="modal-gallery-change-photo-btns">
+                  <button
+                    class="modal-gallery-change-photo-btn btn-icon"
+                    data-btn="left"
+                    style="display: none"
+                  >
+                    <i class="fa fa-angle-left" aria-hidden="true"></i>
+                  </button>
+                  <button
+                    class="modal-gallery-change-photo-btn btn-icon"
+                    data-btn="right"
+                  >
+                    <i class="fa fa-angle-right" aria-hidden="true"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- gallery content => text | other related imgs -->
+            <div class="modal-gallery-content">
+              <!-- gallery details -->
+              <div class="modal-gallery-text mg-b-sm-all mg-b-sm">
+                <!-- review-author -->
+                <div class="f-sm">
+                  <img
+                    src="../../img/users/default.png"
+                    alt="rohit the billionare man"
+                    class="img-avatar"
+                  />
+                  <p class="pt-md">rohit the billionare man</p>
+                </div>
+
+                <!-- stars and title -->
+                <div>
+                  <div class="f-i product-rating-icons">
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                  </div>
+
+                  <p class="s-7 s-d inline-span">
+                    I at MrPena Seminar within 2 year.
+                  </p>
+                </div>
+
+                <!-- date -->
+                <p class="t-sm">
+                  Reviewed in <span>India</span> on
+                  <span>21/12/2022, 15:31:05</span>
+                </p>
+
+                <!-- review-text -->
+                <p class="pt-md">I am the god</p>
+              </div>
+
+              <!-- gallery related imgs-->
+              <div class="modal-gallery-all-photos grid-5 gap-lw">
+                <div
+                  class="box"
+                  data-outline=""
+                  data-scale-img=""
+                  data-active="true"
+                >
+                  <img src="../../img/products/1.jpg" alt="" />
+                </div>
+                <div
+                  class="box"
+                  data-outline=""
+                  data-scale-img=""
+                  data-active="false"
+                >
+                  <img src="../../img/products/2.jpg" alt="" />
+                </div>
+                <div
+                  class="box"
+                  data-outline=""
+                  data-scale-img=""
+                  data-active="false"
+                >
+                  <img src="../../img/products/3.jpg" alt="" />
+                </div>
+                <div
+                  class="box"
+                  data-outline=""
+                  data-scale-img=""
+                  data-active="false"
+                >
+                  <img src="../../img/products/4.jpg" alt="" />
+                </div>
+                <div
+                  class="box"
+                  data-outline=""
+                  data-scale-img=""
+                  data-active="false"
+                >
+                  <img src="../../img/products/5.jpg" alt="" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="modal-window"
+        data-window="review-photos-gallery"
+        data-active="false"
+      >
+        <div class="modal-grid-photos grid grid-4 grid-img positionel-scroll">
+          <figure data-review-index="1" class="modal-grid-photo">
+            <img src="../../img/products/1.jpg" alt="" />
+          </figure>
+          <figure data-review-index="2" class="modal-grid-photo">
+            <img src="../../img/products/2.jpg" alt="" />
+          </figure>
+          <figure data-review-index="3" class="modal-grid-photo">
+            <img src="../../img/products/3.jpg" alt="" />
+          </figure>
+          <figure data-review-index="4" class="modal-grid-photo">
+            <img src="../../img/products/4.jpg" alt="" />
+          </figure>
+          <figure data-review-index="1" class="modal-grid-photo">
+            <img src="../../img/products/1.jpg" alt="" />
+          </figure>
+          <figure data-review-index="1" class="modal-grid-photo">
+            <img src="../../img/products/2.jpg" alt="" />
+          </figure>
+          <figure data-review-index="1" class="modal-grid-photo">
+            <img src="../../img/products/3.jpg" alt="" />
+          </figure>
+          <figure data-review-index="1" class="modal-grid-photo">
+            <img src="../../img/products/4.jpg" alt="" />
+          </figure>
+          <figure data-review-index="1" class="modal-grid-photo">
+            <img src="../../img/products/1.jpg" alt="" />
+          </figure>
+          <figure data-review-index="1" class="modal-grid-photo">
+            <img src="../../img/products/2.jpg" alt="" />
+          </figure>
+          <figure data-review-index="1" class="modal-grid-photo">
+            <img src="../../img/products/3.jpg" alt="" />
+          </figure>
+          <figure data-review-index="1" class="modal-grid-photo">
+            <img src="../../img/products/4.jpg" alt="" />
+          </figure>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

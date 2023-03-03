@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="shortcut icon"
+      href="../../img/amazon/favicon.png"
+      type="image/*"
+    />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../style.css" />
+    <script
+      src="https://kit.fontawesome.com/28cd1ccca7.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script defer type="module" src="../../script.js"></script>
+  </head>
+  <body data-page="home">
+    <!-- header -->
+    <header class="header sticky-header">
+      <div class="header-content f-sm">
+        <!-- logo -->
+        <div class="header-box">
+          <a href="/" class="logo-box">
+            <img src="../../img/amazon/logo.png" class="logo" alt="" />
+          </a>
+        </div>
+
+        <!-- delivery location -->
+        <a
+          class="header-box f-lw"
+          href="customer/change-delievery-location"
+          data-type="change-delievery-location"
+        >
+          <i class="fa fa-map-marker"></i>
+          <div>
+            <p class="pt-sm">Deliver to Rohit</p>
+            <h9 class="h-9">Merrut 250001</h9>
+          </div>
+        </a>
+
+        <!-- search form -->
+        <div class="search-form">
+          <div class="search-form-content">
+            <input
+              type="text"
+              class="search-input"
+              data-position-el-btn
+              data-position-el-name="search-products"
+              data-position-el-hover-show="false"
+            />
+
+            <button class="btn-icon" data-action="search">
+              <i class="fa fa-search"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- user language  -->
+        <div
+          class="header-box"
+          data-type="change-user-language"
+          data-position-el-btn
+          data-position-el-hover-show="true"
+          data-position-el-name="choose-language"
+        >
+          <!-- <img src="https://countryflagsapi.com/png/india" alt="" /> -->
+          <h9 class="h-9">EN</h9>
+          <div class="header-language-more-icon-box">
+            <i class="fa fa-caret-down" aria-hidden="true"></i>
+          </div>
+        </div>
+
+        <!-- account and lists -->
+        <a
+          href="/my-accounts"
+          class="header-box"
+          data-type="account_and_lists"
+          data-position-el-btn
+          data-position-el-hover-show="true"
+          data-position-el-name="user-options"
+        >
+          <p class="pt-sm">Hello,mclaren</p>
+          <div class="f-lw f-ac">
+            <p class="h-9 h-0">Account & Lists</p>
+            <i class="fa fa-caret-down"></i>
+          </div>
+        </a>
+
+        <!-- returns and orders -->
+        <a href="/my-orders" class="header-box" data-type="return_and_orders">
+          <p class="pt-sm">Returns</p>
+          <div>
+            <p class="h-9 h-0">& Orders</p>
+          </div>
+        </a>
+
+        <!-- carts -->
+        <a href="/my-cart" class="header-box" data-type="carts">
+          <div class="header-cart-box">
+            <div class="header-cart-icon">
+              <i class="fa fa-cart-plus"></i>
+              <p class="header-cart-qty">9</p>
+            </div>
+            <h class="h-9 h-0">Cart</h>
+          </div>
+        </a>
+
+        <div></div>
+      </div>
+    </header>
+
+    <!-- navigation -->
+    <nav class="nav" data-active="false">
+      <div class="overlay"></div>
+      <div class="nav-list">
+        <div class="list-item nav-my-account f f-sb f-ac">
+          <a
+            href="/my-account"
+            class=""
+            data-link="/my-account"
+            data-hover="false"
+          >
+            <div class="f-lw">
+              <i class="fa fa-user-circle nav-user-icon"></i>
+
+              <h class="h-7 w-700 h-0"> Hello, mclaren </h>
+            </div>
+          </a>
+          <button class="btn-icon" data-action="close-nav">
+            <i class="fa fa-times"></i>
+          </button>
+        </div>
+
+        <!-- trending -->
+        <div class="list">
+          <p class="list-title">Trending</p>
+          <a href="/best-sellers" class="list-item" data-link="/best-sellers">
+            <p>Best sellers</p>
+          </a>
+          <a class="list-item" href="/new-products">
+            <p>New releases</p>
+          </a>
+          <a class="list-item" href="/trending-products">
+            <p>Movers and Shakers</p>
+          </a>
+        </div>
+
+        <div class="line-dim mg-b-lw mg-t-lw"></div>
+
+        <!-- settings -->
+        <div class="list">
+          <p class="list-title">Help & Settings</p>
+          <a class="list-item" href="/my-account">
+            <p>Your Account</p>
+          </a>
+          <a class="list-item" href="/customer-service">
+            <p>Customer Service</p>
+          </a>
+          <a class="list-item" href="/logout">
+            <p>Sign Out</p>
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <main>
+      <!-- shortcut-navigation -->
+      <div class="shortcut-navigation f">
+        <div class="nav-btn-box border f" data-nav-btn>
+          <button class="nav-btn">
+            <p class="nav-btn-line"></p>
+            <p class="nav-btn-line"></p>
+            <p class="nav-btn-line"></p>
+          </button>
+          <h class="h-9 h-0">All</h>
+        </div>
+
+        <a href="/my-cart" class="border">
+          <h class="h-9 h-0"> Buy again </h>
+        </a>
+
+        <a href="/products" class="border">
+          <h class="h-9 h-0"> Heath,Household & Personal Care </h>
+        </a>
+
+        <a href="/my-orders" class="border">
+          <h class="h-9 h-0"> Orders </h>
+        </a>
+      </div>
+
+      <!-- slider -->
+      <div class="slider" data-index="1">
+        <button class="slider-btn" data-btn="left"></button>
+        <button class="slider-btn" data-btn="right"></button>
+
+        <div class="slider-imgs">
+          <img class="slider-img" src="../../img/amazon/hero_4.jpg" />
+          <img class="slider-img" src="../../img/amazon/hero_2.jpg" />
+          <img class="slider-img" src="../../img/amazon/hero_3.jpg" />
+          <img class="slider-img" src="../../img/amazon/hero_4.jpg" />
+          <img class="slider-img" src="../../img/amazon/hero_5.jpg" />
+        </div>
+      </div>
+
+      <div class="home-content container">
+        <!-- items in grid -->
+        <div
+          class="row hidden"
+          data-row-type="static"
+          data-row-item-type="grid-item"
+          data-row-scroll="false"
+          data-page="0"
+          data-load-docs-till-page="3"
+        >
+          <div class="row-container">
+            <!-- items-->
+            <div class="row-main-content">
+              <div class="row-content">
+                <div class="col" data-contains-btn="true">
+                  <div class="col-content">
+                    <h class="col-title-item h-5">Pick up where you left</h>
+                    <div class="col-item">
+                      <div class="img-box-md">
+                        <img
+                          src="https://m.media-amazon.com/images/I/619f09kK7tL._SX679_.jpg"
+                          alt="Apple iPhone 14 Plus 128 GB midnight"
+                        />
+                      </div>
+
+                      <p class="pt-sm">2021 Apple MacBook Pro</p>
+                    </div>
+                    <div class="col-item">
+                      <div class="img-box-md">
+                        <img
+                          src="https://m.media-amazon.com/images/I/619f09kK7tL._SX679_.jpg"
+                          alt="Apple iPhone 14 Plus 128 GB midnight"
+                        />
+                      </div>
+
+                      <p class="pt-sm">2021 Apple MacBook Pro</p>
+                    </div>
+                    <div class="col-item">
+                      <div class="img-box-md">
+                        <img
+                          src="https://m.media-amazon.com/images/I/619f09kK7tL._SX679_.jpg"
+                          alt="Apple iPhone 14 Plus 128 GB midnight"
+                        />
+                      </div>
+
+                      <p class="pt-sm">2021 Apple MacBook Pro</p>
+                    </div>
+                    <div class="col-item">
+                      <div class="img-box-md">
+                        <img
+                          src="https://m.media-amazon.com/images/I/619f09kK7tL._SX679_.jpg"
+                          alt="Apple iPhone 14 Plus 128 GB midnight"
+                        />
+                      </div>
+
+                      <p class="pt-sm">2021 Apple MacBook Pro</p>
+                    </div>
+
+                    <div class="col-btn-item">
+                      <button class="btn-inline-span">
+                        View your browsing history
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="col-content">
+                    <h class="col-title-item h-5">Pick up where you left</h>
+                    <div class="col-item">
+                      <div class="img-box-md">
+                        <img
+                          src="https://m.media-amazon.com/images/I/619f09kK7tL._SX679_.jpg"
+                          alt="Apple iPhone 14 Plus 128 GB midnight"
+                        />
+                      </div>
+
+                      <p class="pt-sm">2021 Apple MacBook Pro</p>
+                    </div>
+                    <div class="col-item">
+                      <div class="img-box-md">
+                        <img
+                          src="https://m.media-amazon.com/images/I/619f09kK7tL._SX679_.jpg"
+                          alt="Apple iPhone 14 Plus 128 GB midnight"
+                        />
+                      </div>
+
+                      <p class="pt-sm">2021 Apple MacBook Pro</p>
+                    </div>
+                    <div class="col-item">
+                      <div class="img-box-md">
+                        <img
+                          src="https://m.media-amazon.com/images/I/619f09kK7tL._SX679_.jpg"
+                          alt="Apple iPhone 14 Plus 128 GB midnight"
+                        />
+                      </div>
+
+                      <p class="pt-sm">2021 Apple MacBook Pro</p>
+                    </div>
+                    <div class="col-item">
+                      <div class="img-box-md">
+                        <img
+                          src="https://m.media-amazon.com/images/I/619f09kK7tL._SX679_.jpg"
+                          alt="Apple iPhone 14 Plus 128 GB midnight"
+                        />
+                      </div>
+
+                      <p class="pt-sm">2021 Apple MacBook Pro</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- row with items with big img -->
+        <!-- top parent should tell what type of children it have so we can just set it from top  => better than changing every child item -->
+        <div
+          class="row"
+          data-row-type="static"
+          data-row-item-type="item-with-bg-img"
+          data-row-btn-type="square"
+          data-row-scroll="true"
+          data-page="0"
+          data-load-docs-till-page="4"
+        >
+          <!-- heading and btn-->
+          <div class="f-sm f-sb">
+            <h class="h-5 mg-b-sm">Explore Items</h>
+          </div>
+          <div class="row-container">
+            <!-- buttons  -->
+            <div>
+              <!-- button-left-->
+              <div class="row-btn-box">
+                <button
+                  data-direction="left"
+                  data-active="false"
+                  data-focus="false"
+                >
+                  <i class="fa fa-angle-left" aria-hidden="true"></i>
+                </button>
+              </div>
+              <!-- button-right-->
+              <div class="row-btn-box">
+                <button
+                  data-direction="right"
+                  data-active="true"
+                  data-focus="false"
+                >
+                  <i class="fa fa-angle-right" aria-hidden="true"></i>
+                </button>
+              </div>
+            </div>
+
+            <!-- items-->
+            <div class="row-main-content">
+              <div class="row-content">
+                <div class="col">
+                  <a
+                    href="/products/63bc126fb63b0ed0704a10e6"
+                    class="col-content"
+                  >
+                    <div class="img-box-bg">
+                      <img
+                        src="https://m.media-amazon.com/images/I/619f09kK7tL._SX679_.jpg"
+                        alt="undefined"
+                      />
+                    </div>
+                  </a>
+                </div>
+                <div class="col">
+                  <a
+                    href="/products/63bc126fb63b0ed0704a10e6"
+                    class="col-content"
+                  >
+                    <div class="img-box-bg">
+                      <img
+                        src="https://m.media-amazon.com/images/I/619f09kK7tL._SX679_.jpg"
+                        alt="undefined"
+                      />
+                    </div>
+                  </a>
+                </div>
+                <div class="col">
+                  <a
+                    href="/products/63bc126fb63b0ed0704a10e6"
+                    class="col-content"
+                  >
+                    <div class="img-box-bg">
+                      <img
+                        src="https://m.media-amazon.com/images/I/619f09kK7tL._SX679_.jpg"
+                        alt="undefined"
+                      />
+                    </div>
+                  </a>
+                </div>
+                <div class="col">
+                  <a
+                    href="/products/63bc126fb63b0ed0704a10e6"
+                    class="col-content"
+                  >
+                    <div class="img-box-bg">
+                      <img
+                        src="https://m.media-amazon.com/images/I/619f09kK7tL._SX679_.jpg"
+                        alt="undefined"
+                      />
+                    </div>
+                  </a>
+                </div>
+                <div class="col">
+                  <a
+                    href="/products/63bc126fb63b0ed0704a10e6"
+                    class="col-content"
+                  >
+                    <div class="img-box-bg">
+                      <img
+                        src="https://m.media-amazon.com/images/I/619f09kK7tL._SX679_.jpg"
+                        alt="undefined"
+                      />
+                    </div>
+                  </a>
+                </div>
+                <div class="col">
+                  <a
+                    href="/products/63bc126fb63b0ed0704a10e6"
+                    class="col-content"
+                  >
+                    <div class="img-box-bg">
+                      <img
+                        src="https://m.media-amazon.com/images/I/619f09kK7tL._SX679_.jpg"
+                        alt="undefined"
+                      />
+                    </div>
+                  </a>
+                </div>
+                <div class="col">
+                  <a
+                    href="/products/63bc126fb63b0ed0704a10e6"
+                    class="col-content"
+                  >
+                    <div class="img-box-bg">
+                      <img
+                        src="https://m.media-amazon.com/images/I/619f09kK7tL._SX679_.jpg"
+                        alt="undefined"
+                      />
+                    </div>
+                  </a>
+                </div>
+                <div class="col">
+                  <a
+                    href="/products/63bc126fb63b0ed0704a10e6"
+                    class="col-content"
+                  >
+                    <div class="img-box-bg">
+                      <img
+                        src="https://m.media-amazon.com/images/I/619f09kK7tL._SX679_.jpg"
+                        alt="undefined"
+                      />
+                    </div>
+                  </a>
+                </div>
+                <div class="col">
+                  <a
+                    href="/products/63bc126fb63b0ed0704a10e6"
+                    class="col-content"
+                  >
+                    <div class="img-box-bg">
+                      <img
+                        src="https://m.media-amazon.com/images/I/619f09kK7tL._SX679_.jpg"
+                        alt="undefined"
+                      />
+                    </div>
+                  </a>
+                </div>
+                <div class="col">
+                  <a
+                    href="/products/63bc126fb63b0ed0704a10e6"
+                    class="col-content"
+                  >
+                    <div class="img-box-bg">
+                      <img
+                        src="https://m.media-amazon.com/images/I/619f09kK7tL._SX679_.jpg"
+                        alt="undefined"
+                      />
+                    </div>
+                  </a>
+                </div>
+                <div class="col">
+                  <a
+                    href="/products/63bc126fb63b0ed0704a10e6"
+                    class="col-content"
+                  >
+                    <div class="img-box-bg">
+                      <img
+                        src="https://m.media-amazon.com/images/I/619f09kK7tL._SX679_.jpg"
+                        alt="undefined"
+                      />
+                    </div>
+                  </a>
+                </div>
+                <div class="col">
+                  <a
+                    href="/products/63bc126fb63b0ed0704a10e6"
+                    class="col-content"
+                  >
+                    <div class="img-box-bg">
+                      <img
+                        src="https://m.media-amazon.com/images/I/619f09kK7tL._SX679_.jpg"
+                        alt="undefined"
+                      />
+                    </div>
+                  </a>
+                </div>
+                <div class="col">
+                  <a
+                    href="/products/63bc126fb63b0ed0704a10e6"
+                    class="col-content"
+                  >
+                    <div class="img-box-bg">
+                      <img
+                        src="https://m.media-amazon.com/images/I/619f09kK7tL._SX679_.jpg"
+                        alt="undefined"
+                      />
+                    </div>
+                  </a>
+                </div>
+                <div class="col">
+                  <a
+                    href="/products/63bc126fb63b0ed0704a10e6"
+                    class="col-content"
+                  >
+                    <div class="img-box-bg">
+                      <img
+                        src="https://m.media-amazon.com/images/I/619f09kK7tL._SX679_.jpg"
+                        alt="undefined"
+                      />
+                    </div>
+                  </a>
+                </div>
+                <div class="col">
+                  <a
+                    href="/products/63bc126fb63b0ed0704a10e6"
+                    class="col-content"
+                  >
+                    <div class="img-box-bg">
+                      <img
+                        src="https://m.media-amazon.com/images/I/619f09kK7tL._SX679_.jpg"
+                        alt="undefined"
+                      />
+                    </div>
+                  </a>
+                </div>
+                <div class="col">
+                  <a
+                    href="/products/63bc126fb63b0ed0704a10e6"
+                    class="col-content"
+                  >
+                    <div class="img-box-bg">
+                      <img
+                        src="https://m.media-amazon.com/images/I/619f09kK7tL._SX679_.jpg"
+                        alt="undefined"
+                      />
+                    </div>
+                  </a>
+                </div>
+                <div class="col">
+                  <a
+                    href="/products/63bc126fb63b0ed0704a10e6"
+                    class="col-content"
+                  >
+                    <div class="img-box-bg">
+                      <img
+                        src="https://m.media-amazon.com/images/I/619f09kK7tL._SX679_.jpg"
+                        alt="undefined"
+                      />
+                    </div>
+                  </a>
+                </div>
+                <div class="col">
+                  <a
+                    href="/products/63bc126fb63b0ed0704a10e6"
+                    class="col-content"
+                  >
+                    <div class="img-box-bg">
+                      <img
+                        src="https://m.media-amazon.com/images/I/619f09kK7tL._SX679_.jpg"
+                        alt="undefined"
+                      />
+                    </div>
+                  </a>
+                </div>
+                <div class="col">
+                  <a
+                    href="/products/63bc126fb63b0ed0704a10e6"
+                    class="col-content"
+                  >
+                    <div class="img-box-bg">
+                      <img
+                        src="https://m.media-amazon.com/images/I/619f09kK7tL._SX679_.jpg"
+                        alt="undefined"
+                      />
+                    </div>
+                  </a>
+                </div>
+                <div class="col">
+                  <a
+                    href="/products/63bc126fb63b0ed0704a10e6"
+                    class="col-content"
+                  >
+                    <div class="img-box-bg">
+                      <img
+                        src="https://m.media-amazon.com/images/I/619f09kK7tL._SX679_.jpg"
+                        alt="undefined"
+                      />
+                    </div>
+                  </a>
+                </div>
+                <div class="col">
+                  <a
+                    href="/products/63bc126fb63b0ed0704a10e6"
+                    class="col-content"
+                  >
+                    <div class="img-box-bg">
+                      <img
+                        src="https://m.media-amazon.com/images/I/619f09kK7tL._SX679_.jpg"
+                        alt="undefined"
+                      />
+                    </div>
+                  </a>
+                </div>
+                <div class="col">
+                  <a
+                    href="/products/63bc126fb63b0ed0704a10e6"
+                    class="col-content"
+                  >
+                    <div class="img-box-bg">
+                      <img
+                        src="https://m.media-amazon.com/images/I/619f09kK7tL._SX679_.jpg"
+                        alt="undefined"
+                      />
+                    </div>
+                  </a>
+                </div>
+                <div class="col">
+                  <a
+                    href="/products/63bc126fb63b0ed0704a10e6"
+                    class="col-content"
+                  >
+                    <div class="img-box-bg">
+                      <img
+                        src="https://m.media-amazon.com/images/I/619f09kK7tL._SX679_.jpg"
+                        alt="undefined"
+                      />
+                    </div>
+                  </a>
+                </div>
+                <div class="col">
+                  <a
+                    href="/products/63bc126fb63b0ed0704a10e6"
+                    class="col-content"
+                  >
+                    <div class="img-box-bg">
+                      <img
+                        src="https://m.media-amazon.com/images/I/619f09kK7tL._SX679_.jpg"
+                        alt="undefined"
+                      />
+                    </div>
+                  </a>
+                </div>
+                <div class="col">
+                  <a
+                    href="/products/63bc126fb63b0ed0704a10e6"
+                    class="col-content"
+                  >
+                    <div class="img-box-bg">
+                      <img
+                        src="https://m.media-amazon.com/images/I/619f09kK7tL._SX679_.jpg"
+                        alt="undefined"
+                      />
+                    </div>
+                  </a>
+                </div>
+                <div class="col">
+                  <a
+                    href="/products/63bc126fb63b0ed0704a10e6"
+                    class="col-content"
+                  >
+                    <div class="img-box-bg">
+                      <img
+                        src="https://m.media-amazon.com/images/I/619f09kK7tL._SX679_.jpg"
+                        alt="undefined"
+                      />
+                    </div>
+                  </a>
+                </div>
+                <div class="col">
+                  <a
+                    href="/products/63bc126fb63b0ed0704a10e6"
+                    class="col-content"
+                  >
+                    <div class="img-box-bg">
+                      <img
+                        src="https://m.media-amazon.com/images/I/619f09kK7tL._SX679_.jpg"
+                        alt="undefined"
+                      />
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- back-to-top button -->
+      <button
+        class="btn-tertiary btn-100 hidden"
+        data-action="move-to-top-of-page"
+      >
+        Back to top
+      </button>
+
+      <footer class="footer hidden">
+        <div class="footer-container">
+          <div class="footer-navigation">
+            <div class="footer-navigation-content container-60 mg-c f f-sb">
+              <div class="footer-list">
+                <h class="h-8 mg-b-sm">Get to Know Us</h>
+                <p class="t-sm mg-b-lw">About Us</p>
+                <p class="t-sm mg-b-lw">Careers</p>
+                <p class="t-sm mg-b-lw">Press Releases</p>
+                <p class="t-sm mg-b-lw">Amazon Science</p>
+              </div>
+              <div class="footer-list">
+                <h class="h-8 mg-b-sm">Connect with Us</h>
+                <p class="t-sm mg-b-lw">About Us</p>
+                <p class="t-sm mg-b-lw">Careers</p>
+                <p class="t-sm mg-b-lw">Press Releases</p>
+                <p class="t-sm mg-b-lw">Amazon Science</p>
+              </div>
+              <div class="footer-list">
+                <h class="h-8 mg-b-sm">Let Us Help You</h>
+                <p class="t-sm mg-b-lw">COVID-19 and Amazon</p>
+                <p class="t-sm mg-b-lw">Returns Centre</p>
+                <p class="t-sm mg-b-lw">100% Purchase Protection</p>
+                <p class="t-sm mg-b-lw">Amazon Science</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="copyright">
+            <div class="copyright-container container-60 mg-c">
+              <p class="pt-sm">Conditions of Use & Sale</p>
+              <p class="pt-sm">Privacy Notice</p>
+              <p class="pt-sm">Interest Based Ads</p>
+              <p class="pt-sm">1996-2022,Amazon.com, Inc or its affliates</p>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </main>
+  </body>
+</html>

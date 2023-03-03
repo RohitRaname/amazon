@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="shortcut icon"
+      href="../../img/amazon/favicon.png"
+      type="image/*"
+    />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../../../style.css" />
+    <script
+      src="https://kit.fontawesome.com/28cd1ccca7.js"
+      crossorigin="anonymous"
+    ></script>
+    -->
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script defer type="module" src="../../../../script.js"></script>
+  </head>
+  <body data-page="checkout" data-user-currency='{"rate":80}'>
+    <div>
+      <!-- header -->
+      <header class="header sticky-header">
+        <div class="header-content f-sm">
+          <!-- logo -->
+          <div class="header-box">
+            <a href="/" class="logo-box">
+              <img src="../../img/amazon/logo.png" class="logo" alt="" />
+            </a>
+          </div>
+
+          <!-- delivery location -->
+          <a
+            class="header-box f-lw"
+            href="customer/change-delievery-location"
+            data-type="change-delievery-location"
+          >
+            <i class="fa fa-map-marker"></i>
+            <div>
+              <p class="pt-lw">Deliver to Rohit</p>
+              <h9 class="h-9">Merrut 250001</h9>
+            </div>
+          </a>
+
+          <!-- search form -->
+          <div class="search-form">
+            <div class="search-form-content">
+              <input
+                type="text"
+                class="search-input"
+                data-positionel-btn
+                data-positionel-name="search-products"
+              />
+
+              <button class="btn-icon" data-action="search">
+                <i class="fa fa-search"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- user language  -->
+          <div
+            class="header-box"
+            data-type="change-user-language"
+            data-position-el-btn
+            data-position-el-hover-show="true"
+            data-position-el-name="choose-language"
+          >
+            <!-- <img src="https://countryflagsapi.com/png/india" alt="" /> -->
+            <h9 class="h-9">EN</h9>
+            <div class="header-language-more-icon-box">
+              <i class="fa fa-caret-down" aria-="true"></i>
+            </div>
+          </div>
+
+          <!-- account and lists -->
+          <a
+            href="/my-accounts"
+            class="header-box"
+            data-type="account_and_lists"
+            data-position-el-btn
+            data-position-el-hover-show="true"
+            data-position-el-name="user-options"
+          >
+            <p class="pt-lw">Hello,mclaren</p>
+            <div class="f-lw f-ac">
+              <p class="h-9 h-0">Account & Lists</p>
+              <i class="fa fa-caret-down"></i>
+            </div>
+          </a>
+
+          <!-- returns and orders -->
+          <a href="/my-orders" class="header-box" data-type="return_and_orders">
+            <p class="pt-lw">Returns</p>
+            <div>
+              <p class="h-9 h-0">& Orders</p>
+            </div>
+          </a>
+
+          <!-- carts -->
+          <a href="/my-cart" class="header-box" data-type="carts">
+            <div class="header-cart-box">
+              <div class="header-cart-icon">
+                <i class="fa fa-cart-plus"></i>
+                <p class="header-cart-qty">9</p>
+              </div>
+              <h class="h-9 h-0">Cart</h>
+            </div>
+          </a>
+
+          <div></div>
+        </div>
+      </header>
+
+      <!-- navigation -->
+      <nav class="nav" data-active="false">
+        <div class="overlay"></div>
+        <div class="nav-list">
+          <div class="list-item nav-my-account f f-sb f-ac">
+            <a
+              href="/my-account"
+              class=""
+              data-link="/my-account"
+              data-hover="false"
+            >
+              <div class="f-lw">
+                <i class="fa fa-user-circle nav-user-icon"></i>
+
+                <h class="h-7 w-700 h-0"> Hello, mclaren </h>
+              </div>
+            </a>
+            <button class="btn-icon" data-action="close-nav">
+              <i class="fa fa-times"></i>
+            </button>
+          </div>
+
+          <!-- trending -->
+          <div class="list">
+            <p class="list-title">Trending</p>
+            <a href="/best-sellers" class="list-item" data-link="/best-sellers">
+              <p>Best sellers</p>
+            </a>
+            <a class="list-item" href="/new-products">
+              <p>New releases</p>
+            </a>
+            <a class="list-item" href="/trending-products">
+              <p>Movers and Shakers</p>
+            </a>
+          </div>
+
+          <div class="line-dim mg-b-lw mg-t-lw"></div>
+
+          <!-- settings -->
+          <div class="list">
+            <p class="list-title">Help & Settings</p>
+            <a class="list-item" href="/my-account">
+              <p>Your Account</p>
+            </a>
+            <a class="list-item" href="/customer-service">
+              <p>Customer Service</p>
+            </a>
+            <a class="list-item" href="/logout">
+              <p>Sign Out</p>
+            </a>
+          </div>
+        </div>
+      </nav>
+
+      <!-- shortcut-navigation -->
+      <div class="shortcut-navigation f">
+        <div class="nav-btn-box border f" data-nav-btn>
+          <button class="nav-btn">
+            <p class="nav-btn-line"></p>
+            <p class="nav-btn-line"></p>
+            <p class="nav-btn-line"></p>
+          </button>
+          <h class="h-9 h-0">All</h>
+        </div>
+
+        <a href="/my-cart" class="border">
+          <h class="h-9 h-0"> Buy again </h>
+        </a>
+
+        <a href="/products" class="border">
+          <h class="h-9 h-0"> Heath,Household & Personal Care </h>
+        </a>
+
+        <a href="/my-orders" class="border">
+          <h class="h-9 h-0"> Orders </h>
+        </a>
+      </div>
+    </div>
+
+    <main>
+      <!-- section product -->
+      <section class="section-myOrder">
+        <div class="myOrder">
+          <div class="myOrder-container container p-md">
+            <!-- items -->
+            <div
+              class="myOrder-modal modal mg-sm-all"
+              data-static="true"
+              data-modal-type="window"
+              data-error="false"
+              data-load-spinner="true"
+              data-hide-spinner="true"
+            >
+              <div class="modal-error">
+                <p class="pt-bg" data-title></p>
+                <p data-text></p>
+              </div>
+
+              <div class="modal-tabs">
+                <div class="btn-tab modal-tab" data-active="true">Orders</div>
+                <div class="btn-tab modal-tab" data-active="false">
+                  Buy Again
+                </div>
+              </div>
+
+              <div class="modal-windows">
+                <div class="spinner"></div>
+
+                <!-- modal page btns should be of modal-windows -->
+
+                <!-- to update the pagination btns according to window -->
+
+                <!-- orders -->
+                <div
+                  class="modal-window"
+                  data-window="myOrders"
+                  data-active="true"
+                  data-url="users/me/orders"
+                  data-filter-query=""
+                >
+                  <div class="modal-window-sort-by-time-frame mg-sm">
+                    <span class="w-600" data-orders-count-by-timeframe
+                      >1 order</span
+                    >
+                    <span> place in </span>
+
+                    <span class="letter-s">
+                      <button
+                        class="btn-dropdown btn-sm r-md inline"
+                        data-positionel-btn
+                        data-positionel-name="filter-orders-by-timeframe"
+                      >
+                        <span data-value>past 3 months</span>
+                        <i class="icon-sm fa fa-angle-down dark"></i>
+                      </button>
+                    </span>
+                  </div>
+
+                  <div class="modal-list mg-sm-all">
+                    <div class="item r-md border-light">
+                      <header class="item-header f-bg bg-dark p-lw">
+                        <div>
+                          <p class="uppercase t-sm">Order placed</p>
+                          <p class="">27 January 2023</p>
+                        </div>
+                        <div>
+                          <p class="uppercase t-sm">Total</p>
+                          <p class="">$189.00</p>
+                        </div>
+                        <div>
+                          <p class="uppercase t-sm">ship to</p>
+                          <p
+                            class="f-sl f-ab"
+                            data-positionel-name="shipping-address-in-detail"
+                            data-positionel-btn=""
+                          >
+                            <span class="blue shipping-address">Rohit</span
+                            ><i class="fa fa-angle-down icon-lw light"></i>
+                          </p>
+
+                        
+                        </div>
+                      </header>
+                      <div class="item-content p-sm">
+                        <div class="f-lw">
+                          <img
+                            src="../../../../img/products/1.jpg"
+                            alt=""
+                            class="img-sm trans-sl"
+                          />
+                          <div>
+                            <a href="/title/id" class="blue hover-underline">
+                              Emily Pets Flea Comb for Cat Dog, Stainless Steel
+                              Fine Tooth Flea Lice Tear Stain Remover Comb Hair
+                              Nit Comb For Head Nit Treatment Removes Head Nits
+                              1 Piece Steel Tooth Nit Comb For Adult Kids And
+                              Pet
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  
+                  </div>
+                </div>
+
+                <!-- buy-again -->
+                <div
+                  class="modal-window grid"
+                  data-window="buy-again"
+                  data-active="false"
+                  data-col="4"
+                  data-url="users/me/orders/buy-again"
+                  data-limit="5"
+                  data-page="0"
+                >
+                  <div class="grid-container">
+                    <a class="grid-item">
+                      <img
+                        class="img-bg trans-lw"
+                        src="https://m.media-amazon.com/images/I/619f09kK7tL._SX679_.jpg"
+                        alt="Apple iPhone 14 256 GB midnight"
+                      />
+
+                      <div class="trans-sm mg-sl-all left">
+                        <p class="pt-md hover-color-primary">
+                          Apple iPhone 14 256 GB midnight
+                        </p>
+                        <p class="mg-sm">
+                          <span class="inline pt-lw trans-sl">Rs</span>
+                          <span class="pt-bg">299.00</span>
+                        </p>
+
+                        <div
+                          class="order-added-to-cart-message f-lw f-js mg-lw hidden"
+                        >
+                          <button class="btn-icon round btn-icon-sl bg-green">
+                            <i class="fas fa-check icon-sl white"></i>
+                          </button>
+                          <h class="pt-sm">Added to cart</h>
+                        </div>
+
+                        <button
+                          class="btn-primary r-round f-size-sm btn-100 btn-md"
+                          data-action="add-to-cart"
+                          data-data='{_id:"ewrhjer"}'
+                          data-id=""
+                          data-click-effect
+                        >
+                          Add to Cart
+                        </button>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <div class="positionels">
+      <!-- product menu sort items dropdown -->
+      <div
+        class="positionel dropdown"
+        data-dropdown-type="select-options-dropdown"
+        data-positionel-name="filter-orders-by-timeframe"
+        data-positionel-type="dropdown"
+        data-active="false"
+        data-position-type="fixed"
+        data-load-spinner="false"
+        data-animation="fade"
+        data-pointer-position="none"
+        data-position="cover"
+        data-delay-hide="false"
+        data-show-event="click"
+        data-static="false"
+        data-has-defined-class="true"
+        data-child-positionel="false"
+        data-set-positionbtn-width="false"
+        data-change-positionbtn-text="true"
+      >
+        <div class="overlay overlay-t"></div>
+        <div
+          class="positionel-container"
+          style="max-height: unset; overflow-y: auto; width: auto"
+        >
+          <div class="positionel-content">
+            <!-- list -->
+
+            <ul class="list" data-text-wrap data-query="filter">
+              <li class="list-item" data-value="30-days">
+                <p>last 30 days</p>
+              </li>
+              <li class="list-item" data-value="90-days" data-active="true">
+                <p>past 3 months</p>
+              </li>
+              <li class="list-item" data-value="2023-year" data-active="false">
+                <p>2023</p>
+              </li>
+              <li class="list-item" data-value="2022-year" data-active="false">
+                <p>2022</p>
+              </li>
+              <li class="list-item" data-value="2021-year" data-active="false">
+                <p>2021</p>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div
+      class="hovercard positionel"
+      data-positionel-name="shipping-address-in-detail"
+      data-positionel-type="hovercard"
+      data-active="false"
+      data-position-type="absolute"
+      data-pointer-position="left"
+      data-position="center"
+      data-delay-hide="false"
+      data-load-spinner="false"
+      data-static="false"
+      data-has-defined-class="false"
+      data-hide-by="default"
+      data-animation="fade"
+      data-show-event="mouseover"
+      data-child-positionel="false"
+    >
+      <div class="overlay overlay-t"></div>
+
+      <div
+        class="hovercard-container positionel-container r-md p-sm p-b-md"
+        style="width: 30rem"
+      >
+        <div class="positionel-square"></div>
+        <div class="spinner hide"></div>
+
+        <div class="positionel-content">
+          <p>
+            Rohit Hno 68 Gali No.3 nearik Girls Inter
+            College Lala Mohammadpur Road MEERUT, UTTAR
+            PRADESH 250001 India Phone: 8057540756
+          </p>
+        </div>
+      </div>
+    </div>
+    </div>
+  </body>
+</html>

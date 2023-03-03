@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="shortcut icon"
+      href="../../img/amazon/favicon.png"
+      type="image/*"
+    />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../../../style.css" />
+    <script
+      src="https://kit.fontawesome.com/28cd1ccca7.js"
+      crossorigin="anonymous"
+    ></script>
+    -->
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script defer type="module" src="../../../../script.js"></script>
+  </head>
+  <body data-page="cart" data-user-currency='{"rate":80}'>
+    <!-- header -->
+    <header class="header sticky-header">
+      <div class="header-content f-sm">
+        <!-- logo -->
+        <div class="header-box">
+          <a href="/" class="logo-box">
+            <img src="../../img/amazon/logo.png" class="logo" alt="" />
+          </a>
+        </div>
+
+        <!-- delivery location -->
+        <a
+          class="header-box f-lw"
+          href="customer/change-delievery-location"
+          data-type="change-delievery-location"
+        >
+          <i class="fa fa-map-marker"></i>
+          <div>
+            <p class="pt-lw">Deliver to Rohit</p>
+            <h9 class="h-9">Merrut 250001</h9>
+          </div>
+        </a>
+
+        <!-- search form -->
+        <div class="search-form">
+          <div class="search-form-content">
+            <input
+              type="text"
+              class="search-input"
+              data-positionel-btn
+              data-positionel-name="search-products"
+            />
+
+            <button class="btn-icon" data-action="search">
+              <i class="fa fa-search"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- user language  -->
+        <div
+          class="header-box"
+          data-type="change-user-language"
+          data-position-el-btn
+          data-position-el-hover-show="true"
+          data-position-el-name="choose-language"
+        >
+          <!-- <img src="https://countryflagsapi.com/png/india" alt="" /> -->
+          <h9 class="h-9">EN</h9>
+          <div class="header-language-more-icon-box">
+            <i class="fa fa-caret-down" aria-="true"></i>
+          </div>
+        </div>
+
+        <!-- account and lists -->
+        <a
+          href="/my-accounts"
+          class="header-box"
+          data-type="account_and_lists"
+          data-position-el-btn
+          data-position-el-hover-show="true"
+          data-position-el-name="user-options"
+        >
+          <p class="pt-lw">Hello,mclaren</p>
+          <div class="f-lw f-ac">
+            <p class="h-9 h-0">Account & Lists</p>
+            <i class="fa fa-caret-down"></i>
+          </div>
+        </a>
+
+        <!-- returns and orders -->
+        <a href="/my-orders" class="header-box" data-type="return_and_orders">
+          <p class="pt-lw">Returns</p>
+          <div>
+            <p class="h-9 h-0">& Orders</p>
+          </div>
+        </a>
+
+        <!-- carts -->
+        <a href="/my-cart" class="header-box" data-type="carts">
+          <div class="header-cart-box">
+            <div class="header-cart-icon">
+              <i class="fa fa-cart-plus"></i>
+              <p class="header-cart-qty">9</p>
+            </div>
+            <h class="h-9 h-0">Cart</h>
+          </div>
+        </a>
+
+        <div></div>
+      </div>
+    </header>
+
+    <!-- navigation -->
+    <nav class="nav" data-active="false">
+      <div class="overlay"></div>
+      <div class="nav-list">
+        <div class="list-item nav-my-account f f-sb f-ac">
+          <a
+            href="/my-account"
+            class=""
+            data-link="/my-account"
+            data-hover="false"
+          >
+            <div class="f-lw">
+              <i class="fa fa-user-circle nav-user-icon"></i>
+
+              <h class="h-7 w-700 h-0"> Hello, mclaren </h>
+            </div>
+          </a>
+          <button class="btn-icon" data-action="close-nav">
+            <i class="fa fa-times"></i>
+          </button>
+        </div>
+
+        <!-- trending -->
+        <div class="list">
+          <p class="list-title">Trending</p>
+          <a href="/best-sellers" class="list-item" data-link="/best-sellers">
+            <p>Best sellers</p>
+          </a>
+          <a class="list-item" href="/new-products">
+            <p>New releases</p>
+          </a>
+          <a class="list-item" href="/trending-products">
+            <p>Movers and Shakers</p>
+          </a>
+        </div>
+
+        <div class="line-dim mg-b-lw mg-t-lw"></div>
+
+        <!-- settings -->
+        <div class="list">
+          <p class="list-title">Help & Settings</p>
+          <a class="list-item" href="/my-account">
+            <p>Your Account</p>
+          </a>
+          <a class="list-item" href="/customer-service">
+            <p>Customer Service</p>
+          </a>
+          <a class="list-item" href="/logout">
+            <p>Sign Out</p>
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- shortcut-navigation -->
+    <div class="shortcut-navigation f">
+      <div class="nav-btn-box border f" data-nav-btn>
+        <button class="nav-btn">
+          <p class="nav-btn-line"></p>
+          <p class="nav-btn-line"></p>
+          <p class="nav-btn-line"></p>
+        </button>
+        <h class="h-9 h-0">All</h>
+      </div>
+
+      <a href="/my-cart" class="border">
+        <h class="h-9 h-0"> Buy again </h>
+      </a>
+
+      <a href="/products" class="border">
+        <h class="h-9 h-0"> Heath,Household & Personal Care </h>
+      </a>
+
+      <a href="/my-orders" class="border">
+        <h class="h-9 h-0"> Orders </h>
+      </a>
+    </div>
+    <main>
+      <!-- section product -->
+      <section class="section-cart bg-dim">
+        <div class="cart">
+          <div class="cart-container container f-md p-md mg-sm-all">
+            <div class="cart-left bg-light p-sm mg-sm-all">
+              <!-- unselect cart option  -->
+              <header>
+                <div class="f-space">
+                  <div>
+                    <h class="h-4 h-m h-0"> Shopping Cart </h>
+
+                    <div class="select-unselect-all-items">
+                      <button
+                        class="btn-inline-span hidden"
+                        data-action="select-all-items"
+                      >
+                        Select all items
+                      </button>
+                      <button
+                        class="btn-inline-span"
+                        data-action="unselect-all-items"
+                      >
+                        Deselect all items
+                      </button>
+                    </div>
+                  </div>
+
+                  <div>
+                    <div class="mg-bg"></div>
+                    <p class="t-md">Price</p>
+                  </div>
+                </div>
+              </header>
+
+              <div class="line-dim"></div>
+
+              <div class="cart-items list mg-sm-all" data-border-bottom>
+                <div
+                  class="cart-item"
+                  data-data='{  "_id":"wrewrewre", "title":"rohit-the-man-rich-powerful-man","price":999}'
+                  data-active="true"
+                >
+                  <!-- when cart item deleted then show delete message -->
+                  <div class="cart-item-container f-sm">
+                    <!-- unselect cart-item -->
+                    <div class="f f-ac">
+                      <button
+                        class="btn-checkbox"
+                        data-active="true"
+                        data-action="select-item"
+                      >
+                        <i class="fa fa-check"></i>
+                      </button>
+                    </div>
+
+                    <img
+                      src="../../../../img/products/1.jpg"
+                      alt=""
+                      class="img-bg"
+                    />
+
+                    <!-- item details -->
+                    <div
+                      class="cart-item-details mg-lw-all trunc-text"
+                      style="max-width: 30rem"
+                    >
+                      <h class="h-5 h-l"
+                        >Oris Aviation Analog Blue Dial Men's Watch-01 754 7741
+                      </h>
+
+                      <p class="t-lw green">In stock</p>
+
+                      <div class="cart-item-features mg-sl-all">
+                        <div class="f-sl f-ab">
+                          <h class="w-600 f-size-lw">Style name:</h>
+                          <p class="pt-lw letter-s">
+                            Apple M1 chip with 8-core CPU
+                          </p>
+                        </div>
+                        <div class="f-sl f-ab">
+                          <h class="w-600 f-size-lw">Size:</h>
+                          <p class="pt-lw letter-s">256 GB</p>
+                        </div>
+                        <div class="f-sl f-ab">
+                          <h class="w-600 f-size-lw">Colour:</h>
+                          <p class="pt-lw letter-s">Green</p>
+                        </div>
+                      </div>
+
+                      <div class="cart-item-options box-with-v-line">
+                        <div
+                          data-action="update-cart-item-qty"
+                          data-positionel-btn
+                          data-positionel-name="update-cart-item-qty-dropdown"
+                          data-data='{"_id":"63bc126fb63b0ed0704a10e6"}'
+                        >
+                          <button class="btn-dropdown r-md btn-md">
+                            <span>Qty:</span>
+                            <span class="letter-s" data-value>1</span>
+                            <i class="fa fa-angle-down icon-sm dark"></i>
+                          </button>
+                        </div>
+
+                        <button
+                          class="btn-inline"
+                          data-action="delete-item"
+                          data-data='{"_id":"63bc126fb63b0ed0704a10e6","title":"iphone 13"}'
+                        >
+                          Delete
+                        </button>
+
+                        <button
+                          class="btn-inline f-size-sm cart-item-add-to-list"
+                          data-positionel-btn
+                          data-positionel-name="add-product-to-wishlist-dropdown"
+                          data-data='{"_id":"63bc126fb63b0ed0704a10e6"}'
+                          data-action="add-item-to-list"
+                        >
+                          Add to list
+                        </button>
+                      </div>
+                    </div>
+
+                    <!-- price -->
+                    <div class="cart-item-price">
+                      <h class="h-6 wrap">Rs. 1,92.000.</h>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="cart-right mg-md-all">
+              <div class="cart-items-buy bg-light p-sm p-b-bg">
+                <!-- total cart items price -->
+                <p class="h-6 h-l mg-sm">
+                  Subtotal (<span class="letter-s" data-cart-items-count
+                    >22 items</span
+                  >)
+                  <span>:</span>
+                  <span data-currency-unit> Rs </span>
+                  <span class="h-6" data-cart-total-price>178900</span>
+                </p>
+
+                <button class="btn-primary-light btn-100" data-action="buy">
+                  Proceed to Buy
+                </button>
+              </div>
+
+              <!-- suggested items -->
+              <aside class="mg-sm-all bg-light p-sm border-light r-md p-b-bg">
+                <h class="h-5">Explore more items</h>
+
+                <a href="/products/63bc126fb63b0ed0704a10fa" class="f-sm f-as">
+                  <div class="img-box-sm">
+                    <img
+                      src="https://m.media-amazon.com/images/I/619f09kK7tL._SX679_.jpg"
+                      alt="Apple iPhone 14 256 GB midnight"
+                    />
+                  </div>
+
+                  <div>
+                    <p class="t-sm blue capitalize hover-color-primary">
+                      Apple iPhone 14 256 GB midnight
+                    </p>
+                    <div class="f-lw f-ac mg-b-sl">
+                      <div class="product-rating-icons f f-ab">
+                        <i class="fa fa-star-o icon-sm" aria-hidden="true"></i
+                        ><i class="fa fa-star-o icon-sm" aria-hidden="true"></i
+                        ><i class="fa fa-star-o icon-sm" aria-hidden="true"></i
+                        ><i class="fa fa-star-o icon-sm" aria-hidden="true"></i
+                        ><i class="fa fa-star-o icon-sm" aria-hidden="true"></i>
+                      </div>
+                      <p class="t-sm hover-color-primary">0</p>
+                    </div>
+                    <div class="card-price f-0 f-as">
+                      <p class="pt-sl">₹</p>
+                      <span class="pt move-word-up">106145.65</span>
+                    </div>
+                  </div>
+                </a>
+              </aside>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <div class="positionels">
+      <!-- product menu sort items dropdown -->
+      <div
+        class="positionel dropdown"
+        data-dropdown-type="select-options-dropdown"
+        data-positionel-name="update-cart-item-qty-dropdown"
+        data-positionel-type="dropdown"
+        data-active="false"
+        data-position="cover"
+        data-position-type="fixed"
+        data-pointer-position="none"
+        data-load-spinner="false"
+        data-animation="fade"
+        data-delay-hide="false"
+        data-show-event="click"
+        data-static="false"
+        data-has-defined-class="false"
+        data-child-positionel="false"
+        data-set-positionbtn-width="false"
+        data-change-positionbtn-text="false"
+      >
+        <div class="overlay overlay-t"></div>
+        <div
+          class="positionel-container"
+          style="max-height: unset; overflow-y: auto; width: auto"
+        >
+          <div class="positionel-content">
+            <!-- list -->
+
+            <ul class="list" data-text-wrap data-query="filter">
+              <li
+                class="list-item"
+                data-action="delete-cart-item"
+                data-value=""
+                data-active="true"
+              >
+                <p>0(Delete)</p>
+              </li>
+              <li class="list-item" data-value="1" data-active="false">
+                <p>1</p>
+              </li>
+              <li class="list-item" data-value="2" data-active="false">
+                <p>2</p>
+              </li>
+              <li class="list-item" data-value="3" data-active="false">
+                <p>3</p>
+              </li>
+              <li class="list-item" data-value="4" data-active="false">
+                <p>4</p>
+              </li>
+              <li class="list-item" data-value="5" data-active="false">
+                <p>5</p>
+              </li>
+              <li class="list-item" data-value="6" data-active="false">
+                <p>6</p>
+              </li>
+              <li class="list-item" data-value="7" data-active="false">
+                <p>7</p>
+              </li>
+              <li class="list-item" data-value="8" data-active="false">
+                <p>8</p>
+              </li>
+
+              <li class="list-item" data-value="9" data-active="false">
+                <p>9</p>
+              </li>
+
+              <li class="list-item" data-value="10" data-active="false">
+                <p>10</p>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- add item to wishlist dropdown -->
+      <div
+        class="dropdown positionel"
+        data-positionel-type="dropdown"
+        data-positionel-name="add-product-to-wishlist-dropdown"
+        data-active="true"
+        data-pointer-position="none"
+        data-position="bottom"
+        data-animation="fade"
+        data-show-event="click"
+        data-delay-hide="false"
+        data-load-spinner="false"
+        data-load-data=""
+        data-static="false"
+        data-has-defined-class="true"
+        data-child-positionel="false"
+        data-position-type="absolute"
+        data-set-positionbtn-width="false"
+      >
+        <div class="positionel-container">
+          <!-- trigger btn-> when click hide content will show-->
+          <div class="positionel-content">
+            <ul
+              class="list"
+              data-col="2"
+              data-change-positionbtn-text="false"
+              data-action="add-product-to-wishlist"
+              data-active-select-item="false"
+              data-common-data="{}"
+            >
+              <div class="list-container">
+                <li
+                  class="list-item list-item-sm"
+                  data-data='{"wishlist":{"_id":"63bbd2b7b937992f9c720fb0","name":"Shopping list 6"},"product":{"_id":"63bc126fb63b0ed0704a1114","thumbnail":"https://m.media-amazon.com/images/I/61cwywLZR-L._SX679_.jpg"}}'
+                  data-text-wrap=""
+                  data-get-data="sectionEl"
+                >
+                  <img
+                    src="https://m.media-amazon.com/images/I/619f09kK7tL._SX679_.jpg"
+                  />
+                  <div>
+                    <p>Shopping list 6</p>
+                    <p>Private</p>
+                  </div>
+                </li>
+                <li
+                  class="list-item list-item-sm"
+                  data-data='{"wishlist":{"_id":"63cba4e7b8027a2244d0bbc0","name":"Shopping list 72"},"product":{"_id":"63bc126fb63b0ed0704a1114","thumbnail":"https://m.media-amazon.com/images/I/61cwywLZR-L._SX679_.jpg"}}'
+                  data-text-wrap=""
+                  data-get-data="sectionEl"
+                >
+                  <img
+                    src="https://m.media-amazon.com/images/I/619f09kK7tL._SX679_.jpg"
+                  />
+                  <div>
+                    <p>Shopping list 72</p>
+                    <p>Private</p>
+                  </div>
+                </li>
+                <li
+                  class="list-item list-item-sm"
+                  data-data='{"wishlist":{"_id":"63ce53073cea4678036b98bc","name":"rohits-shoppinglist"},"product":{"_id":"63bc126fb63b0ed0704a1114","thumbnail":"https://m.media-amazon.com/images/I/61cwywLZR-L._SX679_.jpg"}}'
+                  data-text-wrap=""
+                  data-get-data="sectionEl"
+                >
+                  <img
+                    src="https://m.media-amazon.com/images/I/611mRs-imxL._SX679_.jpg"
+                  />
+                  <div>
+                    <p>rohits-shoppinglist</p>
+                    <p>Private</p>
+                  </div>
+                </li>
+              </div>
+              <div class="line-dim"></div>
+              <button
+                class="btn-inline-u p-lw"
+                data-positionel-btn=""
+                data-positionel-name="create-new-shopping-list"
+                data-data='{"product":{"_id":"63bc126fb63b0ed0704a1114","thumbnail":"https://m.media-amazon.com/images/I/61cwywLZR-L._SX679_.jpg"}}'
+              >
+                <i class="fa fa-plus" aria-hidden="true"></i>
+                <p class="f-size-sm">Create another Wish List</p>
+              </button>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

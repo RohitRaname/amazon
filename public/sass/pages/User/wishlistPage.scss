@@ -1,0 +1,20 @@
+.wishlist {
+  &-container {
+    display: grid;
+    grid-template-columns: 24rem 1fr;
+    gap: $space-lw;
+  }
+
+  &-links {
+    .wishlist-link {
+      padding: 1.5rem 1rem;
+    }
+    .wishlist-link[data-active='true'] {
+      background: var(--background-dark);
+
+      p{
+        font-weight: 600;
+      }
+    }
+  }
+}

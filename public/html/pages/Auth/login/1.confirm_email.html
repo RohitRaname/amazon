@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="shortcut icon"
+      href="../../img/amazon/favicon.png"
+      type="image/*"
+    />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../../../style.css" />
+    <script
+      src="https://kit.fontawesome.com/28cd1ccca7.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script defer type="module" src="../../../../script.js"></script>
+  </head>
+
+  <!-- rohit just do it and come wake up 3 am and code do the exercise and crush everyhting -->
+  <body page="login_identify">
+    <div class="container-50 p-sm mg-c mg-b-sm-all mg-b-s">
+      <!-- logo -->
+      <div class="logo-box-md mg-b-md center">
+        <img class="logo" src="../../../../img/amazon/logo.png" alt="" />
+      </div>
+
+      <!-- alert -->
+      <div class="alert hidden" data-level="hard">
+        <div class="alert-container f-sm">
+          <i class="fas fa-exclamation-triangle red alert-icon"></i>
+          <div>
+            <h class="s-6 s-m red alert-title">There was a problem</h>
+            <p class="alert-message pt-md">
+              We cannot find an account with that email address
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- form -->
+
+        <form
+          data-type="login-enter-email "
+          class="form mg-b-sm-all mg-b-md"
+          data-error="false"
+          onsubmit="return false;"
+          data-clear-inputs-when-hide="true"
+        >
+
+        <div class="form-container">
+
+          <h class="h-4 h-m">Sign in</h>
+
+          <div class="form-group" data-error="false" data-required="true">
+            <h class="h-9">Email</h>
+            <input type="text" name="email" data-input />
+          </div>
+
+          <button class="btn-g btn-100 mg-b-md">Continue</button>
+
+          <p class="mg-b-bg">
+            By conitinuing, you agree to Amazon's
+            <a href="/sign-in" class="btn-inline-span">Conditions of Use</a>
+            and <a href="/sign-in" class="btn-inline-span">Privacy Notice</a>
+          </p>
+          <a href="/sign-in" class="btn-inline-span">Need help?</a>
+          
+        </div>
+
+        </form>
+
+      <!-- new user -->
+      <div class="register-user">
+        <div class="f-lw f-ac mg-b-md">
+          <div class="line"></div>
+          <span class="t-sm wrap w-600">New to Amazon</span>
+          <div class="line"></div>
+        </div>
+
+        <a href="/signup/create-account">
+
+          <button  class="btn-old btn-100">
+            <p class="center">Create your Amazon account</p>
+          </button>
+        </a>
+      </div>
+    </div>
+
+    <div class="mg-b-md width-80p">
+      <div class="line-shadow"></div>
+    </div>
+
+    <div class="mg-c container-60 f-col mg-b-hg">
+      <div class="f-md mg-b-sm">
+        <button class="btn-inline-span f-size-sm">Conditions of Use</button>
+        <button class="btn-inline-span f-size-sm">Privacy Notice</button>
+        <button class="btn-inline-span f-size-sm">Help</button>
+      </div>
+
+      <p class="t-sm">© 1996-2022, Amazon.com, Inc. or its affiliates</p>
+    </div>
+  </body>
+</html>

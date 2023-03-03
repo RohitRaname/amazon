@@ -1,0 +1,170 @@
+<!-- add-to-wishlist modal -->
+<div
+  class="positionel modal"
+  data-positionel-type="modal"
+  data-positionel-name="add-product-to-wishlist-modal"
+  data-active="false"
+  data-load-spinner="true"
+  data-animation="translate-fade"
+  data-pointer-position="none"
+  data-position="fixed"
+  data-delay-hide="false"
+  data-show-event="click"
+  data-static="false"
+  data-has-defined-class="true"
+  data-child-positionel="false"
+>
+  <div class="overlay"></div>
+  <div class="positionel-container modal-container container-100">
+    <div class="spinner"></div>
+    <div class="positionel-content">
+      <!-- header -->
+      <header class="modal-header sticky-header">
+        <p class="s-8">Add to Wish List</p>
+        <button class="btn-icon positionel-closebtn static">
+          <i class="fa fa-times"></i>
+        </button>
+      </header>
+
+      <!-- footer -->
+      <div class="modal-content mg-b-sm-all">
+        <!-- item add to shopping-list -->
+        <div class="modal-item-add">
+          <!-- item add is already added -->
+          <div class="modal-item-duplicate hidden">
+            <h6 class="h-6 h-m">
+              The item was already in
+              <a class="btn-inline-u">Shopping List</a>
+            </h6>
+            <p class="t-sm">We moved it to the top of list.</p>
+          </div>
+
+          <!-- new item add to wishlist -->
+          <div class="modal-item-new-add-box">
+            <h class="h-m h-6"
+              >One item added to <a class="btn-inline-u">Shopping List</a></h
+            >
+            <div class="modal-item modal-product-to-be-add g-m-1-max">
+              <img
+                class="modal-item-img img-sm"
+                src="../../img/products/2.jpg"
+                alt=""
+              />
+              <a class="modal-item-title btn-inline-u btn-md"
+                >2021 Apple MacBook Pro (16-inch//41.05 cm, Apple M1 Max chip
+                with 10‑core CPU and 32‑core GPU, 32GB RAM, 1TB SSD) - Space
+                Grey</a
+              >
+
+              <div class="border-box">
+                <a class="btn-outline">View Your List</a>
+                <a class="btn-primary-light">Continue Shopping</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="line"></div>
+
+        <!-- suggested product to buy -->
+        <div class="card card-md" data-card-type="products-in-1-row">
+          <!-- cards -->
+          <p class="card-title">Customers who bought also bought</p>
+          <div class="card-content">
+            <div class="card-btns">
+              <button
+                class="slider-btn"
+                data-btn="left"
+                data-active="true"
+              ></button>
+              <button
+                class="slider-btn"
+                data-btn="right"
+                data-active="true"
+              ></button>
+            </div>
+
+            <div class="card-list">
+              <div class="card-item" data-border>
+                <!-- imgs -->
+                <img
+                  src="../../img/products/2.jpg"
+                  alt=""
+                  class="card-img mg-b-sl"
+                />
+
+                <!-- details -->
+                <div class="card-item-details">
+                  <p class="blue capitalize">Elon must ki rudeness</p>
+
+                  <div class="product-rating-text">
+                    <!-- icons -->
+                    <div class="f-lw f-as">
+                      <div class="f product-rating-icons">
+                        <i class="fa fa-star icon-sm" aria-hidden="true"></i>
+                        <i class="fa fa-star icon-sm" aria-hidden="true"></i>
+                        <i class="fa fa-star icon-sm" aria-hidden="true"></i>
+                        <i class="fa fa-star icon-sm" aria-hidden="true"></i>
+                        <i class="fa fa-star icon-sm" aria-hidden="true"></i>
+                      </div>
+
+                      <p class="pt-sm blue">190</p>
+                    </div>
+                  </div>
+
+                  <p class="card-price f-0 f-as red">$900</p>
+                </div>
+
+                <!-- buttons -->
+                <div>
+                  <button class="btn-primary-light btn-100 mg-b-lw">
+                    Add to Cart
+                  </button>
+                  <button class="btn-outline btn-100">Add to Wish List</button>
+                </div>
+              </div>
+              <div class="card-item" data-border>
+                <!-- imgs -->
+                <img
+                  src="../../img/products/2.jpg"
+                  alt=""
+                  class="card-img mg-b-sl"
+                />
+
+                <!-- details -->
+                <div class="card-item-details">
+                  <p class="blue capitalize">Elon must ki rudeness</p>
+
+                  <div class="product-rating-text">
+                    <!-- icons -->
+                    <div class="f-lw f-as">
+                      <div class="f product-rating-icons">
+                        <i class="fa fa-star icon-sm" aria-hidden="true"></i>
+                        <i class="fa fa-star icon-sm" aria-hidden="true"></i>
+                        <i class="fa fa-star icon-sm" aria-hidden="true"></i>
+                        <i class="fa fa-star icon-sm" aria-hidden="true"></i>
+                        <i class="fa fa-star icon-sm" aria-hidden="true"></i>
+                      </div>
+
+                      <p class="pt-sm blue">190</p>
+                    </div>
+                  </div>
+
+                  <p class="card-price f-0 f-as red">$900</p>
+                </div>
+
+                <!-- buttons -->
+                <div>
+                  <button class="btn-primary-light btn-100 mg-b-lw">
+                    Add to Cart
+                  </button>
+                  <button class="btn-outline btn-100">Add to Wish List</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

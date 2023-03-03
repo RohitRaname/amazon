@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="shortcut icon"
+      href="../../img/amazon/favicon.png"
+      type="image/*"
+    />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../../style.css" />
+    <script
+      src="https://kit.fontawesome.com/28cd1ccca7.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script defer type="module" src="../../../script.js"></script>
+  </head>
+  <body data-page="product-menu">
+    <!-- header -->
+    <header class="header sticky-header">
+      <div class="header-content f-sm">
+        <!-- logo -->
+        <div class="header-box">
+          <a href="/" class="logo-box">
+            <img src="../../img/amazon/logo.png" class="logo" alt="" />
+          </a>
+        </div>
+
+        <!-- delivery location -->
+        <a
+          class="header-box f-lw"
+          href="customer/change-delievery-location"
+          data-type="change-delievery-location"
+        >
+          <i class="fa fa-map-marker"></i>
+          <div>
+            <p class="pt-lw">Deliver to Rohit</p>
+            <h9 class="h-9">Merrut 250001</h9>
+          </div>
+        </a>
+
+        <!-- search form -->
+        <div class="search-form">
+          <div class="search-form-content">
+            <input
+              type="text"
+              class="search-input"
+              data-positionel-btn
+              data-positionel-name="search-products"
+            />
+
+            <button class="btn-icon" data-action="search">
+              <i class="fa fa-search"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- user language  -->
+        <div
+          class="header-box"
+          data-type="change-user-language"
+          data-position-el-btn
+          data-position-el-hover-show="true"
+          data-position-el-name="choose-language"
+        >
+          <!-- <img src="https://countryflagsapi.com/png/india" alt="" /> -->
+          <h9 class="h-9">EN</h9>
+          <div class="header-language-more-icon-box">
+            <i class="fa fa-caret-down" aria-="true"></i>
+          </div>
+        </div>
+
+        <!-- account and lists -->
+        <a
+          href="/my-accounts"
+          class="header-box"
+          data-type="account_and_lists"
+          data-position-el-btn
+          data-position-el-hover-show="true"
+          data-position-el-name="user-options"
+        >
+          <p class="pt-lw">Hello,mclaren</p>
+          <div class="f-lw f-ac">
+            <p class="h-9 h-0">Account & Lists</p>
+            <i class="fa fa-caret-down"></i>
+          </div>
+        </a>
+
+        <!-- returns and orders -->
+        <a href="/my-orders" class="header-box" data-type="return_and_orders">
+          <p class="pt-lw">Returns</p>
+          <div>
+            <p class="h-9 h-0">& Orders</p>
+          </div>
+        </a>
+
+        <!-- carts -->
+        <a href="/my-cart" class="header-box" data-type="carts">
+          <div class="header-cart-box">
+            <div class="header-cart-icon">
+              <i class="fa fa-cart-plus"></i>
+              <p class="header-cart-qty">9</p>
+            </div>
+            <h class="h-9 h-0">Cart</h>
+          </div>
+        </a>
+
+        <div></div>
+      </div>
+    </header>
+
+    <!-- navigation -->
+    <nav class="nav" data-active="false">
+      <div class="overlay"></div>
+      <div class="nav-list">
+        <div class="list-item nav-my-account f f-sb f-ac">
+          <a
+            href="/my-account"
+            class=""
+            data-link="/my-account"
+            data-hover="false"
+          >
+            <div class="f-lw">
+              <i class="fa fa-user-circle nav-user-icon"></i>
+
+              <h class="h-7 w-700 h-0"> Hello, mclaren </h>
+            </div>
+          </a>
+          <button class="btn-icon" data-action="close-nav">
+            <i class="fa fa-times"></i>
+          </button>
+        </div>
+
+        <!-- trending -->
+        <div class="list">
+          <p class="list-title">Trending</p>
+          <a href="/best-sellers" class="list-item" data-link="/best-sellers">
+            <p>Best sellers</p>
+          </a>
+          <a class="list-item" href="/new-products">
+            <p>New releases</p>
+          </a>
+          <a class="list-item" href="/trending-products">
+            <p>Movers and Shakers</p>
+          </a>
+        </div>
+
+        <div class="line-dim mg-b-lw mg-t-lw"></div>
+
+        <!-- settings -->
+        <div class="list">
+          <p class="list-title">Help & Settings</p>
+          <a class="list-item" href="/my-account">
+            <p>Your Account</p>
+          </a>
+          <a class="list-item" href="/customer-service">
+            <p>Customer Service</p>
+          </a>
+          <a class="list-item" href="/logout">
+            <p>Sign Out</p>
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- shortcut-navigation -->
+    <div class="shortcut-navigation f">
+      <div class="nav-btn-box border f" data-nav-btn>
+        <button class="nav-btn">
+          <p class="nav-btn-line"></p>
+          <p class="nav-btn-line"></p>
+          <p class="nav-btn-line"></p>
+        </button>
+        <h class="h-9 h-0">All</h>
+      </div>
+
+      <a href="/my-cart" class="border">
+        <h class="h-9 h-0"> Buy again </h>
+      </a>
+
+      <a href="/products" class="border">
+        <h class="h-9 h-0"> Heath,Household & Personal Care </h>
+      </a>
+
+      <a href="/my-orders" class="border">
+        <h class="h-9 h-0"> Orders </h>
+      </a>
+    </div>
+    <main>
+      <!-- section product -->
+      <section class="section-productMenu">
+        
+
+        <div class="productMenu">
+          <div class="productMenu-container">
+
+
+
+            <!-- result count -->
+            <header class="productMenu-header f f-space container-120">
+
+
+            <!-- result count -->
+            <div class="productMenu-summary ">
+              <span data-docs-range>25-48</span>
+              of
+              <span data-total-docs>100</span>
+              results for
+              <span class="primary w-700" data-search-word>"iphone"</span>
+            </div>
+
+
+            <button class="btn-dropdown btn-lw" data-positionel-btn data-positionel-name="productMenu-sort-dropdown">
+
+                Sort by: <span class="f-size-lw letter-s" data-value>Featured</span>
+                <i  class="fa fa-angle-down icon-md"></i>
+            </button>
+
+
+          </header>
+
+            <div class="line shadow-m"></div>
+
+            <div class="productMenu-content  container-120">
+              <!-- filter by ratings,price,features -->
+              <div class="productMenu-filter">
+                <div class="productMenu-filter-container mg-md-all">
+                  <!-- ratings -->
+                  <div class="f-col f-as productMenu-filter-by-ratings mg-sl-all productMenu-filter-by" data-set-text-color>
+                    <h class="h-8">Customer Reviews</h>
+
+                    <!-- 5 -->
+                    <li data-active="false" data-filter="rating.value[gte]=4" class="hover-color-primary f-sl f-ab">
+                      <div class="f product-rating-icons">
+                        <i class="fa fa-star icon-md" aria-hidden="true"></i
+                        ><i class="fa fa-star icon-md" aria-hidden="true"></i
+                        ><i class="fa fa-star icon-md" aria-hidden="true"></i
+                        ><i class="fa fa-star icon-md" aria-hidden="true"></i
+                        ><i class="fa fa-star-o icon-md" aria-hidden="true"></i>
+                      </div>
+                      <span class="f-size-sm">& Up</span>
+                    </li>
+
+                    <!-- 4 -->
+                    <li data-active="false" data-filter="rating.value[gte]=3" class="hover-color-primary f-sl f-ab">
+                      <div class="f product-rating-icons">
+                        <i class="fa fa-star icon-md" aria-hidden="true"></i
+                        ><i class="fa fa-star icon-md" aria-hidden="true"></i
+                        ><i class="fa fa-star icon-md" aria-hidden="true"></i
+                        ><i class="fa fa-star-o icon-md" aria-hidden="true"></i
+                        ><i class="fa fa-star-o icon-md" aria-hidden="true"></i>
+                      </div>
+                      <span class="f-size-sm">& Up</span>
+                    </li>
+
+                    <!-- 3 -->
+                    <li data-active="false" data-filter="rating.value[gte]=2" class="hover-color-primary f-sl f-ab">
+                      <div class="f product-rating-icons">
+                        <i class="fa fa-star icon-md" aria-hidden="true"></i
+                        ><i class="fa fa-star icon-md" aria-hidden="true"></i
+                        ><i class="fa fa-star-o icon-md" aria-hidden="true"></i
+                        ><i class="fa fa-star-o icon-md" aria-hidden="true"></i
+                        ><i class="fa fa-star-o icon-md" aria-hidden="true"></i>
+                      </div>
+                      <span class="f-size-sm">& Up</span>
+                    </li>
+
+                    <!-- 2 -->
+                    <li data-active="false" data-filter="rating.value[gte]=1" class="hover-color-primary f-sl f-ab">
+                      <div class="f product-rating-icons">
+                        <i class="fa fa-star icon-md" aria-hidden="true"></i
+                        ><i class="fa fa-star-o icon-md" aria-hidden="true"></i
+                        ><i class="fa fa-star-o icon-md" aria-hidden="true"></i
+                        ><i class="fa fa-star-o icon-md" aria-hidden="true"></i
+                        ><i class="fa fa-star-o icon-md" aria-hidden="true"></i>
+                      </div>
+                      <span class="f-size-sm">& Up</span>
+                    </li>
+                  </div>
+
+                  <!-- price -->
+                  <div class="f-col f-as productMenu-filter-by-price mg-sl-all productMenu-filter-by" data-set-text-color>
+                    <h class="h-8">Price</h>
+
+                    <li data-active="false" data-filter="price.value[lt]=2000" class="f-sl f-ab">
+                      <span class="hover-color-primary letter-s">
+                       Under <span data-value>$2000</span>
+                      </span>
+                    </li>
+
+                    <li
+                      data-active="false" data-filter="price.value[gte]=2000&price.value[lte]=5000"
+                      class="f-sl f-ab"
+                    >
+                      <span class="hover-color-primary">
+                        <span class="letter-s" data-value>$2000 - $5000</span>
+                      </span>
+                    </li>
+
+                    <li
+                      data-active="false" data-filter="price.value[gte]=5000&price.value[lte]=1000"
+                      class="f-sl f-ab"
+                    >
+                      <span class="hover-color-primary">
+                        <span class="letter-s" data-value>$5000 - $10000</span>
+                      </span>
+                    </li>
+                    <li
+                      data-active="false" data-filter="price.value[gte]=10000&price.value[lte]=20000"
+                      class="f-sl f-ab"
+                    >
+                      <span class="hover-color-primary">
+                        <span class="letter-s" data-value>$10000 - $20000</span>
+                      </span>
+                    </li>
+                    <li
+                      data-active="false" data-filter="price.value[gte]=10000&price.value[lte]=20000"
+                      class="f-sl f-ab mg-sm"
+                    >
+                      <span class="hover-color-primary">
+                        <span class="letter-s" data-value>$10000 - $20000</span>
+                      </span>
+                    </li>
+
+                    <div class="productMenu-set-price-range f-sl">
+                      <input
+                        type="text"
+                        name="price.value[gte]"
+                        class="t-md"
+                        data-min-price
+                        placeholder="$Min"
+                      />
+                      <input
+                        type="text"
+                        name="price.value[lt]"
+                        class="t-md"
+                        placeholder="$Max"
+                        data-max-price
+                      />
+                      <button
+                        class="btn-outline btn-md r-md"
+                        data-action="set-price-range"
+                      >
+                        Go
+                      </button>
+                    </div>
+                  </div>
+
+                  <!-- colour -->
+                  <div class="f-col f-as productMenu-filter-by-color mg-sl-all productMenu-filter-by">
+                    <h class="h-8 grid-full">Colour</h>
+
+                    <li
+                      data-active="false" data-filter="curVariant.color.name=red"
+                      class="f-sl f-ab"
+                    >
+                      <button
+                        class="btn-checkbox btn-checkbox-bg r-0"
+                        style="background-color: red"
+                        data-active="false"
+                      >
+                        <i class="fa fa-check"></i>
+                      </button>
+                    </li>
+                    <li
+                      data-active="false" data-filter="curVariant.color.name=red"
+                      class="f-sl f-ab"
+                    >
+                      <button
+                        class="btn-checkbox btn-checkbox-bg r-0"
+                        style="background-color: red"
+                        data-active="false"
+                      >
+                        <i class="fa fa-check"></i>
+                      </button>
+                    </li>
+                    <li
+                      data-active="false" data-filter="curVariant.color.name=red"
+                      class="f-sl f-ab"
+                    >
+                      <button
+                        class="btn-checkbox btn-checkbox-bg r-0"
+                        style="background-color: red"
+                        data-active="false"
+                      >
+                        <i class="fa fa-check"></i>
+                      </button>
+                    </li>
+                    <li
+                      data-active="false" data-filter="curVariant.color.name=red"
+                      class="f-sl f-ab"
+                    >
+                      <button
+                        class="btn-checkbox btn-checkbox-bg r-0"
+                        style="background-color: red"
+                        data-active="false"
+                      >
+                        <i class="fa fa-check"></i>
+                      </button>
+                    </li>
+                    <li
+                      data-active="false" data-filter="curVariant.color.name=red"
+                      class="f-sl f-ab"
+                    >
+                      <button
+                        class="btn-checkbox btn-checkbox-bg r-0"
+                        style="background-color: red"
+                        data-active="false"
+                      >
+                        <i class="fa fa-check"></i>
+                      </button>
+                    </li>
+                    <li
+                      data-active="false" data-filter="curVariant.color.name=red"
+                      class="f-sl f-ab"
+                    >
+                      <button
+                        class="btn-checkbox btn-checkbox-bg r-0"
+                        style="background-color: red"
+                        data-active="false"
+                      >
+                        <i class="fa fa-check"></i>
+                      </button>
+                    </li>
+                    <li
+                      data-active="false" data-filter="curVariant.color.name=red"
+                      class="f-sl f-ab"
+                    >
+                      <button
+                        class="btn-checkbox btn-checkbox-bg r-0"
+                        style="background-color: red"
+                        data-active="false"
+                      >
+                        <i class="fa fa-check"></i>
+                      </button>
+                    </li>
+                    <li
+                      data-active="false" data-filter="curVariant.color.name=red"
+                      class="f-sl f-ab"
+                    >
+                      <button
+                        class="btn-checkbox btn-checkbox-bg r-0"
+                        style="background-color: red"
+                        data-active="false"
+                      >
+                        <i class="fa fa-check"></i>
+                      </button>
+                    </button>
+                    <li
+                      data-active="false" data-filter="curVariant.color.name=red"
+                      class="f-sl f-ab"
+                    >
+                      <button
+                        class="btn-checkbox btn-checkbox-bg r-0"
+                        style="background-color: red"
+                        data-active="false"
+                      >
+                        <i class="fa fa-check"></i>
+                      </button>
+                    </li>
+                    <li
+                      data-active="false" data-filter="curVariant.color.name=red"
+                      class="f-sl f-ab"
+                    >
+                      <button
+                        class="btn-checkbox btn-checkbox-bg r-0"
+                        style="background-color: red"
+                        data-active="false"
+                      >
+                        <i class="fa fa-check"></i>
+                      </button>
+                    </li>
+                    <li
+                      data-active="false" data-filter="curVariant.color.name=red"
+                      class="f-sl f-ab"
+                    >
+                      <button
+                        class="btn-checkbox btn-checkbox-bg r-0"
+                        style="background-color: red"
+                        data-active="false"
+                      >
+                        <i class="fa fa-check"></i>
+                      </button>
+                    </li>
+                    <li
+                      data-active="false" data-filter="curVariant.color.name=red"
+                      class="f-sl f-ab"
+                    >
+                      <button
+                        class="btn-checkbox btn-checkbox-bg r-0"
+                        style="background-color: red"
+                        data-active="false"
+                      >
+                        <i class="fa fa-check"></i>
+                      </button>
+                    </li>
+                  </div>
+
+                  <!-- screen height -->
+                  <div class="f-col f-as productMenu-filter-by-height mg-sl-all productMenu-filter-by">
+                    <h class="h-8 grid-full">Availability</h>
+
+                    <li
+                      data-active="false" data-filter="specs.name=height&specs.value=6.1-inch"
+                      class="f-sl f-ab"
+                    >
+                      <button class="btn-checkbox btn-checkbox-bg" data-active="false">
+                        <i class="fa fa-check"></i>
+                      </button>
+                      <span class="hover-color-primary letter-s">6.1 inch</span>
+                    </li>
+                    <li
+                      data-active="false" data-filter="specs.name=height&specs.value=6.1-inch"
+                      class="f-sl f-ab"
+                    >
+                      <button class="btn-checkbox btn-checkbox-bg" data-active="false">
+                        <i class="fa fa-check"></i>
+                      </button>
+                      <span class="hover-color-primary letter-s">6.1 inch</span>
+                    </li>
+                  </div>
+
+                  <!-- availability -->
+                  <div class="f-col f-as productMenu-filter-by-stock mg-sl-all productMenu-filter-by">
+                    <h class="h-8 grid-full">Availability</h>
+
+                    <li data-active="false" data-filter="stock[gt]=0" class="f-sl f-ab">
+                      <button class="btn-checkbox btn-checkbox-bg" data-active="false">
+                        <i class="fa fa-check"></i>
+                      </button>
+                      <span class="hover-color-primary letter-s">
+                        Include Out of Stock
+                      </span>
+                    </li>
+                  </div>
+                </div>
+              </div>
+
+              <!-- items -->
+              <div class="productMenu-items-modal modal" data-static="true" data-modal-type="window"  data-error="false"  data-load-spinner="true"
+              data-hide-spinner="true">
+
+
+                <div class="modal-error">
+                  <p class="pt-bg" data-title></p>
+                  <p data-text></p>
+                </div>
+
+
+                <div class="modal-windows">
+
+                <div class="spinner"></div>
+
+                  <!-- modal page btns should be of modal-windows -->
+
+                  <!-- to update the pagination btns according to window -->
+
+                <div
+                  class="modal-window"
+                  data-window="productMenu-items"
+                  data-active="true"
+                  data-url="products/menu"
+                  data-filter-query="iphone"
+                  data-search-query=""
+                  data-limit="10"
+                  data-page="0"
+                  data-sort=""
+                  data-load-docs-till-page=""
+                >
+                  <h7 class="h-6 h-m mg-sl">RESULTS</h7>
+
+                  <div class="productMenu-items modal-list mg-bg">
+                    <div class="productMenu-item f-lw">
+                      <!-- thumbnail -->
+                      <div class="productMenu-item-img-box img-box-hg">
+                        <img src="../../../img/products/1.jpg" alt="" />
+                      </div>
+
+                      <div class="productMenu-item-details mg-lw-all">
+                        <h class="s-6 s-l">Apple iPhone 11 (1TB) - Black</h>
+
+                        <!-- ratings and count -->
+                        <div class="productMenu-item-rating-stats f-sl f-ab">
+                          <div class="f product-rating-icons">
+                            <i class="fa fa-star icon-md" aria-hidden="true"></i
+                            ><i
+                              class="fa fa-star icon-md"
+                              aria-hidden="true"
+                            ></i
+                            ><i
+                              class="fa fa-star icon-md"
+                              aria-hidden="true"
+                            ></i
+                            ><i
+                              class="fa fa-star icon-md"
+                              aria-hidden="true"
+                            ></i
+                            ><i
+                              class="fa fa-star-o icon-md"
+                              aria-hidden="true"
+                            ></i>
+                          </div>
+                          <i class="fa fa-angle-down dim icon-lw"></i>
+                          <a
+                            href="/product/page/#section-review"
+                            class="btn-inline"
+                            >6,873</a
+                          >
+                        </div>
+
+                        <!-- price -->
+                        <div class="productMenu-item-price">
+                          <!-- price -->
+                          <div class="f-sm">
+                            <span
+                              class="product-price-discount h-4 h-0 w-300 primary trans-sl"
+                              >-9%</span
+                            >
+                            <p class="product-price-current f f-as">
+                              <span> $ </span>
+                              <span class="h-4 h-m h-0 trans-sl inline"
+                                >900</span
+                              >
+                            </p>
+                          </div>
+                        </div>
+
+                        <div class="productMenu-item-more-details mg-sm-all">
+                          <p class="t-md mg-lw">Save extra with No Cost EMI</p>
+                          <p class="">FREE Delievery by Amazon</p>
+
+                          <!-- color-variant -->
+                          <div class="productMenu-item-variants f-sl">
+                            <div
+                              class="productMenu-item-variant-color"
+                              data-active="true"
+                            ></div>
+                            <div
+                              class="productMenu-item-variant-color"
+                              data-active="false"
+                              style="background-color: steelblue"
+                            ></div>
+                            <div
+                              class="productMenu-item-variant-color"
+                              data-active="false"
+                              style="background-color: steelblue"
+                            ></div>
+                            <div
+                              class="productMenu-item-variant-color"
+                              data-active="false"
+                              style="background-color: steelblue"
+                            ></div>
+                            <div
+                              class="productMenu-item-variant-color"
+                              data-active="false"
+                              style="background-color: steelblue"
+                            ></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="modal-page-btns f">
+                    <button class="btn-page" data-action="prev" data-active="false">
+                      <i class="fa fa-angle-left"></i>
+                      <span>Previous</span>
+                    </button>
+                    <div class="line-v"></div>
+
+                    <!-- page number btns -->
+                    <div class="modal-page-numbers-btns f">
+
+                    <button class="btn-page" data-page-number-btn  data-set-page="1" data-active="true">
+                      <span>1</span>
+                    </button>
+                    <button class="btn-page"  data-page-number-btn data-set-page="2" data-active="false">
+                      <span>2</span>
+                    </button>
+                    <button class="btn-page"  data-page-number-btn data-set-page="3" data-active="false">
+                      <span>3</span>
+                    </button>
+                    <button class="btn-page f f-ac"  data-page-number-btn data-active="false">
+                      <i class="fas fa-ellipsis-h"></i>
+                    </button>
+                    <button class="btn-page"  data-page-number-btn data-set-page="20" data-active="false">
+                      <span>20</span>
+                    </button>
+                  </div>
+
+
+                    <div class="line-v"></div>
+                    <button class="btn-page" data-action="next">
+                      <span>Next</span>
+                      <i class="fa fa-angle-right"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <div class="positionels">
+      
+
+      <!-- product menu sort items dropdown -->
+      <div
+      class="positionel dropdown"
+      data-dropdown-type="select-options-dropdown"
+      data-positionel-name="productMenu-sort-dropdown"
+      data-positionel-type="dropdown"
+      data-active="false"
+      data-position-type="fixed"
+      data-load-spinner="false"
+      data-animation="fade"
+      data-pointer-position="none"
+      data-position="cover"
+      data-delay-hide="false"
+      data-show-event="click"
+      data-static="false"
+      data-has-defined-class="true"
+      data-child-positionel="false"
+      data-set-positionbtn-width="false"
+      data-change-positionbtn-text="false"
+    >
+      <div class="overlay overlay-t"></div>
+      <div
+        class="positionel-container"
+        style="max-height: unset; overflow-y: auto;"
+      >
+        <div class="positionel-content">
+          <!-- list -->
+
+          <ul class="list" data-text-wrap data-query="filter">
+            <li class="list-item" data-value="" data-active="true">
+              <p>Featured</p>
+            </li>
+            <li class="list-item" data-value="price.value" data-active="false">
+              <p>Price: Low  to High</p>
+            </li>
+            <li class="list-item" data-value="-price.value" data-active="false">
+              <p>Price: High to Low</p>
+            </li>
+            <li class="list-item" data-value="-reviews.count" data-active="false">
+              <p>Avg: Customer Review</p>
+            </li>
+            <li class="list-item" data-value="-_id" data-active="false">
+              <p>Newest Arrivals</p>
+            </li>
+         
+          </ul>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- search bar -->
+    <div class="positionel dropdown" data-positionel-name="search-products" data-positionel-type="dropdown" data-active="true" data-pointer-position="false" data-position="bottom" data-delay-hide="false" data-load-spinner="false" data-static="false" data-has-defined-class="true" data-hide-by="default" data-animation="fade" data-show-event="click" data-child-positionel="false"><div class="overlay"></div><div class="positionel-container" style="top: 41px; left: 276.712px; width: 1349px; max-width: unset;"><div class="positionel-content"><div class="list"><div class="list-item">wafters in all Categories</div><div class="list-item">iphone in all Categories</div></div></div></div></div>
+    </div>
+
+  </body>
+</html>

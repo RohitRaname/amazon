@@ -1,0 +1,11 @@
+.myAccount {
+  img {
+    height: 6rem;
+  }
+
+
+  &-setting:hover{
+    background: var(--background-hover);
+    transition: all .15s;
+  }
+}

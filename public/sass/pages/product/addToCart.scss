@@ -1,0 +1,45 @@
+.addToCart {
+  &-container {
+    width: 80rem;
+    position: relative;
+    z-index: 100;
+    background: var(--default-background);
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    gap: 5rem;
+    transition: all 0.6s;
+    box-shadow: 0 0 2rem rgba(var(--text-v), 0.3);
+  }
+
+  &-product-preview img {
+    height: 8rem !important;
+  }
+
+  button[data-action='close'] {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+  }
+
+  // state
+
+  &[data-active='false'] {
+    .overlay {
+      display: none;
+    }
+    .addToCart-container {
+      transform: translate(100%);
+    }
+  }
+
+  &[data-active='true'] {
+    .overlay {
+      display: block;
+    }
+    .addToCart-container {
+      transform: translate(0%);
+    }
+  }
+}

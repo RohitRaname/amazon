@@ -1,0 +1,17 @@
+button[data-action='move-to-top-of-page'] {
+  background: var(--color-tertiary-light);
+  font-weight: 400;
+  padding:1.6rem;
+  border-radius: 0;
+  span{
+
+    color: var(--background-light) !important;
+  }
+
+  &:hover {
+    background: var(--color-tertiary-light-fade);
+  }
+}
+
+
+section{min-height: 100vh;}

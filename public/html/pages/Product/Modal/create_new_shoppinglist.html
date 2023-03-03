@@ -1,0 +1,151 @@
+<!-- create new shopping list -->
+<div
+  class="positionel modal"
+  data-positionel-type="modal"
+  data-positionel-name="create-new-shopping-list"
+  data-active="false"
+  data-load-spinner="true"
+  data-animation="scale-from-center"
+  data-pointer-position="none"
+  data-position="fixed"
+  data-delay-hide="false"
+  data-show-event="click"
+  data-static="false"
+  data-has-defined-class="true"
+  data-child-positionel="false"
+  data-width="sm"
+  data-form="true"
+  data-hide-form-after-submit="false"
+>
+  <div class="overlay"></div>
+  <div class="positionel-container modal-container container-100">
+    <!-- header -->
+    <header class="modal-header">
+      <p class="s-8">Create a new list</p>
+      <button class="btn-icon positionel-closebtn">
+        <i class="fa fa-times"></i>
+      </button>
+    </header>
+
+    <footer class="modal-footer">
+      <div class="spinner hide"></div>
+
+      <!-- first-content -->
+      <div
+        class="positionel-content mg-b-lw-all"
+        data-active="true"
+        data-first-content="create-new-shoplist"
+      >
+        <!-- list name -->
+        <h class="h-9">List name</h>
+
+        <form
+          class="form"
+          data-error="false"
+          onsubmit="return false;"
+          data-clear-inputs-when-hide="true"
+        >
+          <div class="form-group" data-error="false" data-required="true">
+            <input type="text" name="shoppinglist_name" data-input />
+
+            <div class="form-error">
+              <i class="fa fa-exclamation-circle"></i>
+              <p>Name is required</p>
+            </div>
+          </div>
+
+          <p class="pt-sm mg-b-lw">
+            Use lists to save items for later.All lists are private unless you
+            share them with mothers
+          </p>
+
+          <!--  learn more tooltip -->
+          <div>
+            <button
+              class="btn-inline"
+              data-positionel-btn
+              data-positionel-name="shopping-list-learnmore-tooltip"
+            >
+              <p class="">Learn more</p>
+              <i class="fa fa-angle-down"></i>
+            </button>
+
+            <!-- learn more tooltip -->
+            <div
+              class="positionel tooltip"
+              data-positionel-type="tooltip"
+              data-positionel-name="shopping-list-learnmore-tooltip"
+              data-active="false"
+              data-animation="fade"
+              data-show-event="mouseover"
+              data-delay-hide="false"
+              data-load-spinner="false"
+              data-static="false"
+              data-has-defined-class="true"
+              data-pointer-position="bottom"
+              data-position="top"
+              data-child-positionel="true"
+            >
+              <div class="positionel-container">
+                <div class="positionel-square"></div>
+
+                <!-- hide content -->
+                <div class="positionel-content">
+                  <p class="pt-sm">
+                    Lists replaces wish lists and shopping lists, creating one
+                    place for all your lists. You can also share your lists with
+                    others by inviting them after you've created a list.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- modal-btns -->
+          <div class="form-btns">
+            <button class="btn-outline btn-md" data-action="cancel">
+              Cancel
+            </button>
+            <button class="btn-primary-light btn-md" data-action="submit">
+              Create List
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- second-content -->
+      <div
+        class="positionel-content mg-b-lw-all"
+        data-active="false"
+        data-second-content="item-add-to-shopping-list-preview"
+      >
+        <h8 class="h-7 h-m"
+          >1 item added to
+          <span class="modal-shopping-list-name">Shopping List 8</span></h8
+        >
+
+        <!-- product -->
+        <div
+          class="list-item modal-new-added-item-to-shopping-list"
+          data-col="2"
+          data-hover="false"
+        >
+          <img src="../../img/products/1.jpg" />
+          <div>
+            <p class="pt-md modal-item-name">
+              Apple 2022 iPad Air M1 Chip (10.9-inch/27.69 cm, Wi-Fi, 64GB) -
+              Blue (5th Generation)
+            </p>
+            <p class="red pt-sm modal-item-price">Rs.54,900</p>
+          </div>
+        </div>
+
+        <!-- buttons -->
+        <div>
+          <button class="btn-outline btn-100 mg-b-lw">View Wish List</button>
+          <button class="btn-primary-light btn-100">Continue Shopping</button>
+        </div>
+      </div>
+    </footer>
+  </div>
+</div>

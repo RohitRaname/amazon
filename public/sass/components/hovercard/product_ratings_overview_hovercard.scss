@@ -1,0 +1,34 @@
+.hovercard[data-positionel-name='product-ratings-overview'] {
+  .overlay {
+    z-index: 40;
+  }
+
+  .hovercard {
+    &-container {
+      left: 50%;
+      transform: translate(-35%, 5%);
+      z-index: 90;
+
+      .product-rating-star {
+        white-space: nowrap;
+      }
+
+      .progressbar {
+        width: 20rem;
+        overflow: hidden;
+
+        &-track-line {
+          transform: translateX(-100%);
+        }
+      }
+
+      .progressbar-track-line {
+        transform: translateX(-100%);
+      }
+
+      .product-rating-chart[data-race='true'] .progressbar-track-line {
+        animation: progressbar-slide 0.17s ease-in forwards;
+      }
+    }
+  }
+}

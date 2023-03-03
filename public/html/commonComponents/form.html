@@ -1,0 +1,113 @@
+<div
+  class="positionel modal"
+  data-positionel-type="modal"
+  data-positionel-name="create-new-shopping-list"
+  data-active="true"
+  data-animation="scale-from-center"
+  data-pointer-position="none"
+  data-position="fixed"
+  data-delay-hide="false"
+  data-show-event="click"
+  data-static="false"
+  data-has-defined-class="true"
+  data-child-positionel="false"
+  data-has-child-positionel="true"
+  data-width="sm"
+  data-form="true"
+  data-hide-form-after-submit="false"
+  data-load-spinner="true"
+  data-hide-spinner="true"
+  data-query='{"url":"users/me/wishlists/length","method":"get","manual":false}'
+>
+  <div class="overlay"></div>
+  <div class="positionel-container modal-container container-100">
+    <!-- header-->
+    <header class="modal-header">
+      <p class="s-8">Create a new list</p>
+      <button class="btn-icon positionel-closebtn">
+        <i class="fa fa-times" aria-hidden="true"></i>
+      </button>
+    </header>
+    <footer class="modal-footer">
+      <div class="spinner hide"></div>
+      <!-- first-content-->
+      <div
+        class="positionel-content mg-b-lw-all"
+        data-active="true"
+
+      >
+        <!-- list name--><h class="h-9">List name</h>
+        <form
+          class="form"
+          data-error="false"
+          onsubmit="return false;"
+          data-clear-inputs-when-hide="true"
+          data-data='{"product":{"_id":"63bc126fb63b0ed0704a10ff","thumbnail":"https://m.media-amazon.com/images/I/619f09kK7tL._SX679_.jpg"}}'
+          data-submit-automatic="false"
+          data-url="products/modelId/undefined/ask-question"
+          data-method="post"
+        >
+          <div class="form-group" data-error="false" data-required="true">
+            <input type="text" name="wishlistName" data-input="" value="" />
+            <div class="form-error">
+              <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
+              <p>Name is required</p>
+            </div>
+          </div>
+          <p class="pt-sm mg-b-lw">
+            Use lists to save items for later.All lists are private unless you
+            share them with mothers
+          </p>
+          <!-- learn more tooltip-->
+          <div>
+            <button
+              class="btn-inline"
+              data-positionel-btn=""
+              data-positionel-name="shopping-list-learnmore-tooltip"
+            >
+              <p>Learn more</p>
+              <i class="fa fa-angle-down" aria-hidden="true"></i></button
+            ><!-- learn more tooltip-->
+            <div
+              class="positionel tooltip"
+              data-positionel-type="tooltip"
+              data-positionel-name="shopping-list-learnmore-tooltip"
+              data-active="false"
+              data-animation="fade"
+              data-show-event="mouseover"
+              data-delay-hide="false"
+              data-load-spinner="false"
+              data-static="false"
+              data-has-defined-class="false"
+              data-pointer-position="bottom"
+              data-position="top"
+              data-child-positionel="true"
+              style="display: block"
+            >
+              <div class="positionel-container">
+                <div class="positionel-square"></div>
+                <!-- hide content-->
+                <div class="positionel-content">
+                  <p class="pt-sm">
+                    Lists replaces wish lists and shopping lists, creating one
+                    place for all your lists. You can also share your lists with
+                    others by inviting them after you've created a list.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- modal-btns-->
+          <div class="form-btns">
+            <button class="btn-outline btn-md" data-action="cancel">
+              Cancel</button
+            ><button class="btn-primary-light btn-md" data-action="submit">
+              Create List
+            </button>
+          </div>
+        </form>
+      </div>
+
+    </footer>
+  </div>
+</div>

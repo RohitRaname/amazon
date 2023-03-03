@@ -1,0 +1,22 @@
+.modal[data-positionel-name='reviews-photo-gallery'] {
+  .modal-tab {
+    display: flex;
+    align-items: baseline;
+    gap: $gap-md;
+  }
+
+  .modal-window[data-window='store-reviews'] {
+    padding-top: 0;
+    .modal-grid-photos {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 1rem;
+      align-content: start;
+
+      img {
+        width: 100%;
+        transform: scale(1);
+      }
+    }
+  }
+}

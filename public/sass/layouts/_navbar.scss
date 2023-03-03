@@ -1,0 +1,51 @@
+.nav {
+  .overlay {
+    display: none;
+  }
+
+  .nav-list {
+    position: fixed;
+    top: 0;
+    left: 0;
+    transform: translateX(-100%);
+    transition: all 0.3s;
+    z-index: 200;
+    height: 100%;
+    width: 34rem;
+    background: var(--default-background);
+  }
+
+  &[data-active='true'] {
+    .overlay {
+      display: block;
+    }
+
+    .nav-list {
+      transform: translateX(0);
+    }
+  }
+
+  &-my-account {
+    padding: 0.8rem 3rem;
+
+    cursor: pointer;
+    background: var(--color-tertiary);
+    color: inherit;
+
+    &:hover {
+      background: var(--color-tertiary) !important;
+    }
+
+    i,
+    .h-7 {
+      color: #fff;
+    }
+    .nav-user-icon {
+      font-size: 2.3rem;
+    }
+
+    .btn-icon:hover {
+      background: var(--color-tertiary-light-fade);
+    }
+  }
+}

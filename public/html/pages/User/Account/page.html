@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="shortcut icon"
+      href="../../img/amazon/favicon.png"
+      type="image/*"
+    />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../../../style.css" />
+    <script
+      src="https://kit.fontawesome.com/28cd1ccca7.js"
+      crossorigin="anonymous"
+    ></script>
+    -->
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script defer type="module" src="../../../../script.js"></script>
+  </head>
+  <body data-page="checkout" data-user-currency='{"rate":80}'>
+    <div>
+      <!-- header -->
+      <header class="header sticky-header">
+        <div class="header-content f-sm">
+          <!-- logo -->
+          <div class="header-box">
+            <a href="/" class="logo-box">
+              <img src="../../img/amazon/logo.png" class="logo" alt="" />
+            </a>
+          </div>
+
+          <!-- delivery location -->
+          <a
+            class="header-box f-lw"
+            href="customer/change-delievery-location"
+            data-type="change-delievery-location"
+          >
+            <i class="fa fa-map-marker"></i>
+            <div>
+              <p class="pt-lw">Deliver to Rohit</p>
+              <h9 class="h-9">Merrut 250001</h9>
+            </div>
+          </a>
+
+          <!-- search form -->
+          <div class="search-form">
+            <div class="search-form-content">
+              <input
+                type="text"
+                class="search-input"
+                data-positionel-btn
+                data-positionel-name="search-products"
+              />
+
+              <button class="btn-icon" data-action="search">
+                <i class="fa fa-search"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- user language  -->
+          <div
+            class="header-box"
+            data-type="change-user-language"
+            data-position-el-btn
+            data-position-el-hover-show="true"
+            data-position-el-name="choose-language"
+          >
+            <!-- <img src="https://countryflagsapi.com/png/india" alt="" /> -->
+            <h9 class="h-9">EN</h9>
+            <div class="header-language-more-icon-box">
+              <i class="fa fa-caret-down" aria-="true"></i>
+            </div>
+          </div>
+
+          <!-- account and lists -->
+          <a
+            href="/my-accounts"
+            class="header-box"
+            data-type="account_and_lists"
+            data-position-el-btn
+            data-position-el-hover-show="true"
+            data-position-el-name="user-options"
+          >
+            <p class="pt-lw">Hello,mclaren</p>
+            <div class="f-lw f-ac">
+              <p class="h-9 h-0">Account & Lists</p>
+              <i class="fa fa-caret-down"></i>
+            </div>
+          </a>
+
+          <!-- returns and orders -->
+          <a href="/my-orders" class="header-box" data-type="return_and_orders">
+            <p class="pt-lw">Returns</p>
+            <div>
+              <p class="h-9 h-0">& Orders</p>
+            </div>
+          </a>
+
+          <!-- carts -->
+          <a href="/my-cart" class="header-box" data-type="carts">
+            <div class="header-cart-box">
+              <div class="header-cart-icon">
+                <i class="fa fa-cart-plus"></i>
+                <p class="header-cart-qty">9</p>
+              </div>
+              <h class="h-9 h-0">Cart</h>
+            </div>
+          </a>
+
+          <div></div>
+        </div>
+      </header>
+
+      <!-- navigation -->
+      <nav class="nav" data-active="false">
+        <div class="overlay"></div>
+        <div class="nav-list">
+          <div class="list-item nav-my-account f f-sb f-ac">
+            <a
+              href="/my-account"
+              class=""
+              data-link="/my-account"
+              data-hover="false"
+            >
+              <div class="f-lw">
+                <i class="fa fa-user-circle nav-user-icon"></i>
+
+                <h class="h-7 w-700 h-0"> Hello, mclaren </h>
+              </div>
+            </a>
+            <button class="btn-icon" data-action="close-nav">
+              <i class="fa fa-times"></i>
+            </button>
+          </div>
+
+          <!-- trending -->
+          <div class="list">
+            <p class="list-title">Trending</p>
+            <a href="/best-sellers" class="list-item" data-link="/best-sellers">
+              <p>Best sellers</p>
+            </a>
+            <a class="list-item" href="/new-products">
+              <p>New releases</p>
+            </a>
+            <a class="list-item" href="/trending-products">
+              <p>Movers and Shakers</p>
+            </a>
+          </div>
+
+          <div class="line-dim mg-b-lw mg-t-lw"></div>
+
+          <!-- settings -->
+          <div class="list">
+            <p class="list-title">Help & Settings</p>
+            <a class="list-item" href="/my-account">
+              <p>Your Account</p>
+            </a>
+            <a class="list-item" href="/customer-service">
+              <p>Customer Service</p>
+            </a>
+            <a class="list-item" href="/logout">
+              <p>Sign Out</p>
+            </a>
+          </div>
+        </div>
+      </nav>
+
+      <!-- shortcut-navigation -->
+      <div class="shortcut-navigation f">
+        <div class="nav-btn-box border f" data-nav-btn>
+          <button class="nav-btn">
+            <p class="nav-btn-line"></p>
+            <p class="nav-btn-line"></p>
+            <p class="nav-btn-line"></p>
+          </button>
+          <h class="h-9 h-0">All</h>
+        </div>
+
+        <a href="/my-cart" class="border">
+          <h class="h-9 h-0"> Buy again </h>
+        </a>
+
+        <a href="/products" class="border">
+          <h class="h-9 h-0"> Heath,Household & Personal Care </h>
+        </a>
+
+        <a href="/my-orders" class="border">
+          <h class="h-9 h-0"> Orders </h>
+        </a>
+      </div>
+    </div>
+
+    <main>
+      <!-- section product -->
+      <section class="section">
+        <div class="myAccount">
+          <div class="myAccount-container container">
+            <h class="h-4 h-l mg-md">Your Addresses</h>
+
+            <div class="myAccount-settings f-sm">
+              <a
+                class="f-lw border-box border-light myAccount-setting"
+                href="/me/orders"
+              >
+                <img src="../../../../img/amazon/account/orders.png" alt="" />
+                <div>
+                  <h8 class="h-6 h-m">Your Orders</h8>
+                  <p class="t-md">Track,return,or buy things again</p>
+                </div>
+              </a>
+
+              <a
+                href="/me/address"
+                class="f-lw border-box border-light myAccount-setting"
+              >
+                <img src="../../../../img/amazon/account/location.png" alt="" />
+                <div>
+                  <h8 class="h-6 h-m">Your addresses</h8>
+                  <p class="t-md">Edit addresses for orders and gifts</p>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

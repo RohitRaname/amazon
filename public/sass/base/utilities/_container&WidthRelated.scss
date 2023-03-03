@@ -1,0 +1,202 @@
+.container {
+  & {
+    margin: 0 auto;
+    width: 100%;
+    padding: 4.8rem;
+    max-width: 160rem;
+  }
+
+  &-auto {
+    max-width: unset !important;
+    width: auto !important;
+  }
+
+  &-v {
+    &-lw {
+      padding: 4.8rem 0;
+    }
+    &-sm {
+      padding: 6.4rem 0;
+    }
+    &-md {
+      padding: 8rem 0;
+    }
+    & {
+      padding: 9.6rem 0;
+    }
+  }
+
+  &-h {
+    &-lw {
+      padding: 0 4.8rem !important;
+    }
+    &-sm {
+      padding: 0 6.4rem !important;
+    }
+    &-md {
+      padding: 0 8rem !important;
+    }
+    & {
+      padding: 0 9.6rem !important;
+    }
+  }
+
+  &-30 {
+    max-width: 30rem !important;
+    width: 100% !important;
+  }
+  &-40 {
+    max-width: 40rem !important;
+    width: 100% !important;
+  }
+  &-50 {
+    max-width: 50rem !important;
+    width: 100% !important;
+  }
+  &-60 {
+    max-width: 60rem !important;
+    width: 100% !important;
+  }
+  &-80 {
+    max-width: 80rem !important;
+    width: 100% !important;
+  }
+  &-90 {
+    max-width: 90rem !important;
+    width: 100% !important;
+  }
+
+  &-100 {
+    max-width: 100rem !important;
+    width: 100% !important;
+  }
+  &-110 {
+    max-width: 110rem !important;
+    width: 100% !important;
+  }
+
+  &-120 {
+    max-width: 120rem !important;
+    width: 100% !important;
+    margin: 0 auto;
+  }
+
+  &-130 {
+    max-width: 130rem !important;
+    width: 100% !important;
+  }
+
+  &-sm {
+    padding: 2.4rem 3.2rem;
+  }
+
+  &-md {
+    padding: 4.8rem 3.2rem;
+  }
+
+  &-bg {
+    padding: 6.4rem 4.8rem;
+  }
+
+  &-lg {
+    padding: 9.6rem 6.4rem;
+  }
+
+  &-vertical {
+    padding: 9.6rem 0;
+  }
+
+  &-horizotal {
+    padding: 0 3.2rem;
+  }
+
+  &-no-bottom {
+    padding-bottom: 0;
+  }
+}
+
+.width {
+  &-1 {
+    display: inline-block;
+    width: 1rem;
+  }
+  &-1-5 {
+    width: 1.5rem;
+  }
+  &-2 {
+    width: 2rem;
+  }
+  &-3 {
+    width: 3rem;
+  }
+
+  &-5 {
+    width: 5rem;
+  }
+
+  &-8 {
+    width: 8rem;
+  }
+  &-10 {
+    width: 10rem;
+  }
+  &-20 {
+    width: 20rem;
+  }
+  &-25 {
+    width: 25rem;
+  }
+  &-16 {
+    width: 16rem;
+  }
+
+  &-80 {
+    max-width: 80rem;
+    width: 100%;
+  }
+
+  &-80p {
+    width: 80%;
+    margin: 0 auto;
+  }
+}
+
+.width {
+  &-40 {
+    max-width: 40rem;
+    width: 100%;
+  }
+  &-30 {
+    max-width: 30rem;
+    width: 100%;
+  }
+  &-50 {
+    max-width: 50rem;
+    width: 100%;
+  }
+  &-60 {
+    width: 100%;
+    width: 60%;
+  }
+  &-70 {
+    max-width: 70rem;
+    width: 100%;
+  }
+  &-80 {
+    max-width: 80rem;
+    width: 100%;
+  }
+  &-90 {
+    max-width: 90rem;
+    width: 100%;
+  }
+
+  &-100 {
+    max-width: 100rem;
+    width: 100%;
+  }
+
+  &-full{
+    width: 100%;
+  }
+}

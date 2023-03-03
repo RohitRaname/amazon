@@ -1,0 +1,72 @@
+.search {
+  z-index: 40;
+  &-form {
+    &-content {
+      height: 4rem;
+      font-size: $font-size-md;
+      border-radius: $radius-md;
+      @include f-center;
+      gap: $gap-sm;
+      background: #fff;
+      background: steelblue !important;
+
+      position: relative;
+      overflow: hidden;
+    }
+    .btn-icon {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      right: 0;
+      z-index: 5;
+
+      background: var(--color-primary-light);
+      height: 100%;
+      @include f-center;
+      border-radius: 0;
+      width: 4.5rem;
+
+      i {
+        font-size: 2rem;
+        color: var(--color-tertiary);
+      }
+    }
+  }
+
+  .fa-search {
+    font-size: 1.55rem;
+    color: var(--color-primary-light);
+    display: inline-block;
+  }
+  &-input {
+    background: transparent;
+    border: none;
+    font-size: inherit;
+    color: var(--defalut-text);
+    width: 100%;
+    height: 100%;
+    // position: absolute;
+    top: 0;
+    left: 0;
+    font-weight: 500;
+    font-size: 1.7rem;
+    position: relative;
+    z-index: 10;
+    border-radius: $radius-md;
+    padding: 0 1rem;
+
+    &::placeholder {
+      color: var(--text-dull);
+    }
+
+    &:focus {
+      outline: 0.35rem solid var(--color-primary-light);
+    }
+  }
+}
+
+.dropdown[data-positionel-name='search-products'] {
+  .dropdown-list {
+    border-top: 1px solid var(--text-dull);
+  }
+}

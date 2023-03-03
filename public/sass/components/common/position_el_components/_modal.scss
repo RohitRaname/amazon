@@ -1,0 +1,193 @@
+.modal {
+  .positionel-container {
+    z-index: 300 !important;
+    overflow: hidden;
+  }
+
+  .positionel-content {
+  }
+
+  &-window[data-active='false'] {
+    display: none;
+  }
+
+  .overlay {
+    z-index: 250 !important;
+  }
+
+  &-tabs {
+    position: relative;
+
+    &::before {
+      content: '';
+      display: inline-block;
+      width: 100%;
+      height: 0.2rem;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+
+      background: var(--text-fade);
+      z-index: 1;
+    }
+  }
+
+  &-tab {
+    cursor: pointer;
+  }
+
+  &-header,
+  &-footer {
+    padding: 1.5rem 2rem;
+    padding-bottom: 2rem;
+  }
+
+  // HAVE BUTTON AND TITLE
+  &-header {
+    @include sticky;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+
+    height: 6rem;
+
+    .positionel-closebtn {
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  }
+
+  // FOOLTER USED IN SWITCH CONTENT MODAL(WHERE WE AVE TWO CONTENT SO ONE CONTENT HIDE TO SHOW ANOTHER => STAGES)
+  &-footer {
+    position: relative;
+    min-height: 16rem;
+  }
+
+  &-btns-container {
+    background: var(--background-dark);
+    padding: 2.4rem 2rem;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &-window[data-active='false'] {
+    display: none !important;
+  }
+
+  .modal-error{
+    display: none;
+  }
+
+  &[data-error="true"]{
+
+    .modal-error{
+      display: block;
+      
+    } 
+    
+    .modal-windows{display: none;}
+  }
+
+  // VARIATIONS
+  &[data-modal-type='gallery'] {
+    .modal {
+      &-window {
+        padding: 2rem 3rem;
+        padding-top: 2.5rem;
+        padding-bottom: 6rem;
+        align-self: flex-start;
+      }
+
+ 
+
+      &-gallery {
+        display: grid;
+        grid-template-columns: 6.5fr 3.5fr;
+        gap: 3rem;
+        align-items: start;
+        justify-items: center;
+        height: 50rem;
+        overflow-y: scroll;
+
+        &-change-photo-btns {
+          @include hide;
+          button {
+            position: fixed;
+            top: 50%;
+            transform: translateY(-50%);
+            height: 11rem;
+            width: auto;
+            z-index: 10;
+            background: transparent;
+
+            i {
+              font-size: 10rem;
+              color: rgba(#fff, 0.3);
+            }
+
+            &[data-btn='left'] {
+              left: 0;
+            }
+            &[data-btn='right'] {
+              right: 0;
+            }
+          }
+        }
+
+        &-cur-photo {
+          &-container {
+            height: 45rem;
+            width: 100%;
+          }
+
+          &-box {
+            height: 45rem;
+            position: fixed;
+            transform: translate(0);
+            width: 55%;
+
+            overflow: hidden;
+          }
+
+          & {
+            height: inherit;
+
+            transform: scale(1.3) translateX(10%);
+          }
+        }
+
+        &-cur-photo-box:hover .modal-gallery-change-photo-btns {
+          @include show;
+        }
+      }
+
+      &-gallery-4-6 {
+        grid-template-columns: 4fr 6fr;
+      }
+    }
+  }
+}
+
+// static modal
+.modal[data-static='true'] {
+  .modal-windows {
+    position: relative;
+    min-height: 10rem;
+  }
+
+  &[data-hide-spinner='false'] {
+    .modal-window {
+      display: none;
+    }
+    .spinner {
+      display: block;
+    }
+  }
+  &[data-hide-spinner='true'] {
+    .modal-window {
+      display: block;
+    }
+    .spinner {
+      display: none;
+    }
+  }
+}

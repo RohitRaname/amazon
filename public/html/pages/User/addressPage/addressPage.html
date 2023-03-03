@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="shortcut icon"
+      href="../../img/amazon/favicon.png"
+      type="image/*"
+    />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../../style.css" />
+    <script
+      src="https://kit.fontawesome.com/28cd1ccca7.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script defer type="module" src="../../../script.js"></script>
+  </head>
+  <body data-page="home">
+    <!-- header -->
+    <header class="header sticky-header">
+      <div class="header-content f-sm">
+        <!-- logo -->
+        <div class="header-box">
+          <a href="/" class="logo-box">
+            <img src="../../../img/amazon/logo.png" class="logo" alt="" />
+          </a>
+        </div>
+
+        <!-- delivery location -->
+        <a
+          class="header-box f-lw"
+          data-type="change-delievery-location"
+          data-positionel-btn=""
+          data-positionel-name="choose-user-location"
+        >
+          <i class="fa fa-map-marker"></i>
+          <div>
+            <p class="pt-lw">Deliver to Rohit</p>
+            <h9 class="h-9">Merrut 250001</h9>
+          </div>
+        </a>
+
+        <!-- search form -->
+        <div class="search-form">
+          <div class="search-form-content">
+            <input
+              type="text"
+              class="search-input"
+              data-position-el-btn
+              data-position-el-name="search-products"
+              data-position-el-hover-show="false"
+            />
+
+            <button class="btn-icon" data-action="search">
+              <i class="fa fa-search"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- user language  -->
+        <div
+          class="header-box"
+          data-type="change-user-language"
+          data-position-el-btn
+          data-position-el-hover-show="true"
+          data-position-el-name="choose-language"
+        >
+          <!-- <img src="https://countryflagsapi.com/png/india" alt="" /> -->
+          <h9 class="h-9">EN</h9>
+          <div class="header-language-more-icon-box">
+            <i class="fa fa-caret-down" aria-hidden="true"></i>
+          </div>
+        </div>
+
+        <!-- account and lists -->
+        <a
+          href="/my-accounts"
+          class="header-box"
+          data-type="account_and_lists"
+          data-position-el-btn
+          data-position-el-hover-show="true"
+          data-position-el-name="user-options"
+        >
+          <p class="pt-lw">Hello,mclaren</p>
+          <div class="f-lw f-ac">
+            <p class="h-9 h-0">Account & Lists</p>
+            <i class="fa fa-caret-down"></i>
+          </div>
+        </a>
+
+        <!-- returns and orders -->
+        <a href="/my-orders" class="header-box" data-type="return_and_orders">
+          <p class="pt-lw">Returns</p>
+          <div>
+            <p class="h-9 h-0">& Orders</p>
+          </div>
+        </a>
+
+        <!-- carts -->
+        <a href="/my-cart" class="header-box" data-type="carts">
+          <div class="header-cart-box">
+            <div class="header-cart-icon">
+              <i class="fa fa-cart-plus"></i>
+              <p class="header-cart-qty">9</p>
+            </div>
+            <h class="h-9 h-0">Cart</h>
+          </div>
+        </a>
+
+        <div></div>
+      </div>
+    </header>
+
+    <!-- navigation -->
+    <nav class="nav" data-active="false">
+      <div class="overlay"></div>
+      <div class="nav-list">
+        <div class="list-item nav-my-account f f-sb f-ac">
+          <a
+            href="/my-account"
+            class=""
+            data-link="/my-account"
+            data-hover="false"
+          >
+            <div class="f-lw">
+              <i class="fa fa-user-circle nav-user-icon"></i>
+
+              <h class="h-7 w-700 h-0"> Hello, mclaren </h>
+            </div>
+          </a>
+          <button class="btn-icon" data-action="close-nav">
+            <i class="fa fa-times"></i>
+          </button>
+        </div>
+
+        <!-- trending -->
+        <div class="list">
+          <p class="list-title">Trending</p>
+          <a href="/best-sellers" class="list-item" data-link="/best-sellers">
+            <p>Best sellers</p>
+          </a>
+          <a class="list-item" href="/new-products">
+            <p>New releases</p>
+          </a>
+          <a class="list-item" href="/trending-products">
+            <p>Movers and Shakers</p>
+          </a>
+        </div>
+
+        <div class="line-dim mg-b-lw mg-t-lw"></div>
+
+        <!-- settings -->
+        <div class="list">
+          <p class="list-title">Help & Settings</p>
+          <a class="list-item" href="/my-account">
+            <p>Your Account</p>
+          </a>
+          <a class="list-item" href="/customer-service">
+            <p>Customer Service</p>
+          </a>
+          <a class="list-item" href="/logout">
+            <p>Sign Out</p>
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- shortcut-navigation -->
+    <div class="shortcut-navigation f">
+      <div class="nav-btn-box border f" data-nav-btn>
+        <button class="nav-btn">
+          <p class="nav-btn-line"></p>
+          <p class="nav-btn-line"></p>
+          <p class="nav-btn-line"></p>
+        </button>
+        <h class="h-9 h-0">All</h>
+      </div>
+
+      <a href="/my-cart" class="border">
+        <h class="h-9 h-0"> Buy again </h>
+      </a>
+
+      <a href="/products" class="border">
+        <h class="h-9 h-0"> Heath,Household & Personal Care </h>
+      </a>
+
+      <a href="/my-orders" class="border">
+        <h class="h-9 h-0"> Orders </h>
+      </a>
+    </div>
+
+    <main>
+      <!-- route -->
+
+      <!-- section product -->
+      <section class="section">
+        <div class="address">
+          <div class="address-container container mg-b-sm-all">
+            <!-- route -->
+            <div class="route f-sm f-ab">
+              <a href="/account" class="default-color hover-primary"
+                >Your Account</a
+              >
+              <i class="fa fa-angle-right default-color icon-lw"></i>
+              <p class="primary">Your Addresses</p>
+            </div>
+
+            <h class="h-4 h-l mg-md">Your Addresses</h>
+
+            <!-- address-boxs -->
+            <div class="address-boxs f f-sm">
+              <!-- add-address -->
+              <a href="/address/add" class="address-box address-add-box">
+                <i class="fa fa-plus fade"></i>
+                <h5 class="h-5 light">Add address</h5>
+              </a>
+
+              <!-- already added -->
+              <div class="address-box address-added-box border-box f-col f-as">
+                <h class="h-8" data-name>Rohit</h>
+                <p data-address class="dark">
+                  Hno 68 Gali No.3 nearik Girls Inter College Lala Mohammadpur
+                  Road MEERUT, UTTAR PRADESH 250001 India
+                </p>
+
+                <div class="address-btns f-sm f-ac mg-t">
+                  <button class="btn-inline-span" data-action="edit">
+                    Edit
+                  </button>
+                  <div class="line-v-md"></div>
+                  <button class="btn-inline-span" data-action="remove">
+                    Remove
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!--update existing address form -->
+    <div
+      class="positionel modal"
+      data-positionel-type="modal"
+      data-positionel-name="update-address"
+      data-active="true"
+      data-animation="scale-from-center"
+      data-pointer-position="none"
+      data-position="fixed"
+      data-delay-hide="false"
+      data-show-event="click"
+      data-static="false"
+      data-has-defined-class="true"
+      data-child-positionel="false"
+      data-has-child-positionel="true"
+      data-width="sm"
+      data-form="true"
+      data-hide-form-after-submit="true"
+      data-load-spinner="false"
+      data-hide-spinner="true"
+      data-query="{url:'/users/me?fields='address',method:'get',manual:false}"
+    >
+      <div class="overlay"></div>
+      <div class="positionel-container modal-container container-100">
+        <!-- header-->
+        <header class="modal-header">
+          <p class="s-8">Country Of Residence</p>
+          <button class="btn-icon positionel-closebtn">
+            <i class="fa fa-times" aria-hidden="true"></i>
+          </button>
+        </header>
+        <footer class="modal-footer">
+          <div class="spinner hide"></div>
+          <!-- first-content-->
+          <div class="positionel-content mg-b-sm-all" data-active="true">
+            <form
+              class="form"
+              data-error="false"
+              onsubmit="return false;"
+              data-clear-inputs-when-hide="true"
+              data-data="{}"
+              data-submit-automatic="true"
+              data-url="users/me/address/addressId"
+              data-method="patch"
+              data-input-border="primary"
+              data-input-shadow="none"
+            >
+              <div class="form-container">
+      
+                <div
+                  class="form-group form-dropdown-group"
+                  data-error="false"
+                  data-required="true"
+                  data-field="country"
+                >
+                  <div class="form-group-content">
+                    <!-- content -->
+                    <div
+                      class="form-dropdown-input f-sm"
+                      data-positionel-btn
+                      data-positionel-name="select-address"
+                    >
+                      <p class="form-label">Country:</p>
+
+                      <div class="form-dropdown-arrowbox f-col f-sl">
+                        <i class="fa fa-caret-up"></i>
+                        <i class="fa fa-caret-down"></i>
+                      </div>
+                    </div>
+
+                    <div
+                      class="positionel dropdown"
+                      data-dropdown-type="select-options-dropdown"
+                      data-positionel-name="select-address"
+                      data-positionel-type="dropdown"
+                      data-active="false"
+                      data-position-type="absolute"
+                      data-load-spinner="false"
+                      data-animation="fade"
+                      data-pointer-position="none"
+                      data-position="bottom"
+                      data-delay-hide="false"
+                      data-show-event="click"
+                      data-static="false"
+                      data-has-defined-class="false"
+                      data-child-positionel="true"
+                      data-set-positionbtn-width="true"
+                    >
+                      <div class="overlay overlay-t"></div>
+                      <div class="positionel-container">
+                        <div class="positionel-content">
+                          <!-- list -->
+                          <ul class="list">
+                            <li class="list-item" value="0">Albania</li>
+                            <li class="list-item" value="1">Algeria</li>
+                            <li class="list-item" value="2">American Samoa</li>
+                            <li class="list-item" value="3">Andorra</li>
+                            <li class="list-item" value="4">Angola</li>
+                            <li class="list-item" value="5">Anguilla</li>
+                            <li class="list-item" value="6">Antarctica</li>
+                            <li class="list-item" value="7">
+                              Antigua and Barbuda
+                            </li>
+                            <li class="list-item" value="8">Argentina</li>
+                            <li class="list-item" value="9">Armenia</li>
+                            <li class="list-item" value="10">Aruba</li>
+                            <li class="list-item" value="11">Australia</li>
+                            <li class="list-item" value="12">Austria</li>
+                            <li class="list-item" value="13">Azerbaijan</li>
+                            <li class="list-item" value="14">Bahamas, The</li>
+                            <li class="list-item" value="15">Bahrain</li>
+                            <li class="list-item" value="16">Bangladesh</li>
+                            <li class="list-item" value="17">Barbados</li>
+                            <li class="list-item" value="18">Belarus</li>
+                            <li class="list-item" value="19">Belgium</li>
+                            <li class="list-item" value="20">Belize</li>
+                            <li class="list-item" value="21">Benin</li>
+                            <li class="list-item" value="22">Bermuda</li>
+                            <li class="list-item" value="23">Bhutan</li>
+                            <li class="list-item" value="24">Bolivia</li>
+                            <li class="list-item" value="25">
+                              Bonaire, Saint Eustatius and Saba
+                            </li>
+                            <li class="list-item" value="26">
+                              Bosnia and Herzegovina
+                            </li>
+                            <li class="list-item" value="27">Botswana</li>
+                            <li class="list-item" value="28">Brazil</li>
+                            <li class="list-item" value="29">
+                              British Indian Ocean Territory
+                            </li>
+                            <li class="list-item" value="30">
+                              Brunei Darussalam
+                            </li>
+                            <li class="list-item" value="31">Bulgaria</li>
+                            <li class="list-item" value="32">Burkina Faso</li>
+                            <li class="list-item" value="33">Burundi</li>
+                            <li class="list-item" value="34">Cambodia</li>
+                            <li class="list-item" value="35">Cameroon</li>
+                            <li class="list-item" value="36">Canada</li>
+                            <li class="list-item" value="37">Canary Islands</li>
+                            <li class="list-item" value="38">Cape Verde</li>
+                            <li class="list-item" value="39">Cayman Islands</li>
+                            <li class="list-item" value="40">
+                              Central African Republic
+                            </li>
+                            <li class="list-item" value="41">Chad</li>
+                            <li class="list-item" value="42">Chile</li>
+                            <li class="list-item" value="43">
+                              Christmas Island
+                            </li>
+                            <li class="list-item" value="44">
+                              Cocos (Keeling) Islands
+                            </li>
+                            <li class="list-item" value="45">Colombia</li>
+                            <li class="list-item" value="46">Comoros</li>
+                            <li class="list-item" value="47">Congo</li>
+                            <li class="list-item" value="48">
+                              Congo, Democratic Republic of
+                            </li>
+                            <li class="list-item" value="49">Cook Islands</li>
+                            <li class="list-item" value="50">Costa Rica</li>
+                            <li class="list-item" value="51">Croatia</li>
+                            <li class="list-item" value="52">Curaçao</li>
+                            <li class="list-item" value="53">Cyprus</li>
+                            <li class="list-item" value="54">Czech Republic</li>
+                            <li class="list-item" value="55">Denmark</li>
+                            <li class="list-item" value="56">Djibouti</li>
+                            <li class="list-item" value="57">
+                              Dominica, Commonwealth of
+                            </li>
+                            <li class="list-item" value="58">
+                              Dominican Republic
+                            </li>
+                            <li class="list-item" value="59">East Timor</li>
+                            <li class="list-item" value="60">Ecuador</li>
+                            <li class="list-item" value="61">Egypt</li>
+                            <li class="list-item" value="62">El Salvador</li>
+                            <li class="list-item" value="63">
+                              Equatorial Guinea
+                            </li>
+                            <li class="list-item" value="64">Eritrea</li>
+                            <li class="list-item" value="65">Estonia</li>
+                            <li class="list-item" value="66">Ethiopia</li>
+                            <li class="list-item" value="67">
+                              Falkland Islands
+                            </li>
+                            <li class="list-item" value="68">Faroe Islands</li>
+                            <li class="list-item" value="69">Fiji</li>
+                            <li class="list-item" value="70">Finland</li>
+                            <li class="list-item" value="71">France</li>
+                            <li class="list-item" value="72">French Guiana</li>
+                            <li class="list-item" value="73">
+                              French Polynesia
+                            </li>
+                            <li class="list-item" value="74">
+                              French Southern Territories
+                            </li>
+                            <li class="list-item" value="75">Gabon</li>
+                            <li class="list-item" value="76">Gambia, The</li>
+                            <li class="list-item" value="77">Georgia</li>
+                            <li class="list-item" value="78">Germany</li>
+                            <li class="list-item" value="79">Ghana</li>
+                            <li class="list-item" value="80">Gibraltar</li>
+                            <li class="list-item" value="81">Greece</li>
+                            <li class="list-item" value="82">Greenland</li>
+                            <li class="list-item" value="83">Grenada</li>
+                            <li class="list-item" value="84">Guadeloupe</li>
+                            <li class="list-item" value="85">Guam</li>
+                            <li class="list-item" value="86">Guatemala</li>
+                            <li class="list-item" value="87">Guinea</li>
+                            <li class="list-item" value="88">Guinea-Bissau</li>
+                            <li class="list-item" value="89">Guyana</li>
+                            <li class="list-item" value="90">Haiti</li>
+                            <li class="list-item" value="91">Holy See</li>
+                            <li class="list-item" value="92">Honduras</li>
+                            <li class="list-item" value="93">Hong Kong</li>
+                            <li class="list-item" value="94">Hungary</li>
+                            <li class="list-item" value="95">Iceland</li>
+                            <li
+                              class="list-item"
+                              value="96"
+                              selected="selected"
+                            >
+                              India
+                            </li>
+                            <li class="list-item" value="97">Indonesia</li>
+                            <li class="list-item" value="98">
+                              Ireland, Republic of
+                            </li>
+                            <li class="list-item" value="99">Israel</li>
+                            <li class="list-item" value="100">Italy</li>
+                            <li class="list-item" value="101">
+                              Ivory Coast (Côte D'ivoire)
+                            </li>
+                            <li class="list-item" value="102">Jamaica</li>
+                            <li class="list-item" value="103">Japan</li>
+                            <li class="list-item" value="104">Jordan</li>
+                            <li class="list-item" value="105">Kazakhstan</li>
+                            <li class="list-item" value="106">Kenya</li>
+                            <li class="list-item" value="107">Kiribati</li>
+                            <li class="list-item" value="108">
+                              Korea, Republic of
+                            </li>
+                            <li class="list-item" value="109">Kosovo</li>
+                            <li class="list-item" value="110">Kuwait</li>
+                            <li class="list-item" value="111">Kyrgyzstan</li>
+                            <li class="list-item" value="112">
+                              Lao, People's Democratic Republic
+                            </li>
+                            <li class="list-item" value="113">Latvia</li>
+                            <li class="list-item" value="114">Lebanon</li>
+                            <li class="list-item" value="115">Lesotho</li>
+                            <li class="list-item" value="116">Liberia</li>
+                            <li class="list-item" value="117">Libya</li>
+                            <li class="list-item" value="118">Liechtenstein</li>
+                            <li class="list-item" value="119">Lithuania</li>
+                            <li class="list-item" value="120">Luxembourg</li>
+                            <li class="list-item" value="121">Macao</li>
+                            <li class="list-item" value="122">
+                              Macedonia, The Former Yugoslav Republic of
+                            </li>
+                            <li class="list-item" value="123">Madagascar</li>
+                            <li class="list-item" value="124">Malawi</li>
+                            <li class="list-item" value="125">Malaysia</li>
+                            <li class="list-item" value="126">Maldives</li>
+                            <li class="list-item" value="127">Mali</li>
+                            <li class="list-item" value="128">Malta</li>
+                            <li class="list-item" value="129">
+                              Marshall Islands
+                            </li>
+                            <li class="list-item" value="130">Martinique</li>
+                            <li class="list-item" value="131">Mauritania</li>
+                            <li class="list-item" value="132">Mauritius</li>
+                            <li class="list-item" value="133">Mayotte</li>
+                            <li class="list-item" value="134">Mexico</li>
+                            <li class="list-item" value="135">
+                              Micronesia, Federated States of
+                            </li>
+                            <li class="list-item" value="136">
+                              Moldova, Republic of
+                            </li>
+                            <li class="list-item" value="137">Monaco</li>
+                            <li class="list-item" value="138">Mongolia</li>
+                            <li class="list-item" value="139">Montserrat</li>
+                            <li class="list-item" value="140">Morocco</li>
+                            <li class="list-item" value="141">Mozambique</li>
+                            <li class="list-item" value="142">Myanmar</li>
+                            <li class="list-item" value="143">Namibia</li>
+                            <li class="list-item" value="144">Nauru</li>
+                            <li class="list-item" value="145">Nepal</li>
+                            <li class="list-item" value="146">Netherlands</li>
+                            <li class="list-item" value="147">
+                              Netherlands Antilles
+                            </li>
+                            <li class="list-item" value="148">New Caledonia</li>
+                            <li class="list-item" value="149">New Zealand</li>
+                            <li class="list-item" value="150">Nicaragua</li>
+                            <li class="list-item" value="151">Niger</li>
+                            <li class="list-item" value="152">Nigeria</li>
+                            <li class="list-item" value="153">Niue</li>
+                            <li class="list-item" value="154">
+                              Norfolk Island
+                            </li>
+                            <li class="list-item" value="155">
+                              Northern Mariana Islands
+                            </li>
+                            <li class="list-item" value="156">Norway</li>
+                            <li class="list-item" value="157">Oman</li>
+                            <li class="list-item" value="158">Pakistan</li>
+                            <li class="list-item" value="159">Palau</li>
+                            <li class="list-item" value="160">Panama</li>
+                            <li class="list-item" value="161">
+                              Papua New Guinea
+                            </li>
+                            <li class="list-item" value="162">Paraguay</li>
+                            <li class="list-item" value="163">Peru</li>
+                            <li class="list-item" value="164">Philippines</li>
+                            <li class="list-item" value="165">Poland</li>
+                            <li class="list-item" value="166">Portugal</li>
+                            <li class="list-item" value="167">Puerto Rico</li>
+                            <li class="list-item" value="168">Qatar</li>
+                            <li class="list-item" value="169">Reunion</li>
+                            <li class="list-item" value="170">Romania</li>
+                            <li class="list-item" value="171">
+                              Russian Federation
+                            </li>
+                            <li class="list-item" value="172">Rwanda</li>
+                            <li class="list-item" value="173">
+                              Saint Kitts and Nevis
+                            </li>
+                            <li class="list-item" value="174">Saint Lucia</li>
+                            <li class="list-item" value="175">
+                              Saint Pierre and Miquelon
+                            </li>
+                            <li class="list-item" value="176">
+                              Saint Vincent and the Grenadines
+                            </li>
+                            <li class="list-item" value="177">Samoa</li>
+                            <li class="list-item" value="178">San Marino</li>
+                            <li class="list-item" value="179">
+                              Sao Tome and Principe
+                            </li>
+                            <li class="list-item" value="180">Saudi Arabia</li>
+                            <li class="list-item" value="181">Senegal</li>
+                            <li class="list-item" value="182">
+                              Serbia and Montenegro
+                            </li>
+                            <li class="list-item" value="183">Seychelles</li>
+                            <li class="list-item" value="184">Sierra Leone</li>
+                            <li class="list-item" value="185">Singapore</li>
+                            <li class="list-item" value="186">Sint Maarten</li>
+                            <li class="list-item" value="187">Slovakia</li>
+                            <li class="list-item" value="188">Slovenia</li>
+                            <li class="list-item" value="189">
+                              Solomon Islands
+                            </li>
+                            <li class="list-item" value="190">Somalia</li>
+                            <li class="list-item" value="191">South Africa</li>
+                            <li class="list-item" value="192">
+                              South Georgia and the South Sandwich Islands
+                            </li>
+                            <li class="list-item" value="193">South Sudan</li>
+                            <li class="list-item" value="194">Spain</li>
+                            <li class="list-item" value="195">Sri Lanka</li>
+                            <li class="list-item" value="196">Suriname</li>
+                            <li class="list-item" value="197">
+                              Svalbard and Jan Mayen
+                            </li>
+                            <li class="list-item" value="198">Swaziland</li>
+                            <li class="list-item" value="199">Sweden</li>
+                            <li class="list-item" value="200">Switzerland</li>
+                            <li class="list-item" value="201">Taiwan</li>
+                            <li class="list-item" value="202">Tajikistan</li>
+                            <li class="list-item" value="203">
+                              Tanzania, United Republic of
+                            </li>
+                            <li class="list-item" value="204">Thailand</li>
+                            <li class="list-item" value="205">Togo</li>
+                            <li class="list-item" value="206">Tonga</li>
+                            <li class="list-item" value="207">
+                              Trinidad and Tobago
+                            </li>
+                            <li class="list-item" value="208">Tunisia</li>
+                            <li class="list-item" value="209">Turkey</li>
+                            <li class="list-item" value="210">Turkmenistan</li>
+                            <li class="list-item" value="211">
+                              Turks and Caicos Islands
+                            </li>
+                            <li class="list-item" value="212">Tuvalu</li>
+                            <li class="list-item" value="213">Uganda</li>
+                            <li class="list-item" value="214">Ukraine</li>
+                            <li class="list-item" value="215">
+                              United Arab Emirates
+                            </li>
+                            <li class="list-item" value="216">
+                              United Kingdom
+                            </li>
+                            <li class="list-item" value="217">United States</li>
+                            <li class="list-item" value="218">
+                              United States Minor Outlying Islands
+                            </li>
+                            <li class="list-item" value="219">Uruguay</li>
+                            <li class="list-item" value="220">Uzbekistan</li>
+                            <li class="list-item" value="221">Vanuatu</li>
+                            <li class="list-item" value="222">Venezuela</li>
+                            <li class="list-item" value="223">Vietnam</li>
+                            <li class="list-item" value="224">
+                              Virgin Islands, British
+                            </li>
+                            <li class="list-item" value="225">
+                              Virgin Islands, US
+                            </li>
+                            <li class="list-item" value="226">
+                              Wallis and Futuna
+                            </li>
+                            <li class="list-item" value="227">
+                              Western Sahara
+                            </li>
+                            <li class="list-item" value="228">Yemen</li>
+                            <li class="list-item" value="229">Zambia</li>
+                            <li class="list-item" value="230">Zimbabwe</li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- input -->
+
+                  <div class="form-inputs">
+                    <input
+                      type="text"
+                      maxlength="5"
+                      name="country"
+                      data-input=""
+                      class="hidden"
+                    />
+                  </div>
+
+                  <div class="form-error">
+                    <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
+                    <p>district is required</p>
+                  </div>
+                </div>
+
+                <div class="form-address mg-b-sl-all">
+                  <h class="h-9">Address</h>
+                  <!-- district -->
+                  <div
+                    class="form-group"
+                    data-error="false"
+                    data-required="true"
+                  >
+                    <input
+                      type="text"
+                      maxlength="5"
+                      name="district"
+                      placeholder="District:"
+                      data-input=""
+                    />
+                    <div class="form-error">
+                      <i
+                        class="fa fa-exclamation-circle"
+                        aria-hidden="true"
+                      ></i>
+                      <p>district is required</p>
+                    </div>
+                  </div>
+
+                  <!-- state -->
+                  <div
+                    class="form-group"
+                    data-error="false"
+                    data-required="true"
+                  >
+                    <input
+                      type="text"
+                      maxlength="5"
+                      name="state"
+                      placeholder="State:"
+                      data-input=""
+                    />
+                    <div class="form-error">
+                      <i
+                        class="fa fa-exclamation-circle"
+                        aria-hidden="true"
+                      ></i>
+                      <p>state is required</p>
+                    </div>
+                  </div>
+
+                  <!-- zipcode -->
+                  <div
+                    class="form-group"
+                    data-error="false"
+                    data-required="true"
+                  >
+                    <input
+                      type="text"
+                      maxlength="5"
+                      name="zipcode"
+                      placeholder="Zipcode:"
+                      data-input=""
+                    />
+                    <div class="form-error">
+                      <i
+                        class="fa fa-exclamation-circle"
+                        aria-hidden="true"
+                      ></i>
+                      <p>zipcode is required</p>
+                    </div>
+                  </div>
+                  <!-- zipcode -->
+                  <div
+                    class="form-group form-dropdown-group"
+                    data-error="false"
+                    data-required="true"
+                  >
+                    <div class="form-error">
+                      <i
+                        class="fa fa-exclamation-circle"
+                        aria-hidden="true"
+                      ></i>
+                      <p>zipcode is required</p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- modal-btns-->
+                <div class="form-btns">
+                  <button class="btn-outline btn-md" data-action="cancel">
+                    Cancel
+                  </button>
+                  <button class="btn-primary-light btn-md" data-action="submit">
+                    Update
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </footer>
+      </div>
+    </div>
+
+    <footer class="footer hidden">
+      <div class="footer-container">
+        <div class="footer-navigation">
+          <div class="footer-navigation-content container-60 mg-c f f-sb">
+            <div class="footer-list">
+              <h class="h-8 mg-b-sm">Get to Know Us</h>
+              <p class="t-sm mg-b-lw">About Us</p>
+              <p class="t-sm mg-b-lw">Careers</p>
+              <p class="t-sm mg-b-lw">Press Releases</p>
+              <p class="t-sm mg-b-lw">Amazon Science</p>
+            </div>
+            <div class="footer-list">
+              <h class="h-8 mg-b-sm">Connect with Us</h>
+              <p class="t-sm mg-b-lw">About Us</p>
+              <p class="t-sm mg-b-lw">Careers</p>
+              <p class="t-sm mg-b-lw">Press Releases</p>
+              <p class="t-sm mg-b-lw">Amazon Science</p>
+            </div>
+            <div class="footer-list">
+              <h class="h-8 mg-b-sm">Let Us Help You</h>
+              <p class="t-sm mg-b-lw">COVID-19 and Amazon</p>
+              <p class="t-sm mg-b-lw">Returns Centre</p>
+              <p class="t-sm mg-b-lw">100% Purchase Protection</p>
+              <p class="t-sm mg-b-lw">Amazon Science</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="copyright">
+          <div class="copyright-container container-60 mg-c">
+            <p class="pt-lw">Conditions of Use & Sale</p>
+            <p class="pt-lw">Privacy Notice</p>
+            <p class="pt-lw">Interest Based Ads</p>
+            <p class="pt-lw">1996-2022,Amazon.com, Inc or its affliates</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

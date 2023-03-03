@@ -1,0 +1,91 @@
+<div
+  class="positionel modal"
+  data-positionel-type="modal"
+  data-positionel-name="choose-user-location"
+  data-active="true"
+  data-animation="scale-from-center"
+  data-pointer-position="none"
+  data-position="fixed"
+  data-delay-hide="false"
+  data-show-event="click"
+  data-static="false"
+  data-has-defined-class="true"
+  data-child-positionel="false"
+  data-has-child-positionel="true"
+  data-width="sm"
+  data-form="true"
+  data-hide-form-after-submit="true"
+  data-load-spinner="true"
+  data-hide-spinner="true"
+  data-query='{"url":"users/me?fields=address","method":"get","manual":false}'
+>
+  <div class="overlay"></div>
+  <div class="positionel-container modal-container container-100">
+    <!-- header-->
+    <header class="modal-header">
+      <p class="s-8">Choose your location</p>
+      <button class="btn-icon positionel-closebtn">
+        <i class="fa fa-times" aria-hidden="true"></i>
+      </button>
+    </header>
+    <footer class="modal-footer">
+      <div class="spinner hide"></div>
+      <!-- first-content-->
+      <div class="positionel-content mg-b-sm-all" data-active="true">
+        <p class="t-sm">
+          Select a delivery location to see product availability and delivery
+          options
+        </p>
+
+        <!-- address -->
+        <div class="border-box-primary modal-location-box">
+          <span class="model-location-username w-600">Rohit</span>
+          <span class="mg-bg-lw data-value"
+            >Rohit Hno 68 Gali No.3 nearik Girls Inter College Lala Mohammadpur
+            Road, MEERUT UTTAR PRADESH 250001</span
+          >
+        </div>
+
+        <a class="btn-inline-span" href="/account/address">
+          Add an address or pick-up point
+        </a>
+
+        <div class="dash-box f-size-lw">
+          <p>or enter an Indian pincode</p>
+        </div>
+
+        <form
+          class="form f-sm f-as"
+          data-error="false"
+          onsubmit="return false;"
+          data-clear-inputs-when-hide="true"
+          data-data="{}"
+          data-submit-automatic="true"
+          data-url="users/me"
+          data-method="patch"
+        >
+          <div
+            class="form-group f-flex-1"
+            data-error="false"
+            data-required="true"
+          >
+            <input
+              type="text"
+              maxlength="5"
+              name="address.zipcode"
+              data-manually-check="true"
+              data-input=""
+            />
+            <div class="form-error">
+              <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
+              <p>Please enter a valid pincode</p>
+            </div>
+          </div>
+
+          <!-- modal-btns-->
+          <button class="btn-outline btn-md" data-action="submit">Apply</button>
+        </form>
+      </div>
+    </footer>
+  </div>
+</div>

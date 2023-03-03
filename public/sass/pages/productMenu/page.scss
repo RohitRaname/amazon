@@ -1,0 +1,130 @@
+.productMenu {
+  &-summary {
+    grid-column: 1/-1;
+    padding: 1rem;
+  }
+  &-content {
+    display: grid;
+    grid-template-columns: 28rem 1fr;
+
+    & > * {
+      padding: 2rem 1rem;
+    }
+  }
+
+  // 1 col
+  &-filter {
+    &-container {
+      width: 20rem;
+    }
+
+    input {
+      width: 7rem;
+    }
+
+    li[data-filter] {
+      display: inline-flex !important;
+    }
+  }
+
+  &-filter-by-color {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 2.6rem);
+    justify-content: start;
+
+    button {
+      height: 2.2rem;
+      width: 2.5rem;
+      overflow: hidden;
+      border-radius: $radius-sm !important;
+    }
+  }
+
+  // 2nd col
+
+  &-item {
+    border: 1px solid rgba(var(--text-v), 0.03);
+    border-radius: $radius-lw;
+    overflow: hidden;
+
+    &-details {
+      padding: 1.3rem 0.8rem;
+    }
+
+    &-variants {
+      gap: 1.2rem;
+      margin-left: 0.27rem;
+    }
+    &-variant-color {
+      height: 1.9rem;
+      width: 1.9rem;
+      border-radius: 50%;
+      cursor: pointer;
+      background: orangered;
+      outline: 0.6px solid transparent;
+      outline-offset: 0.27rem;
+      transition: all 0.15s;
+
+      &:hover {
+        outline-color: var(--text-dim);
+      }
+
+      &[data-active='true'] {
+        outline-color: #000;
+      }
+    }
+
+    &-more-details {
+      margin-top: -1.2rem;
+    }
+  }
+
+  &-items-modal {
+    .modal-page-btns {
+      display: inline-flex !important;
+      box-shadow: 0 0.15rem 0.15rem rgba(var(--text-v), 0.07);
+      border-radius: $radius-md;
+      border: var(--border-line-light);
+      border-width: 1.3px;
+
+      .line-v {
+        background: var(--background-dark);
+        height: 3rem;
+        margin: auto 0;
+      }
+
+      button[data-page-number-btn] {
+        border-right: unset;
+        border-left: unset;
+      }
+
+      button {
+        border-color: var(--text-fade);
+        border: none;
+        border-radius: unset;
+        padding: 1.5rem 2.4rem;
+        transition: all 0.15s;
+
+        &:hover {
+          background: var(--background-dark);
+        }
+
+        &[data-active='true'] {
+          border: 1px solid #000;
+        }
+
+        &[data-page-number-btn][data-active='true']:hover {
+          background: transparent;
+        }
+      }
+      button[data-action='next'],
+      button[data-action='prev'] {
+        border: unset;
+
+        &[data-active='false']:hover {
+          background: transparent;
+        }
+      }
+    }
+  }
+}

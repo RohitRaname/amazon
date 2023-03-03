@@ -1,0 +1,36 @@
+.userProfile {
+  &-cover-pic {
+    height: 35rem;
+    width: 100%;
+    background: var(--background-dim);
+
+    img {
+      object-fit: cover;
+      object-position: top;
+      height: 100%;
+      width: 100%;
+    }
+  }
+
+  &-pic {
+    img {
+      transform: translateY(-6rem);
+      border: 0.6rem solid var(--default-background);
+      height: 25rem;
+      width: 25rem;
+      overflow: hidden;
+      object-fit: cover;
+    }
+  }
+
+  &-container {
+    display: grid;
+    grid-template-columns: 36rem 1fr;
+    gap: 1.4rem;
+  }
+
+  &-following-userPic {
+    height: 5rem;
+    width: 5rem;
+  }
+}

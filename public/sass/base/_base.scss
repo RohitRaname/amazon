@@ -1,0 +1,77 @@
+*,
+*::after,
+*::before {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+}
+
+*::selection {
+  background: var(--color-primary);
+  color: #fff;
+}
+
+// *:focus {
+//   outline: none;
+//   box-shadow: 0 0 0 0.6rem $color-primary;
+// }
+
+html {
+  // font-size: 62.25%;
+  font-size: 56.25%;
+  scroll-behavior: smooth;
+  box-sizing: border-box;
+
+  ::-webkit-scrollbar {
+    width: 0.8rem;
+  }
+
+  /* Track */
+  ::-webkit-scrollbar-track {
+    border-radius: 10px;
+  }
+
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: var(--text-dim);
+    border-radius: 10rem;
+  }
+
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+  }
+  // overflow-y: hidden;
+
+  // @include respond(big-desktop) {
+  //   font-size: 75%;
+  // }
+
+  @include respond(tab-land) {
+    font-size: 56.25%;
+  }
+  @include respond(tab-port) {
+    font-size: 55%;
+  }
+  @include respond(phone) {
+    font-size: 50%;
+  }
+}
+
+body {
+  overflow-x: hidden;
+  // overflow-y: hidden;
+  // scroll-behavior:;
+  // background: var(--default-background);/
+  // min-height: 100vh;
+  // height: 100%;
+  // width: 100vw;
+  font-size: $font-size-md;
+  background: var(--background-light);
+
+  // background: var(--default-background);
+  // background: var(--default-background);
+
+  // every element remove scrollbar
+}

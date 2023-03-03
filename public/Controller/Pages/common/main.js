@@ -1,0 +1,6 @@
+import "./common_page_controller.js"
+import "./search_controller.js"
+import "./nonUserComponentChecker.js"
+import "./rowColumnController.js"
+import "./manualLinkController.js"
+import "./slideComponentController.js"

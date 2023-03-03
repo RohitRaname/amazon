@@ -1,0 +1,50 @@
+.history-show-options-btn {
+  &[data-active='true'] {
+    i {
+      transform: rotate(180deg);
+    }
+  }
+}
+
+.history-on-off-btn {
+  height: 2.3rem;
+  width: 3.6rem;
+  background: transparent;
+
+  position: relative;
+  border: var(--border-line-dark);
+  border-radius: $radius-lw;
+  cursor: pointer;
+
+  box-shadow: inset 0.2rem 0.2rem 0.2rem rgba(var(--text-v), 0.1);
+
+  &::before {
+    content: '';
+    position: absolute;
+    height: 2.3rem;
+    border: var(--border-line-dark);
+    border-bottom: unset;
+    width: 2.4rem;
+    bottom: 0;
+    box-shadow: inset 0.2rem 0.2rem 0.2rem rgba(var(--text-v), 0.1);
+    border-radius: inherit;
+    background: var(--background-dark);
+  }
+
+  &[data-active='true'] {
+    border-right: unset;
+    &::before {
+      right: 0;
+      background: var(--color-secondary-light);
+      transition: all 0.5s ease-in;
+    }
+  }
+  &[data-active='false'] {
+    border-left: unset;
+
+    &::before {
+      left: 0;
+      transition: all 0.5s ease-in;
+    }
+  }
+}

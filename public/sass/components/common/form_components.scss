@@ -1,0 +1,185 @@
+.checkbox {
+  height: 1.5rem;
+  width: 1.5rem;
+  border-radius: 50%;
+
+  background: var(--default-background);
+  border: 1px solid var(--text-dull);
+  @include f-center;
+
+  &::before {
+    content: '';
+    height: 60%;
+    width: 60%;
+    display: inline-block;
+    background: transparent;
+    transition: all 0.2s;
+    border-radius: inherit;
+  }
+
+  // default-> circle filled inside
+  &[data-active='true'],
+  &:hover {
+    &[data-circle-at-center='true']::before {
+      background: var(--color-primary);
+    }
+  }
+  // circle at border small width
+  &[data-active='true'] {
+    &[data-circle-at-center='false'] {
+      height: 1.8rem;
+      width: 1.8rem;
+      border: 0.5rem solid var(--color-secondary);
+    }
+  }
+}
+
+textarea {
+  resize: vertical;
+}
+
+input,
+textarea {
+  display: inline-block;
+  padding: 0.6rem 1rem;
+  border: var(--border-line-dark);
+  width: 100%;
+
+  font-size: $default-font-size;
+  ::placeholder {
+    color: var(--text-light);
+  }
+  border-radius: $radius-sm;
+  font-weight: 500;
+  color: var(--text-dark);
+  &:focus {
+    outline: none;
+
+    background: var(--color-secondary-fade-light);
+    box-shadow: 0 0 0.25rem 0.25rem rgba(var(--color-secondary-v), 0.3);
+  }
+
+  &[data-border='primary']:focus {
+    outline: none;
+
+    border: var(--border-line-primary);
+    background: var(--color-primary-fade-light);
+    box-shadow: 0 0 0.25rem 0.25rem rgba(var(--color-primary-v), 0.5);
+  }
+
+  &[data-border='secondary']:focus {
+    outline: none;
+
+    border: var(--border-line-secondary);
+    background: var(--color-secondary-fade-light);
+    box-shadow: 0 0 0.25rem 0.25rem rgba(var(--color-secondary-v), 0.5);
+  }
+}
+
+.common-search-input {
+  position: relative;
+  border-radius: $radius-sm;
+
+  i {
+    color: var(--defalut-text);
+    position: absolute;
+    top: 50%;
+    left: 1rem;
+    transform: translateY(-50%);
+    font-size: $font-size-sm;
+  }
+
+  input {
+    padding: 0.8rem 2rem;
+    padding-left: 3.7rem;
+  }
+}
+
+.spinner {
+  height: 4rem;
+  width: 4rem;
+  // border-radius: 50%;
+  @include abs-center;
+  z-index: 400;
+  // border: 0.3rem solid var(--text-fade);
+  border-radius: 50%;
+  display: block;
+
+  border: 0.4rem solid rgba(var(--text-v), 0.2);
+
+  border-top: 0.4rem solid rgba(var(--text-v), 0);
+  border-right: 0.4rem solid rgba(var(--text-v), 0.14);
+
+  animation: rotate 0.6s linear infinite;
+
+  &-sm,
+  &-md,
+  &-bg {
+    @extend .spinner;
+  }
+
+  &-sm{
+    height: 2rem;
+    width: 2rem;
+    border: 0.25rem solid rgba(var(--text-v), 0.35);
+
+    border-top: 0.25rem solid rgba(var(--text-v), 0);
+    border-right: 0.25rem solid rgba(var(--text-v), 0.14);
+  }
+
+  &-md {
+    height: 4.4rem;
+    width: 4.4rem;
+    border: 0.55rem solid rgba(var(--text-v), 0.35);
+
+    border-top: 0.55rem solid rgba(var(--text-v), 0);
+    border-right: 0.55rem solid rgba(var(--text-v), 0.14);
+  }
+  &-bg {
+    height: 7rem;
+    width: 7rem;
+    border: 0.8rem solid rgba(var(--text-v), 0.35);
+
+    border-top: 0.8rem solid rgba(var(--text-v), 0);
+    border-right: 0.8rem solid rgba(var(--text-v), 0.14);
+  }
+}
+
+.progressbar {
+  height: 2rem;
+  max-width: 20rem;
+  width: 100%;
+  border-radius: $radius-md;
+  overflow: hidden;
+  border: var(--border-line);
+  position: relative;
+
+  background: var(--background-light);
+
+  &-track-line {
+    position: absolute;
+    display: inline-block;
+    height: 100%;
+    width: 80%;
+    background: var(--color-primary);
+  }
+
+  &:hover {
+    border: var(--border-line-primary);
+    background: var(--color-primary-fade);
+  }
+}
+
+.closebtn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  height: 4rem;
+  width: 4rem;
+  cursor: pointer;
+
+  i {
+    font-size: $font-size-md;
+    color: var(--default-text);
+  }
+}

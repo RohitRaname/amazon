@@ -1,0 +1,22 @@
+.address-boxs {
+  & > * {
+    width: 35rem;
+    height: 28rem;
+    border-radius: $radius-bg;
+  }
+
+  .address-add-box {
+    border: 2px dashed var(--text-dim);
+    @include f-center;
+    flex-direction: column;
+    gap: .7rem;
+
+    i {
+      font-size: 4rem;
+    }
+  }
+  .address-added-box {
+    border: 1px solid var(--text-dim);
+    border-bottom: 0.4rem solid var(--text-dull);
+  }
+}

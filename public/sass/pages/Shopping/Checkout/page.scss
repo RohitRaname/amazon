@@ -1,0 +1,14 @@
+.section-checkout {
+  .checkout {
+    &-step-window {
+      overflow-y: hidden;
+      transform-origin: top;
+    }
+
+    &-container {
+      display: grid;
+      grid-template-columns: minmax(70rem, 1fr) minmax(30rem,35rem);
+      gap: $gap-md;
+    }
+  }
+}

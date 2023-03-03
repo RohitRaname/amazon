@@ -1,0 +1,3232 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="shortcut icon"
+      href="../../img/amazon/favicon.png"
+      type="image/*"
+    />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link rel="stylesheet" href="../../../style.css" />
+    <script
+      src="https://kit.fontawesome.com/28cd1ccca7.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script defer type="module" src="../../../script.js"></script>
+  </head>
+
+  <!-- positionel will be of two types -->
+  <!-- 1.one need it own class for render different content(query from db) and slightly different position -->
+  <!-- 2.dont need class non-important details like tooltip -->
+
+  <body data-page="product">
+    <!-- header -->
+    <header class="header">
+      <div class="header-content f-sm">
+        <!-- logo -->
+        <div class="header-box">
+          <a href="/" class="logo-box">
+            <img src="../../img/amazon/logo.png" class="logo" alt="" />
+          </a>
+        </div>
+
+        <!-- delivery location -->
+        <a
+          class="header-box f-lw"
+          href="customer/change-delievery-location"
+          data-type="change-delievery-location"
+        >
+          <i class="fa fa-map-marker"></i>
+          <div>
+            <p class="pt-lw">Deliver to Rohit</p>
+            <h9 class="h-9">Merrut 250001</h9>
+          </div>
+        </a>
+
+        <!-- search form -->
+        <div class="search-form">
+          <div class="search-form-content">
+            <input
+              type="text"
+              class="search-input"
+              data-positionel-btn
+              data-positionel-name="search-products"
+            />
+
+            <button class="btn-icon" data-action="search">
+              <i class="fa fa-search"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- user language  -->
+        <div
+          class="header-box"
+          data-type="change-user-language"
+          data-positionel-btn
+          data-positionel-name="choose-language"
+        >
+          <!-- <img src="https://countryflagsapi.com/png/india" alt="" /> -->
+          <h9 class="h-9">EN</h9>
+          <div class="header-language-more-icon-box">
+            <i
+              class="fa fa-caret-down"
+              data-positionel-marker
+              aria-hidden="true"
+            ></i>
+          </div>
+        </div>
+
+        <!-- account and lists -->
+        <a
+          href="/my-accounts"
+          class="header-box"
+          data-type="account_and_lists"
+          data-positionel-btn
+          data-positionel-name="user-options"
+        >
+          <p class="pt-lw">Hello,mclaren</p>
+          <div class="f-lw f-ac">
+            <p class="h-9 h-0">Account & Lists</p>
+            <i class="fa fa-caret-down" data-positionel-marker></i>
+          </div>
+        </a>
+
+        <!-- returns and orders -->
+        <a href="/my-orders" class="header-box" data-type="return_and_orders">
+          <p class="pt-lw">Returns</p>
+          <div>
+            <p class="h-9 h-0">& Orders</p>
+          </div>
+        </a>
+
+        <!-- carts -->
+        <a href="/my-cart" class="header-box" data-type="carts">
+          <div class="header-cart-box">
+            <div class="header-cart-icon">
+              <i class="fa fa-cart-plus"></i>
+              <p class="header-cart-qty">9</p>
+            </div>
+            <h class="h-9 h-0">Cart</h>
+          </div>
+        </a>
+
+        <div></div>
+      </div>
+    </header>
+
+    <!-- navigation -->
+    <nav class="nav" data-active="false">
+      <div class="overlay"></div>
+      <div class="nav-list">
+        <div class="list-item nav-my-account f f-sb f-ac">
+          <a
+            href="/my-account"
+            class=""
+            data-link="/my-account"
+            data-hover="false"
+          >
+            <div class="f-lw">
+              <i class="fa fa-user-circle nav-user-icon"></i>
+
+              <h class="h-7 w-700 h-0"> Hello, mclaren </h>
+            </div>
+          </a>
+          <button class="btn-icon" data-action="close-nav">
+            <i class="fa fa-times"></i>
+          </button>
+        </div>
+
+        <!-- trending -->
+        <div class="list">
+          <p class="list-title">Trending</p>
+          <a href="/best-sellers" class="list-item" data-link="/best-sellers">
+            <p>Best sellers</p>
+          </a>
+          <a class="list-item" href="/new-products">
+            <p>New releases</p>
+          </a>
+          <a class="list-item" href="/trending-products">
+            <p>Movers and Shakers</p>
+          </a>
+        </div>
+
+        <div class="line mg-b-lw mg-t-lw"></div>
+
+        <!-- settings -->
+        <div class="list">
+          <p class="list-title">Help & Settings</p>
+          <a class="list-item" href="/my-account">
+            <p>Your Account</p>
+          </a>
+          <a class="list-item" href="/customer-service">
+            <p>Customer Service</p>
+          </a>
+          <a class="list-item" href="/logout">
+            <p>Sign Out</p>
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- shortcut-navigation -->
+
+    <div class="shortcut-navigation f">
+      <div class="nav-btn-box border f" data-nav-btn>
+        <button class="nav-btn">
+          <p class="nav-btn-line"></p>
+          <p class="nav-btn-line"></p>
+          <p class="nav-btn-line"></p>
+        </button>
+        <h class="h-9 h-0">All</h>
+      </div>
+
+      <a href="/my-cart" class="border">
+        <h class="h-9 h-0"> Buy again </h>
+      </a>
+
+      <a href="/products" class="border">
+        <h class="h-9 h-0"> Heath,Household & Personal Care </h>
+      </a>
+
+      <a href="/my-orders" class="border">
+        <h class="h-9 h-0"> Orders </h>
+      </a>
+    </div>
+    <main>
+      <!-- section product -->
+      <section class="section-product">
+        <!-- <div class="spinner hide"></div> -->
+        <div class="product">
+          <div class="product-container  container">
+            <!-- hero section  -->
+            <div class="product-hero mg-b-10">
+              <!-- product imgs -->
+              <div class="product-imgs f-col f-sl">
+                <div class="product-img-box" data-active="true">
+                  <img src="../../img/products/1.jpg" alt="" />
+                </div>
+                <div class="product-img-box" data-active="false">
+                  <img src="../../img/products/2.jpg" alt="" />
+                </div>
+                <div class="product-img-box" data-active="false">
+                  <img src="../../img/products/3.jpg" alt="" />
+                </div>
+                <div class="product-img-box" data-active="false">
+                  <img src="../../img/products/4.jpg" alt="" />
+                </div>
+                <div class="product-img-box" data-active="false">
+                  <img src="../../img/products/5.jpg" alt="" />
+                </div>
+              </div>
+
+              <!-- cur product img -->
+              <div
+                class="product-cur-img-box pointer"
+                data-positionel-btn
+                data-positionel-name="product-overview-imgs"
+              >
+                <img src="../../img/products/1.jpg" alt="" />
+              </div>
+
+              <!-- product details  -->
+              <div class="product-details">
+                <h6 class="h-5 h-m mg-b-lw product-name">
+                  Apple Iphone 13 Pro(256GB) - Sierra Blue
+                </h6>
+
+                <!-- ratings icon | ratings-count | asked-ques-count -->
+                <div class="product-rating-box grid-f mg-b-sl">
+                  <div
+                    class="f-sl pointer z-45"
+                    data-positionel-btn
+                    data-positionel-name="product-ratings-overview"
+                  >
+                    <div class="product-rating-icons f-sl">
+                      <i class="fa fa-star"></i>
+                      <i class="fa fa-star"></i>
+                      <i class="fa fa-star"></i>
+                      <i class="fa fa-star"></i>
+                      <i class="fa fa-star"></i>
+                    </div>
+
+                    <i class="fa fa-angle-down product-rating-arrow"></i>
+                  </div>
+
+                  <a class="product-rating blue hover-primary" href="#rating"
+                    >1,655 ratings</a
+                  >
+
+                  <p>|</p>
+                  <div class="f-sm">
+                    <a
+                      class="product-question-asked blue hover-primary"
+                      href="#Q&A"
+                    >
+                      201 answered questions
+                    </a>
+                  </div>
+                </div>
+
+                <div class="line mg-b-sm"></div>
+
+                <!-- price -->
+                <div class="product-price-box mg-b-sl">
+                  <div class="f-sm">
+                    <span
+                      class="product-price-discount h-4 h-0 w-200 primary trans-sl"
+                      >-9%</span
+                    >
+                    <p class="product-price-current f f-as">
+                      <span> $ </span>
+                      <span class="h-4 h-m h-0 trans-sl inline">900</span>
+                    </p>
+                  </div>
+                  <h6 class="t-sm product-price-previous">
+                    M.R.P: <span class="cut-line">$950</span>
+                  </h6>
+                </div>
+
+                <!-- return policy tooltip -->
+                <div>
+                  <button
+                    class="btn-inline f-sm f-size-sm"
+                    data-positionel-btn
+                    data-positionel-name="return-policy-tooltip"
+                  >
+                    <p class="">Replacement Policy</p>
+                    <i class="fa fa-angle-down"></i>
+                  </button>
+
+                  <div
+                    class="tooltip positionel"
+                    data-positionel-type="tooltip"
+                    data-positionel-name="return-policy-tooltip"
+                    data-active="false"
+                    data-pointer-position="center"
+                    data-position="bottom"
+                    data-animation="fade"
+                    data-show-event="mouseover"
+                    data-delay-hide="false"
+                    data-load-spinner="false"
+                    data-static="false"
+                    data-has-defined-class="false"
+                    data-child-positionel="false"
+                  >
+                    <div class="positionel-container">
+                      <!-- trigger btn-> when click hide content will show -->
+                      <div class="positionel-square"></div>
+
+                      <!-- hide content -->
+                      <div class="positionel-content">
+                        <p class="pt-sm">
+                          This item can't be returned to Amazon, if the item is
+                          "No longer needed". For device related issues, please
+                          contact the brand directly for resolution.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- size  box-->
+                <div class="product-size-box mg-b-sm">
+                  <p class="product-size-text t-md mg-b-sl">
+                    Size name: <h class="h-9 inline letter-s"> 256 GB</h>
+                  </p>
+
+                  <div
+                    class="product-size-options f-sm"
+                    data-product-variant-options
+                  >
+                    <div class="box" data-active="false">1TB</div>
+                    <div class="box" data-active="false">128GB</div>
+                    <div class="box" data-active="false">256GB</div>
+                    <div class="box" data-active="false">512GB</div>
+                  </div>
+                </div>
+
+                <!-- color box  -->
+                <div class="product-color-box mg-b-sm">
+                  <p class="product-color-text t-md mg-b-sl">
+                    Colour: <h class="h-9 inline letter-s"> Sierra Blue</h>
+                  </p>
+
+                  <div
+                    class="product-color-options f-sm"
+                    data-product-variant-options
+                  >
+                    <div class="box" data-active="false" data-img>
+                      <img src="../../img/products/1.jpg" alt="" />
+                    </div>
+                    <div class="box" data-img data-active="false">
+                      <img src="../../img/products/1.jpg" alt="" />
+                    </div>
+                    <div class="box" data-img data-active="false">
+                      <img src="../../img/products/1.jpg" alt="" />
+                    </div>
+                    <div class="box" data-img data-active="false">
+                      <img src="../../img/products/1.jpg" alt="" />
+                    </div>
+                  </div>
+                </div>
+
+                <!-- attributes -->
+                <div class="product-attributes mg-b-sm">
+                  <ul class="product-attributes-list list" data-table>
+                    <div>
+                      <p class="s-9">Brand</p>
+                      <p class="s-9">Model Name</p>
+                      <p class="s-9">Operating System</p>
+                      <p class="s-9">Cellular Technology</p>
+                      <p class="s-9">Netword Service Provider</p>
+                    </div>
+                    <div>
+                      <p>Apple</p>
+                      <p>iPhone</p>
+                      <p>IOS 14</p>
+                      <p>Unclocked for All Carriers</p>
+                      <p>5G</p>
+                    </div>
+                  </ul>
+                </div>
+
+                <div class="line mg-b-sm"></div>
+
+                <!-- about product -->
+                <div class="product-description">
+                  <ul class="list" data-ordered-list>
+                    <h8 class="h-7">About this item</h8>
+
+                    <p class="pt-md">
+                      15 cm (6.1-inch) Super Retina XDR display with ProMotion
+                      for a faster, more responsive feel
+                    </p>
+                    <p class="pt-md">
+                      Cinematic mode adds shallow depth of field and shifts
+                      focus automatically in your videos
+                    </p>
+                    <p class="pt-md">
+                      Pro camera system with new 12MP Telephoto, Wide and Ultra
+                      Wide
+                    </p>
+
+                    <p class="pt-md">
+                      Photographic Styles, ProRes video, Smart HDR 4, Night
+                      mode, Apple ProRAW, 4K Dolby Vision HDR recording cameras;
+                      LiDAR Scanner; 6x optical zoom range; macro photography;
+                    </p>
+                    <p class="pt-md">
+                      12MP TrueDepth front camera with Night mode, 4K Dolby
+                      Vision HDR recording
+                    </p>
+                    <p class="pt-md">
+                      A15 Bionic chip for lightning-fast performance
+                    </p>
+                  </ul>
+                </div>
+              </div>
+
+              <!-- product cta -->
+              <div class="product-cta">
+                <div class="border-box">
+                  <!-- transaction info -->
+                  <div class="product-cta-details mg-b-sm">
+                    <p class="h-8 red">$ 900</p>
+                    <p class="h-9 h-l blue">FREE delivery</p>
+
+                    <div class="product-deliverery-location f-lw f-ab">
+                      <i class="fa fa-map-marker icon-lw"></i>
+                      <p class="pt-lw blue">
+                        Deliever to <span>Rohit</span>- Meerut 250001
+                      </p>
+                    </div>
+
+                    <p class="green pt w-500 mg-b-md">Only 1 left in stock</p>
+
+                    <!-- buttons -->
+                    <button
+                      class="btn-primary-light btn-100 mg-b-sl"
+                      data-slide-hook="add-to-cart"
+                      data-action="add-to-cart"
+                      data-data='{"_id":"63bc126fb63b0ed0704a10e6","qty":1}'
+                    >
+                      Add to cart
+                    </button>
+                    <button
+                      class="btn-primary-dark btn-100 mg-b-lw"
+                      data-action="buy-now"
+                      data-data='{_id:"63bc126fb63b0ed0704a10e6"}'
+                    >
+                      Buy Now
+                    </button>
+
+                    <!-- secure transaction tooltip -->
+                    <div>
+                      <div
+                        class="btn-inline"
+                        data-positionel-btn
+                        data-positionel-name="secure-transaction-tooltip"
+                      >
+                        <i class="fas fa-lock light"></i>
+                        <p class="pt-sm blue">Secure transaction</p>
+                      </div>
+
+                      <div
+                        class="tooltip positionel"
+                        data-positionel-type="tooltip"
+                        data-positionel-name="secure-transaction-tooltip"
+                        data-active="false"
+                        data-pointer-position="center"
+                        data-position="bottom"
+                        data-animation="fade"
+                        data-show-event="click"
+                        data-delay-hide="false"
+                        data-load-spinner="false"
+                        data-static="false"
+                        data-has-defined-class="false"
+                        data-child-positionel="false"
+                      >
+                        <div class="positionel-container">
+                          <!-- trigger btn-> when click hide content will show -->
+                          <button class="btn-icon positionel-closebtn">
+                            <i class="fa fa-times" aria-hidden="true"></i>
+                          </button>
+                          <div class="positionel-square"></div>
+
+                          <!-- hide content -->
+                          <div class="positionel-content">
+                            <h class="h-9 mg-sm">Your transaction is secure</h>
+                            <p class="pt-sm">
+                              We work hard to protect your security and privacy.
+                              Our payment security system encrypts your
+                              information during transmission. We don’t share
+                              your credit card details with third-party sellers,
+                              and we don’t sell your information to others
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="line mg-b-md"></div>
+
+                <!-- add product to wishlist dropdown -->
+                <div>
+                  <button
+                    class="btn-old btn-100"
+                    data-positionel-btn
+                    data-positionel-name="add-product-to-wishlist-dropdown"
+                  >
+                    <!-- addtowishlist -->
+                    <p>Add to Wish List</p>
+                    <div class="btn-old-icon-box">
+                      <i class="fas fa-angle-down"></i>
+                    </div>
+                  </button>
+
+                  <div
+                    class="dropdown positionel"
+                    data-positionel-type="dropdown"
+                    data-positionel-name="add-product-to-wishlist-dropdown"
+                    data-active="false"
+                    data-pointer-position="none"
+                    data-position="bottom"
+                    data-animation="fade"
+                    data-show-event="click"
+                    data-delay-hide="false"
+                    data-load-spinner="false"
+                    data-static="false"
+                    data-has-defined-class="false"
+                    data-set-positionbtn-width="true"
+                    data-child-positionel="false"
+                  >
+                    <div class="positionel-container">
+                      <!-- trigger btn-> when click hide content will show -->
+                      <div class="positionel-content">
+                        <ul
+                          class="list"
+                          data-col="2"
+                          data-product-data='{"title":"Apple 2022 iPad Air M1 Chip (10.9-inch/27.69 cm, Wi-Fi, 64GB) - Blue (5th Generation)","img":"../../img/products/1.jpg","price":"Rs.54,000"}'
+                        >
+                          <li
+                            class="list-item-sm"
+                            data-wishlist-id="123"
+                            data-positionel-btn
+                            data-positionel-name="add-product-to-wishlist-modal"
+                          >
+                            <img src="../../img/products/1.jpg" alt="" />
+                            <div>
+                              <p>Shopping List</p>
+                              <p>Private</p>
+                            </div>
+                          </li>
+                          <li
+                            class="list-item-sm"
+                            data-wishlist-id="123"
+                            data-positionel-btn
+                            data-positionel-name="add-product-to-wishlist-modal"
+                          >
+                            <img src="../../img/products/1.jpg" alt="" />
+                            <div>
+                              <p>Shopping List</p>
+                              <p>Private</p>
+                            </div>
+                          </li>
+                          <li
+                            class="list-item-sm"
+                            data-wishlist-id="123"
+                            data-positionel-btn
+                            data-positionel-name="add-product-to-wishlist-modal"
+                          >
+                            <img src="../../img/products/1.jpg" alt="" />
+                            <div>
+                              <p>Shopping List</p>
+                              <p>Private</p>
+                            </div>
+                          </li>
+
+                          <div class="line-dim"></div>
+                          <button
+                            class="btn-inline-u p-lw"
+                            data-positionel-btn
+                            data-positionel-name="create-new-shopping-list"
+                          >
+                            <i class="fa fa-plus"></i>
+                            <p class="f-size-sm">Create another Wish List</p>
+                          </button>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- product specs full size images -->
+            <div class="product-gallery-imgs mg-b-10">
+              <img
+                src="../../img/amazon/hero_1.jpg"
+                alt=""
+                class="product-gallery-img img-full mg-b-lw"
+              />
+              <img
+                src="../../img/amazon/hero_1.jpg"
+                alt=""
+                class="product-gallery-img img-full mg-b-lw"
+              />
+              <img
+                src="../../img/amazon/hero_1.jpg"
+                alt=""
+                class="product-gallery-img img-full mg-b-lw"
+              />
+              <img
+                src="../../img/amazon/hero_1.jpg"
+                alt=""
+                class="product-gallery-img img-full mg-b-lw"
+              />
+              <img
+                src="../../img/amazon/hero_1.jpg"
+                alt=""
+                class="product-gallery-img img-full mg-b-lw"
+              />
+              <img
+                src="../../img/amazon/hero_1.jpg"
+                alt=""
+                class="product-gallery-img img-full mg-b-lw"
+              />
+            </div>
+
+            <!-- compare similar products -->
+            <div class="product-similar mg-b-8">
+              <h class="h-4 h-m center mg-b-bg"
+                >Compare Apple iPhone products</h
+              >
+              <div class="product-similer-container">
+                <div class="table" data-grid>
+                  <!-- similar products imgs -->
+                  <div class="table-col" data-value-col>
+                    <div class="table-box"></div>
+                    <div class="table-box f-col f-sm">
+                      <img
+                        class="img-sm"
+                        src="../../img/products/1.jpg"
+                        alt="iphone 13"
+                      />
+                      <a href="/name" class="blue s-9 hover-primary"
+                        >iphone 13 Pro</a
+                      >
+                    </div>
+                    <div class="table-box f-col f-sm">
+                      <img
+                        class="img-sm"
+                        src="../../img/products/1.jpg"
+                        alt="iphone 13"
+                      />
+                      <a href="/name" class="blue s-9 hover-primary"
+                        >iphone 13 Pro</a
+                      >
+                    </div>
+                    <div class="table-box f-col f-sm">
+                      <img
+                        class="img-sm"
+                        src="../../img/products/1.jpg"
+                        alt="iphone 13"
+                      />
+                      <a href="/name" class="blue s-9 hover-primary"
+                        >iphone 13 Pro</a
+                      >
+                    </div>
+                    <div class="table-box f-col f-sm">
+                      <img
+                        class="img-sm"
+                        src="../../img/products/1.jpg"
+                        alt="iphone 13"
+                      />
+                      <a href="/name" class="blue s-9 hover-primary"
+                        >iphone 13 Pro</a
+                      >
+                    </div>
+                    <div class="table-box f-col f-sm">
+                      <img
+                        class="img-sm"
+                        src="../../img/products/1.jpg"
+                        alt="iphone 13"
+                      />
+                      <a href="/name" class="blue s-9 hover-primary"
+                        >iphone 13 Pro</a
+                      >
+                    </div>
+                  </div>
+
+                  <!-- field name -->
+                  <div class="table-col" data-field-col>
+                    <div class="table-box">
+                      <p class="s-8">Price</p>
+                    </div>
+
+                    <div class="table-box">
+                      <p class="s-8 s-l f-lw f-ab">
+                        From: <span class="letter-s primary s-6 s-m">$900</span>
+                      </p>
+                    </div>
+                    <div class="table-box">
+                      <p class="s-8 s-l f-lw f-ab">
+                        From: <span class="letter-s primary s-6 s-m">$900</span>
+                      </p>
+                    </div>
+                    <div class="table-box">
+                      <p class="s-8 s-l f-lw f-ab">
+                        From: <span class="letter-s primary s-6 s-m">$900</span>
+                      </p>
+                    </div>
+                    <div class="table-box">
+                      <p class="s-8 s-l f-lw f-ab">
+                        From: <span class="letter-s primary s-6 s-m">$900</span>
+                      </p>
+                    </div>
+                    <div class="table-box">
+                      <p class="s-8 s-l f-lw f-ab">
+                        From: <span class="letter-s primary s-6 s-m">$900</span>
+                      </p>
+                    </div>
+                  </div>
+
+                  <!-- ratings -->
+                  <div class="table-col" data-value-col>
+                    <div class="table-box">
+                      <p class="s-8">Ratings</p>
+                    </div>
+                    <div class="table-box product-rating-box f-lw">
+                      <div class="product-rating-icons">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                      </div>
+
+                      <a
+                        href="/product/id/reviews"
+                        class="pt-lw blue hover-primary"
+                        >(1,900)</a
+                      >
+                    </div>
+                    <div class="table-box product-rating-box f-lw">
+                      <div class="product-rating-icons">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                      </div>
+
+                      <a
+                        href="/product/id/reviews"
+                        class="pt-lw blue hover-primary"
+                        >(1,900)</a
+                      >
+                    </div>
+                    <div class="table-box product-rating-box f-lw">
+                      <div class="product-rating-icons">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                      </div>
+
+                      <a
+                        href="/product/id/reviews"
+                        class="pt-lw blue hover-primary"
+                        >(1,900)</a
+                      >
+                    </div>
+                    <div class="table-box product-rating-box f-lw">
+                      <div class="product-rating-icons">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                      </div>
+
+                      <a
+                        href="/product/id/reviews"
+                        class="pt-lw blue hover-primary"
+                        >(1,900)</a
+                      >
+                    </div>
+                    <div class="table-box product-rating-box f-lw">
+                      <div class="product-rating-icons">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                      </div>
+
+                      <a
+                        href="/product/id/reviews"
+                        class="pt-lw blue hover-primary"
+                        >(1,900)</a
+                      >
+                    </div>
+                  </div>
+
+                  <div class="table-col" data-value-col>
+                    <div class="table-box">
+                      <p class="s-8">Display</p>
+                    </div>
+                    <div class="table-box">
+                      <p class="pt-md">
+                        6.1-inch (15.5 cm diagonal) Super Retina XDR display
+                        with ProMotion
+                      </p>
+                    </div>
+                    <div class="table-box">
+                      <p class="pt-md">
+                        6.1-inch (15.5 cm diagonal) Super Retina XDR display
+                        with ProMotion
+                      </p>
+                    </div>
+                    <div class="table-box">
+                      <p class="pt-md">
+                        6.1-inch (15.5 cm diagonal) Super Retina XDR display
+                        with ProMotion
+                      </p>
+                    </div>
+                    <div class="table-box">
+                      <p class="pt-md">
+                        6.1-inch (15.5 cm diagonal) Super Retina XDR display
+                        with ProMotion
+                      </p>
+                    </div>
+                    <div class="table-box">
+                      <p class="pt-md">
+                        6.1-inch (15.5 cm diagonal) Super Retina XDR display
+                        with ProMotion
+                      </p>
+                    </div>
+                  </div>
+                  <div class="table-col" data-value-col>
+                    <div class="table-box">
+                      <p class="s-8">Display</p>
+                    </div>
+                    <div class="table-box">
+                      <p class="pt-md">
+                        6.1-inch (15.5 cm diagonal) Super Retina XDR display
+                        with ProMotion
+                      </p>
+                    </div>
+                    <div class="table-box">
+                      <p class="pt-md">
+                        6.1-inch (15.5 cm diagonal) Super Retina XDR display
+                        with ProMotion
+                      </p>
+                    </div>
+                    <div class="table-box">
+                      <p class="pt-md">
+                        6.1-inch (15.5 cm diagonal) Super Retina XDR display
+                        with ProMotion
+                      </p>
+                    </div>
+                    <div class="table-box">
+                      <p class="pt-md">
+                        6.1-inch (15.5 cm diagonal) Super Retina XDR display
+                        with ProMotion
+                      </p>
+                    </div>
+                    <div class="table-box">
+                      <p class="pt-md">
+                        6.1-inch (15.5 cm diagonal) Super Retina XDR display
+                        with ProMotion
+                      </p>
+                    </div>
+                  </div>
+                  <div class="table-col" data-value-col>
+                    <div class="table-box">
+                      <p class="s-8">Display</p>
+                    </div>
+                    <div class="table-box">
+                      <p class="pt-md">
+                        6.1-inch (15.5 cm diagonal) Super Retina XDR display
+                        with ProMotion
+                      </p>
+                    </div>
+                    <div class="table-box">
+                      <p class="pt-md">
+                        6.1-inch (15.5 cm diagonal) Super Retina XDR display
+                        with ProMotion
+                      </p>
+                    </div>
+                    <div class="table-box">
+                      <p class="pt-md">
+                        6.1-inch (15.5 cm diagonal) Super Retina XDR display
+                        with ProMotion
+                      </p>
+                    </div>
+                    <div class="table-box">
+                      <p class="pt-md">
+                        6.1-inch (15.5 cm diagonal) Super Retina XDR display
+                        with ProMotion
+                      </p>
+                    </div>
+                    <div class="table-box">
+                      <p class="pt-md">
+                        6.1-inch (15.5 cm diagonal) Super Retina XDR display
+                        with ProMotion
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- product technical details -->
+            <div class="product-technical-details mg-b-8">
+              <div class="center">
+                <h4 class="h-3 mg-b-sm">Technical Details</h4>
+                <h6 class="h-5 mg-b-md">iPhone 13 Pro Max</h6>
+              </div>
+
+              <div class="table" data-col>
+                <div class="table-col">
+                  <div class="table-row f-8">
+                    <div class="s-9">Display</div>
+                    <div class="pt-sm mg-b-">
+                      6.7-inch (17 cm diagonal) Super Retina XDR display with
+                      ProMotion
+                    </div>
+                  </div>
+                  <div class="table-row f-8">
+                    <div class="s-9">Display</div>
+                    <div class="pt-sm">
+                      6.7-inch (17 cm diagonal) Super Retina XDR display with
+                      ProMotion
+                    </div>
+                  </div>
+                  <div class="table-row f-8">
+                    <div class="s-9">Display</div>
+                    <div class="pt-sm">
+                      6.7-inch (17 cm diagonal) Super Retina XDR display with
+                      ProMotion
+                    </div>
+                  </div>
+                  <div class="table-row f-8">
+                    <div class="s-9">Display</div>
+                    <div class="pt-sm">
+                      6.7-inch (17 cm diagonal) Super Retina XDR display with
+                      ProMotion
+                    </div>
+                  </div>
+                </div>
+                <div class="table-col">
+                  <div class="table-row f-8">
+                    <div class="s-9">Display</div>
+                    <div class="pt-sm mg-b-">
+                      6.7-inch (17 cm diagonal) Super Retina XDR display with
+                      ProMotion
+                    </div>
+                  </div>
+                  <div class="table-row f-8">
+                    <div class="s-9">Display</div>
+                    <div class="pt-sm">
+                      6.7-inch (17 cm diagonal) Super Retina XDR display with
+                      ProMotion
+                    </div>
+                  </div>
+                  <div class="table-row f-8">
+                    <div class="s-9">Display</div>
+                    <div class="pt-sm">
+                      6.7-inch (17 cm diagonal) Super Retina XDR display with
+                      ProMotion
+                    </div>
+                  </div>
+                  <div class="table-row f-8">
+                    <div class="s-9">Display</div>
+                    <div class="pt-sm">
+                      6.7-inch (17 cm diagonal) Super Retina XDR display with
+                      ProMotion
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="line mg-b-bg"></div>
+
+            <!-- product customer questions -->
+            <div
+              class="product-customer-general-ques-and-ans container-80 mg-b-sm modal f f-js"
+              id="Q&A"
+              data-static="true"
+            >
+              <div class="modal-container">
+                <header class="mg-b-sm-all mg-b-md">
+                  <h5 class="h-5 h-d">Looking for specific info?</h5>
+                  <p class="t-md">Search product info, Q&A, review</p>
+
+                  <div class="common-search-input">
+                    <i class="fa fa-search"></i>
+                    <input
+                      type="text width-80"
+                      name="search-asked-questions-or-reviews-related-to-product"
+                      placeholder="Type a keyword"
+                    />
+                  </div>
+                </header>
+
+                <div class="modal-content">
+                  <h5 class="h-5 h-d">Customer questions and answers</h5>
+                  <div
+                    class="product-questions-container modal-window"
+                    data-url=""
+                    data-no-more-docs=""
+                    data-docs-loading=""
+                    data-page=""
+                  >
+                    <div class="product-question-box f-sm">
+                      <!-- vote  -->
+                      <div class="product-question-vote-box center">
+                        <button class="btn-icon-primary">
+                          <i class="fas fa-caret-up icon-bg"></i>
+                        </button>
+                        <div class="product-question-vote-count">
+                          <p class="pt-sm w-500">1</p>
+                          <p class="pt-sm w-500">vote</p>
+                        </div>
+                        <button class="btn-icon-primary">
+                          <i class="fas fa-caret-down icon-bg"></i>
+                        </button>
+                      </div>
+
+                      <div class="line-v"></div>
+
+                      <div class="product-question-text g-m-1 gap-sm">
+                        <!-- question -->
+
+                        <p class="s-9">Question:</p>
+                        <a
+                          href="/product/prod_id/ask/questions/${id}"
+                          class="pt-md blue hover-primary"
+                          >It camera is very clear</a
+                        >
+
+                        <!-- answer -->
+                        <p class="s-9">Answer:</p>
+                        <div class="product-question-answer mg-b-sm">
+                          <p class="pt-md">Yes best camera available</p>
+                          <p class="product-question-answer-by t-sm mg-b-lw">
+                            By Sansket Basu Roy on 2 November,2021
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                    <button class="btn-outline btn-sm mg-l">
+                      See more answered question(305)
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="line mg-b-md"></div>
+
+            <!-- search reviews,questions and product details -->
+            <div
+              class="modal container-80 product-search-matching-ques-ans-and-reviews-modal"
+              data-query="ques-ans,reviews"
+              data-static="true"
+            >
+              <div class="modal-container">
+                <div class="positionel-content">
+                  <div class="modal-tabs mg-b-sm">
+                    <button
+                      class="btn-tab modal-tab"
+                      data-active="true"
+                      data-window="all"
+                    >
+                      All
+                    </button>
+                    <button
+                      class="btn-tab modal-tab"
+                      data-active="false"
+                      data-window="ques-ans"
+                    >
+                      Customer Q&A
+                    </button>
+                    <button
+                      class="btn-tab modal-tab"
+                      data-active="false"
+                      data-window="reviews"
+                    >
+                      Customer Reviews
+                    </button>
+                  </div>
+
+                  <div class="modal-windows mg-b-bg">
+                    <!-- preview window -->
+                    <div
+                      class="modal-window mg-b-sm-all"
+                      data-window="all"
+                      data-query='{
+                                url:"/api/v1/products/id/ques-ans",
+                                page:"0",
+                                limit:5,
+                                docs_left:true,
+                                user_run_query_times:0,
+                              }'
+                      data-active="true"
+                    >
+                      <!-- customer-ques-ans -->
+                      <div class="modal-window-preview">
+                        <!-- title  -->
+                        <p class="modal-title t-md">
+                          Customer questions and answers
+                        </p>
+
+                        <!-- ques-ans -->
+                        <div class="modal-list mg-b-sm-all">
+                          <!-- modal-item -->
+                          <div class="modal-item mg-b-sl-all">
+                            <!-- ques-ans -->
+
+                            <!-- ques -->
+                            <p class="s-9">
+                              Q: Can we use 4G
+                              <span class="highlight-bg-primary">sim card</span
+                              >in this ?
+                            </p>
+
+                            <!-- ans -->
+                            <p class="pt-md">
+                              <span class="s-9 inline">A: </span>
+                              Yes,4G sim can be used.
+                              <span class="highlight-bg-primary">sim card</span
+                              >in this ?
+                            </p>
+
+                            <!-- author -->
+                            <a class="t-md" href="/profile/author_id">
+                              By <span class="btn-inline-u">Salil</span> on 6
+                              November,2022
+                            </a>
+                          </div>
+                          <!-- modal-item -->
+                          <div class="modal-item mg-b-sl-all">
+                            <!-- ques-ans -->
+
+                            <!-- ques -->
+                            <p class="s-9">
+                              Q: Can we use 4G
+                              <span class="highlight-bg-primary">sim card</span
+                              >in this ?
+                            </p>
+
+                            <!-- ans -->
+                            <p class="pt-md">
+                              <span class="s-9 inline">A: </span>
+                              Yes,4G sim can be used.
+                              <span class="highlight-bg-primary">sim card</span
+                              >in this ?
+                            </p>
+
+                            <!-- author -->
+                            <a class="t-md" href="/profile/author_id">
+                              By <span class="btn-inline-u">Salil</span> on 6
+                              November,2022
+                            </a>
+                          </div>
+
+                          <button
+                            class="btn-inline-u"
+                            data-window-change-btn
+                            data-window="ques-ans"
+                          >
+                            <p>See 9 matching Q&A</p>
+                            <i class="fa fa-angle-right"> </i>
+                          </button>
+                        </div>
+                      </div>
+
+                      <div class="line"></div>
+
+                      <!-- customer-reivew -->
+                      <div class="modal-window-preview">
+                        <!-- title  -->
+                        <p class="modal-title t-md">Customer Reviews</p>
+
+                        <!-- ques-ans -->
+                        <div class="modal-list mg-b-sm-all">
+                          <!-- modal-item -->
+                          <div class="modal-item mg-b-sl-all">
+                            <!-- rating | review-title -->
+                            <div class="f-sm f-ab">
+                              <div class="f-sl product-rating-icons">
+                                <i
+                                  class="fa fa-star icon-sm"
+                                  aria-hidden="true"
+                                ></i>
+                                <i
+                                  class="fa fa-star icon-sm"
+                                  aria-hidden="true"
+                                ></i>
+                                <i
+                                  class="fa fa-star icon-sm"
+                                  aria-hidden="true"
+                                ></i>
+                                <i
+                                  class="fa fa-star icon-sm"
+                                  aria-hidden="true"
+                                ></i>
+                                <i
+                                  class="fa fa-star icon-sm"
+                                  aria-hidden="true"
+                                ></i>
+                              </div>
+                              <p class="s-9 s-d" class="review-title">
+                                I am the fukcing man
+                              </p>
+                            </div>
+
+                            <!-- author -->
+                            <p class="t-md">
+                              By <span class="btn-inline-u">Salil</span> on 6
+                              November,2022
+                            </p>
+
+                            <!-- text | button -->
+                            <p class="pt-md mg-b-lw">
+                              I am writing this after using phone for 2 days,
+                              The purople color koos under good light,Generlayy
+                              it lloks like dark gray Love the display
+                              <span
+                                >iPhone i will buy in 2 years and mac book go to
+                                mr pena smeinar in scotland ...</span
+                              ><button class="btn-inline">see more</button>
+                            </p>
+                          </div>
+                          <!-- modal-item -->
+                          <div class="modal-item mg-b-sl-all">
+                            <!-- rating | review-title -->
+                            <div class="f-sm f-ab">
+                              <div class="f-sl product-rating-icons">
+                                <i
+                                  class="fa fa-star icon-sm"
+                                  aria-hidden="true"
+                                ></i>
+                                <i
+                                  class="fa fa-star icon-sm"
+                                  aria-hidden="true"
+                                ></i>
+                                <i
+                                  class="fa fa-star icon-sm"
+                                  aria-hidden="true"
+                                ></i>
+                                <i
+                                  class="fa fa-star icon-sm"
+                                  aria-hidden="true"
+                                ></i>
+                                <i
+                                  class="fa fa-star icon-sm"
+                                  aria-hidden="true"
+                                ></i>
+                              </div>
+                              <p class="s-9 s-d" class="review-title">
+                                I am the fukcing man
+                              </p>
+                            </div>
+
+                            <!-- author -->
+                            <p class="t-md">
+                              By <span class="btn-inline-u">Salil</span> on 6
+                              November,2022
+                            </p>
+
+                            <!-- text | button -->
+                            <p class="pt-md mg-b-lw">
+                              I am writing this after using phone for 2 days,
+                              The purople color koos under good light,Generlayy
+                              it lloks like dark gray Love the display
+                              <span
+                                >iPhone i will buy in 2 years and mac book go to
+                                mr pena smeinar in scotland ...</span
+                              ><button class="btn-inline">see more</button>
+                            </p>
+                          </div>
+
+                          <button
+                            class="btn-inline-u"
+                            data-window-change-btn
+                            data-window="reviews"
+                          >
+                            <p>See 9 matching customer reviews</p>
+                            <i class="fa fa-angle-right"> </i>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- ques-ans window -->
+                    <div
+                      class="modal-window"
+                      data-window="ques-ans"
+                      data-active="false"
+                    >
+                      <!-- ques-ans -->
+                      <div class="modal-list mg-b-sm-all">
+                        <!-- modal-item -->
+                        <div class="modal-item mg-b-sl-all">
+                          <!-- ques-ans -->
+
+                          <!-- ques -->
+                          <p class="s-9">
+                            Q: Can we use 4G
+                            <span class="highlight-bg-primary">sim card</span>in
+                            this ?
+                          </p>
+
+                          <!-- ans -->
+                          <p class="pt-md">
+                            <span class="s-9 inline">A: </span>
+                            Yes,4G sim can be used.
+                            <span class="highlight-bg-primary">sim card</span>in
+                            this ?
+
+                            <button class="btn-inline">...see more</button>
+
+                            <span class="text-invisible hidden"
+                              >thiis is who we are</span
+                            >
+                          </p>
+
+                          <!-- author -->
+                          <a class="t-md" href="/profile/author_id">
+                            By
+                            <span class="btn-inline-u">
+                              <p>Salil</p>
+                            </span>
+                            on 6 November,2022
+                          </a>
+                        </div>
+                        <!-- modal-item -->
+                        <div class="modal-item mg-b-sl-all">
+                          <!-- ques-ans -->
+
+                          <!-- ques -->
+                          <p class="s-9">
+                            Q: Can we use 4G
+                            <span class="highlight-bg-primary">sim card</span>in
+                            this ?
+                          </p>
+
+                          <!-- ans -->
+                          <p class="pt-md">
+                            <span class="s-9 inline">A: </span>
+                            Yes,4G sim can be used.
+                            <span class="highlight-bg-primary">sim card</span>in
+                            this ?
+                          </p>
+
+                          <!-- author -->
+                          <a class="t-md" href="/profile/author_id">
+                            By
+                            <span class="btn-inline-u">
+                              <p>Salil</p>
+                            </span>
+                            on 6 November,2022
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- reviews window -->
+                    <div
+                      class="modal-window"
+                      data-window="reviews"
+                      data-active="false"
+                    >
+                      <div class="modal-list mg-b-sm-all">
+                        <!-- modal-item -->
+                        <div class="modal-item mg-b-sl-all">
+                          <!-- rating | review-title -->
+                          <div class="f-sm f-ab">
+                            <div class="f-sl product-rating-icons">
+                              <i
+                                class="fa fa-star icon-sm"
+                                aria-hidden="true"
+                              ></i>
+                              <i
+                                class="fa fa-star icon-sm"
+                                aria-hidden="true"
+                              ></i>
+                              <i
+                                class="fa fa-star icon-sm"
+                                aria-hidden="true"
+                              ></i>
+                              <i
+                                class="fa fa-star icon-sm"
+                                aria-hidden="true"
+                              ></i>
+                              <i
+                                class="fa fa-star icon-sm"
+                                aria-hidden="true"
+                              ></i>
+                            </div>
+                            <p class="s-9 s-d" class="review-title">
+                              I am the fukcing man
+                            </p>
+                          </div>
+
+                          <!-- author -->
+                          <p class="t-md">
+                            By <span class="btn-inline-u">Salil</span> on 6
+                            November,2022
+                          </p>
+
+                          <!-- text | button -->
+                          <p class="pt-md mg-b-lw">
+                            I am writing this after using phone for 2 days, The
+                            purople color koos under good light,Generlayy it
+                            lloks like dark gray Love the display
+                            <span
+                              >iPhone i will buy in 2 years and mac book go to
+                              mr pena smeinar in scotland ...</span
+                            ><button class="btn-inline">see more</button>
+                          </p>
+                        </div>
+                        <!-- modal-item -->
+                        <div class="modal-item mg-b-sl-all">
+                          <!-- rating | review-title -->
+                          <div class="f-sm f-ab">
+                            <div class="f-sl product-rating-icons">
+                              <i
+                                class="fa fa-star icon-sm"
+                                aria-hidden="true"
+                              ></i>
+                              <i
+                                class="fa fa-star icon-sm"
+                                aria-hidden="true"
+                              ></i>
+                              <i
+                                class="fa fa-star icon-sm"
+                                aria-hidden="true"
+                              ></i>
+                              <i
+                                class="fa fa-star icon-sm"
+                                aria-hidden="true"
+                              ></i>
+                              <i
+                                class="fa fa-star icon-sm"
+                                aria-hidden="true"
+                              ></i>
+                            </div>
+                            <p class="s-9 s-d" class="review-title">
+                              I am the fukcing man
+                            </p>
+                          </div>
+
+                          <!-- author -->
+                          <p class="t-md">
+                            By <span class="btn-inline-u">Salil</span> on 6
+                            November,2022
+                          </p>
+
+                          <!-- text | button -->
+                          <p class="pt-md mg-b-lw">
+                            I am writing this after using phone for 2 days, The
+                            purople color koos under good light,Generlayy it
+                            lloks like dark gray Love the display
+                            <span
+                              >iPhone i will buy in 2 years and mac book go to
+                              mr pena smeinar in scotland ...</span
+                            ><button class="btn-inline">see more</button>
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- post ques box -->
+                  <div
+                    class="product-post-ques-box f-md bg-dim r-bg p-sm f-ab mg-b-md"
+                  >
+                    <s class="s-9">Don't see the answer you're looking for?</s>
+
+                    <button
+                      class="btn-outline"
+                      data-positionel-btn=""
+                      data-positionel-name="ask-question-about-product-form"
+                    >
+                      Post your question
+                    </button>
+                  </div>
+
+                  <!-- relatated question customer asked -->
+                  <div class="product-customer-random-ques-asked">
+                    <!-- title -->
+                    <p class="t-md mg-b-sm">Customers also asked</p>
+
+                    <!-- random questions -->
+                    <div class="product-customer-random-ques-container">
+                      <button class="btn-tag">
+                        What about the service?apple stores will cover 1 year
+                        service
+                      </button>
+                      <button class="btn-tag">What</button>
+                      <button class="btn-tag">What</button>
+                      <button class="btn-tag">What</button>
+                      <button class="btn-tag">
+                        What about the service?apple stores will cover 1 year
+                        service
+                      </button>
+                      <button class="btn-tag">
+                        What about the service?apple stores will cover 1 year
+                        service
+                      </button>
+                      <button class="btn-tag">
+                        What about the service?apple stores will cover 1 year
+                        service
+                      </button>
+                      <button class="btn-tag">
+                        What about the service?apple stores will cover 1 year
+                        service
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="line mg-b-bg"></div>
+
+            <!-- customer review -->
+            <div class="product-customer-reviews" id="rating">
+              <!-- ratings | chart | write-customer-review -->
+              <div class="product-rating-chart-container">
+                <!-- product rating overview -->
+                <div class="product-ratings-overview mg-b-sm-all mg-b-lg">
+                  <h class="h-5 h-d">Customer reviews</h>
+
+                  <!-- rating text -->
+                  <div class="product-rating-text">
+                    <!-- icons -->
+                    <div class="f-sm f-ab mg-b-sl">
+                      <div class="f-sl product-rating-icons">
+                        <i class="fa fa-star icon" aria-hidden="true"></i>
+                        <i class="fa fa-star icon" aria-hidden="true"></i>
+                        <i class="fa fa-star icon" aria-hidden="true"></i>
+                        <i class="fa fa-star icon" aria-hidden="true"></i>
+                        <i class="fa fa-star icon" aria-hidden="true"></i>
+                      </div>
+
+                      <p class="pt">4.7 out of 5</p>
+                    </div>
+
+                    <p class="t-md">158 global ratings</p>
+                  </div>
+
+                  <!-- rating in chart table -->
+                  <div class="product-rating-chart">
+                    <!-- 5star -->
+                    <div class="product-rating-chart-box f-md f-ac mg-b-lw">
+                      <p class="product-rating-star pt-md blue hover-primary">
+                        5 star
+                      </p>
+                      <div class="progressbar">
+                        <div class="progressbar-track-line"></div>
+                      </div>
+                      <p
+                        class="product-rating-percent pt-md blue hover-primary"
+                      >
+                        83%
+                      </p>
+                    </div>
+
+                    <!-- 4star -->
+                    <div class="product-rating-chart-box f-md f-ac mg-b-lw">
+                      <p class="product-rating-star pt-md blue hover-primary">
+                        5 star
+                      </p>
+                      <div class="progressbar">
+                        <div class="progressbar-track-line"></div>
+                      </div>
+                      <p
+                        class="product-rating-percent pt-md blue hover-primary"
+                      >
+                        83%
+                      </p>
+                    </div>
+                    <!-- 4star -->
+                    <div class="product-rating-chart-box f-md f-ac mg-b-lw">
+                      <p class="product-rating-star pt-md blue hover-primary">
+                        5 star
+                      </p>
+                      <div class="progressbar">
+                        <div class="progressbar-track-line"></div>
+                      </div>
+                      <p
+                        class="product-rating-percent pt-md blue hover-primary"
+                      >
+                        83%
+                      </p>
+                    </div>
+                    <!-- 4star -->
+                    <div class="product-rating-chart-box f-md f-ac mg-b-lw">
+                      <p class="product-rating-star pt-md blue hover-primary">
+                        5 star
+                      </p>
+                      <div class="progressbar">
+                        <div class="progressbar-track-line"></div>
+                      </div>
+                      <p
+                        class="product-rating-percent pt-md blue hover-primary"
+                      >
+                        83%
+                      </p>
+                    </div>
+                    <!-- 4star -->
+                    <div class="product-rating-chart-box f-md f-ac mg-b-lw">
+                      <p class="product-rating-star pt-md blue hover-primary">
+                        5 star
+                      </p>
+                      <div class="progressbar">
+                        <div class="progressbar-track-line"></div>
+                      </div>
+                      <p
+                        class="product-rating-percent pt-md blue hover-primary"
+                      >
+                        83%
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="line mg-b-bg"></div>
+
+                <!-- write customer review -->
+                <div class="product-write-review mg-b-bg">
+                  <h6 class="h-6 h-d">Review this product</h6>
+                  <p class="pt-md mg-b-sm">
+                    Share your thoughts with other customers
+                  </p>
+                  <button class="btn-outline btn-100">
+                    Write a product review
+                  </button>
+                </div>
+
+                <div class="line"></div>
+              </div>
+
+              <!-- gallery img and reviews -->
+              <div class="product-reviews-container modal">
+                <!-- reviews some photos -->
+
+                <div
+                  class="reviews-overview-photos modal-window"
+                  data-window-name="review-photos"
+                  data-url="/api/v1/reviews?type='review-with-photo'"
+                  data-page="0"
+                  data-limit="10"
+                  data-docs-left="true"
+                  data-is-loading="false"
+                  data-total-docs="25"
+                  data-last-item-index="9"
+                >
+                  <h class="h-6 mg-b-sm">Reviews with images</h>
+
+                  <!-- photos -->
+                  <ul class="product-reviews-photos mg-b-sm f modal-list">
+                    <li
+                      data-review-index="0"
+                      data-positionel-btn
+                      data-positionel-name="reviews-photo-gallery"
+                      class="img-box-md"
+                      data-data='{"author":{"pic":"../../img/users/default.png","name":"rohit the billionare man","location":"India"},"content":{"title":"I at MrPena Seminar within 2 year.","text":"I am the god","imgs":["../../img/products/1.jpg","../../img/products/2.jpg","../../img/products/3.jpg","../../img/products/4.jpg","../../img/products/5.jpg"]},"count":{"rating":5},"ts":"2022-12-21T10:01:05.945Z"}'
+                    >
+                      <img src="../../img/products/1.jpg" alt="" />
+                    </li>
+                    <li
+                      data-review-index="1"
+                      data-positionel-btn
+                      data-positionel-name="reviews-photo-gallery"
+                      class="img-box-md"
+                      data-data='{"author":{"pic":"../../img/users/default.png","name":"rohit the billionare man","location":"India"},"content":{"title":"I at MrPena Seminar within 2 year.","text":"I am the god","imgs":["../../img/products/1.jpg","../../img/products/2.jpg","../../img/products/3.jpg","../../img/products/4.jpg","../../img/products/5.jpg"]},"count":{"rating":5},"ts":"2022-12-21T10:01:05.945Z"}'
+                    >
+                      <img src="../../img/products/1.jpg" alt="" />
+                    </li>
+                    <li
+                      data-review-index="2"
+                      data-positionel-btn
+                      data-positionel-name="reviews-photo-gallery"
+                      class="img-box-md"
+                      data-data='{"author":{"pic":"../../img/users/default.png","name":"rohit the billionare man","location":"India"},"content":{"title":"I at MrPena Seminar within 2 year.","text":"I am the god","imgs":["../../img/products/1.jpg","../../img/products/2.jpg","../../img/products/3.jpg","../../img/products/4.jpg","../../img/products/5.jpg"]},"count":{"rating":5},"ts":"2022-12-21T10:01:05.945Z"}'
+                    >
+                      <img src="../../img/products/1.jpg" alt="" />
+                    </li>
+                    <li
+                      data-review-index="3"
+                      data-positionel-btn
+                      data-positionel-name="reviews-photo-gallery"
+                      class="img-box-md"
+                      data-data='{"author":{"pic":"../../img/users/default.png","name":"rohit the billionare man","location":"India"},"content":{"title":"I at MrPena Seminar within 2 year.","text":"I am the god","imgs":["../../img/products/1.jpg","../../img/products/2.jpg","../../img/products/3.jpg","../../img/products/4.jpg","../../img/products/5.jpg"]},"count":{"rating":5},"ts":"2022-12-21T10:01:05.945Z"}'
+                    >
+                      <img src="../../img/products/1.jpg" alt="" />
+                    </li>
+                    <li
+                      data-review-index="4"
+                      data-positionel-btn
+                      data-positionel-name="reviews-photo-gallery"
+                      class="img-box-md hidden"
+                      data-data='{"author":{"pic":"../../img/users/default.png","name":"rohit the billionare man","location":"India"},"content":{"title":"I at MrPena Seminar within 2 year.","text":"I am the god","imgs":["../../img/products/1.jpg","../../img/products/2.jpg","../../img/products/3.jpg","../../img/products/4.jpg","../../img/products/5.jpg"]},"count":{"rating":5},"ts":"2022-12-21T10:01:05.945Z"}'
+                    >
+                      <img src="../../img/products/1.jpg" alt="" />
+                    </li>
+                    <li
+                      data-review-index="5"
+                      data-positionel-btn
+                      data-positionel-name="reviews-photo-gallery"
+                      class="img-box-md hidden"
+                      data-data='{"author":{"pic":"../../img/users/default.png","name":"rohit the billionare man","location":"India"},"content":{"title":"I at MrPena Seminar within 2 year.","text":"I am the god","imgs":["../../img/products/1.jpg","../../img/products/2.jpg","../../img/products/3.jpg","../../img/products/4.jpg","../../img/products/5.jpg"]},"count":{"rating":5},"ts":"2022-12-21T10:01:05.945Z"}'
+                    >
+                      <img src="../../img/products/1.jpg" alt="" />
+                    </li>
+                    <li
+                      data-review-index="6"
+                      data-positionel-btn
+                      data-positionel-name="reviews-photo-gallery"
+                      class="img-box-md hidden"
+                      data-data='{"author":{"pic":"../../img/users/default.png","name":"rohit the billionare man","location":"India"},"content":{"title":"I at MrPena Seminar within 2 year.","text":"I am the god","imgs":["../../img/products/1.jpg","../../img/products/2.jpg","../../img/products/3.jpg","../../img/products/4.jpg","../../img/products/5.jpg"]},"count":{"rating":5},"ts":"2022-12-21T10:01:05.945Z"}'
+                    >
+                      <img src="../../img/products/1.jpg" alt="" />
+                    </li>
+                    <li
+                      data-review-index="8"
+                      data-positionel-btn
+                      data-positionel-name="reviews-photo-gallery"
+                      class="img-box-md hidden"
+                      data-data='{"author":{"pic":"../../img/users/default.png","name":"rohit the billionare man","location":"India"},"content":{"title":"I at MrPena Seminar within 2 year.","text":"I am the god","imgs":["../../img/products/1.jpg","../../img/products/2.jpg","../../img/products/3.jpg","../../img/products/4.jpg","../../img/products/5.jpg"]},"count":{"rating":5},"ts":"2022-12-21T10:01:05.945Z"}'
+                    >
+                      <img src="../../img/products/1.jpg" alt="" />
+                    </li>
+                    <li
+                      data-review-index="7"
+                      data-positionel-btn
+                      data-positionel-name="reviews-photo-gallery"
+                      class="img-box-md hidden"
+                      data-data='{"author":{"pic":"../../img/users/default.png","name":"rohit the billionare man","location":"India"},"content":{"title":"I at MrPena Seminar within 2 year.","text":"I am the god","imgs":["../../img/products/1.jpg","../../img/products/2.jpg","../../img/products/3.jpg","../../img/products/4.jpg","../../img/products/5.jpg"]},"count":{"rating":5},"ts":"2022-12-21T10:01:05.945Z"}'
+                    >
+                      <img src="../../img/products/1.jpg" alt="" />
+                    </li>
+                    <li
+                      data-review-index="9"
+                      data-positionel-btn
+                      data-positionel-name="reviews-photo-gallery"
+                      class="img-box-md hidden"
+                      data-data='{"author":{"pic":"../../img/users/default.png","name":"rohit the billionare man","location":"India"},"content":{"title":"I at MrPena Seminar within 2 year.","text":"I am the god","imgs":["../../img/products/1.jpg","../../img/products/2.jpg","../../img/products/3.jpg","../../img/products/4.jpg","../../img/products/5.jpg"]},"count":{"rating":5},"ts":"2022-12-21T10:01:05.945Z"}'
+                    >
+                      <img src="../../img/products/1.jpg" alt="" />
+                    </li>
+                    <li
+                      data-review-index="10"
+                      data-positionel-btn
+                      data-positionel-name="reviews-photo-gallery"
+                      class="img-box-md hidden"
+                      data-data='{"author":{"pic":"../../img/users/default.png","name":"rohit the billionare man","location":"India"},"content":{"title":"I at MrPena Seminar within 2 year.","text":"I am the god","imgs":["../../img/products/1.jpg","../../img/products/2.jpg","../../img/products/3.jpg","../../img/products/4.jpg","../../img/products/5.jpg"]},"count":{"rating":5},"ts":"2022-12-21T10:01:05.945Z"}'
+                    >
+                      <img src="../../img/products/1.jpg" alt="" />
+                    </li>
+                  </ul>
+
+                  <p class="pt-md blue hover-primary mg-b-sm">
+                    See all customer images
+                  </p>
+                </div>
+
+                <!-- to filter reviews DROPDOWN -->
+                <div class="product-filter-reviews">
+                  <button
+                    class="btn-outline f-5 btn-sm mg-b-md btn-w-md"
+                    data-positionel-btn
+                    data-positionel-name="filter-reviews-dropdown"
+                  >
+                    <p>Top reviews</p>
+                    <i class="fa fa-angle-down"></i>
+                  </button>
+
+                  <div
+                    class="positionel dropdown"
+                    data-dropdown-type="select-options-dropdown"
+                    data-positionel-name="filter-reviews-dropdown"
+                    data-positionel-type="dropdown"
+                    data-active="false"
+                    data-position-type="absolute"
+                    data-load-spinner="false"
+                    data-animation="fade"
+                    data-pointer-position="none"
+                    data-position="top"
+                    data-delay-hide="false"
+                    data-show-event="click"
+                    data-static="false"
+                    data-has-defined-class="false"
+                    data-child-positionel="false"
+                    data-set-positionbtn-width="true"
+                  >
+                    <div class="positionel-container">
+                      <div class="positionel-content">
+                        <!-- list -->
+                        <ul
+                          class="list"
+                          data-set-selected-item="true"
+                          data-change-positionbtnel-text-or-value="true"
+                        ></ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- reviews  -->
+                <ul class="reviews-list">
+                  <h6 class="h-6 mg-b-sm">
+                    Top reviews from <span>India</span>
+                  </h6>
+
+                  <div
+                    class="review mg-b-md"
+                    data-data='{"author":{"pic":"../../img/users/default.png","name":"rohit the billionare man","location":"India"},"content":{"title":"I at MrPena Seminar within 2 year.","text":"I am the god","imgs":["../../img/products/1.jpg","../../img/products/2.jpg","../../img/products/3.jpg","../../img/products/4.jpg","../../img/products/5.jpg"]},"count":{"rating":5},"ts":"2022-12-21T10:01:05.945Z"}'
+                  >
+                    <!-- author | rating | review-title | review-date | product-spec -->
+                    <div class="review-header">
+                      <a
+                        href="/profile/rohit"
+                        class="f-sm f-ac mg-b-sl pointer"
+                      >
+                        <img
+                          src="../../img/users/default.png"
+                          alt=""
+                          class="img-sl round review-author-img"
+                        />
+                        <p class="pt-md review-author-name">Rohit Rana</p>
+                      </a>
+
+                      <!-- rating | review-title -->
+                      <a class="f-sm f-ab pointer" href="/customer-reviews/id">
+                        <div class="f-sl product-rating-icons">
+                          <i class="fa fa-star icon-sm" aria-hidden="true"></i>
+                          <i class="fa fa-star icon-sm" aria-hidden="true"></i>
+                          <i class="fa fa-star icon-sm" aria-hidden="true"></i>
+                          <i class="fa fa-star icon-sm" aria-hidden="true"></i>
+                          <i class="fa fa-star icon-sm" aria-hidden="true"></i>
+                        </div>
+                        <p class="s-9 s-d hover-primary" class="review-title">
+                          I am the fukcing man
+                        </p>
+                      </a>
+
+                      <!-- date-of-review  -->
+                      <div>
+                        <p class="t-md review-postat">
+                          Reviewed in
+                          <span class="review-author-country">India</span>on 20
+                          December 2020
+                        </p>
+                      </div>
+
+                      <!-- about-product -->
+                      <div class="f-sm review-product-details mg-b-sl">
+                        <p class="t-md">
+                          Colour: <span class="letter-s">Space Black</span>
+                        </p>
+                        |
+                        <p class="t-md">
+                          Size name: <span class="letter-s">128 GB</span>
+                        </p>
+                        |
+                        <p class="pt-md primary w-600">Verified Purchase</p>
+                      </div>
+                    </div>
+
+                    <!-- review-text | review-img | review-stats -->
+                    <footer class="review-footer">
+                      <!-- review-text -->
+                      <div class="review-text-box pt-md">
+                        <p class="review-visible-text mg-b-sl">
+                          The Good: The software is extremely smooth and stable.
+                          Battery life is good and not too exceptional. It’s
+                          certainly not as good as 13 Pro Max. The battery is
+                          currently lasting me 24 hours instead of 18 hours on
+                          my Android. I’d say the 3200mAh from Apple is
+                          comparable to a 5500mAh Android battery. The 48MP
+                          camera is sharp and fast. The dynamic island is
+                          extremely helpful in many situations that involve
+                          multitasking. I use it very frequently during calls.
+                          The screen is bright and looks very clear even in
+                          direct sunlight. Haptics are very unique and
+                          delightful. Face id is much easier than a fingerprint
+                          scanner. Gone are the days of wiping your fingers. The
+                          Safari password manager can save passwords for all
+                          sites and authenticate directly with Face Id. The size
+                          of the phone 6.1 inch is very comfortable for one hand
+                          use and one needn’t shuffle around the phone for one
+                          hand use like on 6.7 inch phones. Where Apple really
+                          shines is with the ecosystem. My 14 Pro, Series 8
+                          watch and Airpods 3 integrate so seamlessly that it’s
+                          hard to find the same perfection in other ecosystems I
+                          have used in the past. The security of this device is
+                          top notch but is also a double edged sword. App usage
+                          isn’t very straightforward such as no access to the
+                          internal memory. But such limitations are there to
+                          enforce strong security. One simply cannot get the
+                          same data isolation and security as in iOS on Android.
+                          Highly personalized ads too don’t appear while using
+                          this phone which means privacy is preserved much
+                          better than on Android. The Bad: The phone is
+                          extremely heavy for it’s size, so with a case and
+                          protector it weighs around a quarter kilo. It still
+                          uses a lightning port so new accessories are needed.
+                          If you don’t have a basic skill for photo editing you
+                          might notice the photos from the phone are a bit dull
+                          and not directly postable, but nothing a small tweak
+                          can’t fix. Battery drains faster when using the camera
+                          outside so for vacations either consider a power bank
+                          or switch to a 14 Pro Max. AOD is beautiful but
+                          honestly it’s a bit distracting and you could save
+                          more battery by simply using tap to wake instead. The
+                          Rant : I’d also like to complain about either the
+                          Seller (Appario Retail) or Amazon for not giving value
+                          to pre-orders. I ordered my phone on 11th (iPhone 14
+                          Pro was available by Apple on 9th Sept and stock of
+                          128GB 14 Pro arrived to Amazon on 11th) and it wasn’t
+                          even dispatched till 17th thus defeating the purpose
+                          of pre-ordering. Pre-ordering from Apple ideally
+                          results in the product reaching your doorstep on 16th
+                          September instead of being dispatched on 16th
+                          September!
+                        </p>
+
+                        <button class="btn-inline mg-b-lw">
+                          <i class="fa fa-angle-down"></i>
+                          <p>Read more</p>
+                        </button>
+
+                        <p class="review-invisible-text hidden mg-b-sm">
+                          The security of this device is top notch but is also a
+                          double edged sword. App usage isn’t very
+                          straightforward such as no access to the internal
+                          memory. But such limitations are there to enforce
+                          strong security. One simply cannot get the same data
+                          isolation and security as in iOS on Android. Highly
+                          personalized ads too don’t appear while using this
+                          phone which means privacy is preserved much better
+                          than on Android. The Bad: The phone is extremely heavy
+                          for it’s size, so with a case and protector it weighs
+                          around a quarter kilo. It still uses a lightning port
+                          so new accessories are needed. If you don’t have a
+                          basic skill for photo editing you might notice the
+                          photos from the phone are a bit dull and not directly
+                          postable, but nothing a small tweak can’t fix. Battery
+                          drains faster when using the camera outside so for
+                          vacations either consider a power bank or switch to a
+                          14 Pro Max. AOD is beautiful but honestly it’s a bit
+                          distracting and you could save more battery by simply
+                          using tap to wake instead. The Rant : I’d also like to
+                          complain about either the Seller (Appario Retail) or
+                          Amazon for not giving value to pre-orders. I ordered
+                          my phone on 11th (iPhone 14 Pro was available by Apple
+                          on 9th Sept and stock of 128GB 14 Pro arrived to
+                          Amazon on 11th) and it wasn’t even dispatched till
+                          17th thus defeating the purpose of pre-ordering.
+                          Pre-ordering from Apple ideally results in the product
+                          reaching your doorstep on 16th September instead of
+                          being dispatched on 16th September!
+                        </p>
+                      </div>
+
+                      <!-- review-imgs -->
+                      <div class="review-imgs mg-b-sl">
+                        <img
+                          src="../../img/amazon/hero_1.jpg"
+                          class="img-lw r-sm review-img positionel-manual-btn"
+                          alt=""
+                        />
+                        <img
+                          src="../../img/amazon/hero_1.jpg"
+                          class="img-lw r-sm review-img positionel-manual-btn"
+                          alt=""
+                        />
+                        <img
+                          src="../../img/amazon/hero_1.jpg"
+                          class="img-lw r-sm review-img positionel-manual-btn"
+                          alt=""
+                        />
+                      </div>
+
+                      <!-- review-helpful-count -->
+                      <p class="t-sm mg-b-sm">
+                        <span class="review-helpful-count">1780</span> found
+                        this helful
+                      </p>
+
+                      <!-- review-btns -->
+                      <div class="f-sm f-ab">
+                        <button class="btn-outline">Helpful</button>
+                        <div class="dim">|</div>
+                        <button class="btn-text-dull">Report abuse</button>
+                      </div>
+                    </footer>
+                  </div>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- i should not use styling from style -->
+        <div
+          class="addToCart"
+          data-component="slide"
+          data-hook-id="add-to-cart"
+          data-active="true"
+        >
+          <div class="overlay"></div>
+          <div
+            class="addToCart-container p-bg row-spinner"
+            data-show-spinner="true"
+            data-spinner-size="md"
+            data-hide-manual="true"
+          >
+            <button class="btn-icon" data-action="close">
+              <i class="fa fa-times icon-hg light"></i>
+            </button>
+
+            <div class="addToCart-content f-bg">
+              <!-- product preview -->
+              <div class="addToCart-product-preview">
+                <div class="f-sm f-ac">
+                  <button class="btn-icon round btn-icon-lw bg-green">
+                    <i class="fas fa-check icon-lw white"></i>
+                  </button>
+                  <h class="s-6">Added to cart</h>
+                </div>
+
+                <div class="center">
+                  <img
+                    class="img-lw"
+                    src="../../../img/products/1.jpg"
+                    alt=""
+                  />
+                </div>
+              </div>
+
+              <!-- price and checkout -->
+              <div>
+                <div class="addToCart-price f f-ab mg-lw">
+                  <h class="s-7">Cart subtotal</h>
+                  <p class="w-500">(<span data-item-count>13</span> items):</p>
+                  <h class="letter-s s-7 primary" data-item-price
+                    >Rs.4,93,795</h
+                  >
+                </div>
+
+                <div class="f-lw">
+                  <a href="/me/cart" class="btn-outline btn-bg">Cart</a>
+                  <a href="/me/checkout" class="btn-primary-light btn-bg"
+                    >Proceed to checkout (<span data-item-count>17</span> items)
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="footer hidden">
+      <div class="footer-container">
+        <div class="footer-navigation">
+          <div class="footer-navigation-content container-60 mg-c f f-sb">
+            <div class="footer-list">
+              <h class="h-8 mg-b-sm">Get to Know Us</h>
+              <p class="t-sm mg-b-lw">About Us</p>
+              <p class="t-sm mg-b-lw">Careers</p>
+              <p class="t-sm mg-b-lw">Press Releases</p>
+              <p class="t-sm mg-b-lw">Amazon Science</p>
+            </div>
+            <div class="footer-list">
+              <h class="h-8 mg-b-sm">Connect with Us</h>
+              <p class="t-sm mg-b-lw">About Us</p>
+              <p class="t-sm mg-b-lw">Careers</p>
+              <p class="t-sm mg-b-lw">Press Releases</p>
+              <p class="t-sm mg-b-lw">Amazon Science</p>
+            </div>
+            <div class="footer-list">
+              <h class="h-8 mg-b-sm">Let Us Help You</h>
+              <p class="t-sm mg-b-lw">COVID-19 and Amazon</p>
+              <p class="t-sm mg-b-lw">Returns Centre</p>
+              <p class="t-sm mg-b-lw">100% Purchase Protection</p>
+              <p class="t-sm mg-b-lw">Amazon Science</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="copyright">
+          <div class="copyright-container container-60 mg-c">
+            <p class="pt-lw">Conditions of Use & Sale</p>
+            <p class="pt-lw">Privacy Notice</p>
+            <p class="pt-lw">Interest Based Ads</p>
+            <p class="pt-lw">1996-2022,Amazon.com, Inc or its affliates</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- POSITION ELS -->
+    <div>
+      <!-- POSITION-RELATIVE=>FALSE -->
+
+      <!-- reviews photo gallery -->
+      <div
+        class="positionel modal"
+        data-positionel-type="modal"
+        data-modal-type="gallery"
+        data-positionel-name="reviews-photo-gallery"
+        data-active="false"
+        data-position="fixed"
+        data-load-spinner="false"
+        data-animation="translate-fade"
+        data-pointer-position="none"
+        data-show-event="click"
+        data-delay-hide="false"
+        data-static="false"
+        data-has-defined-class="true"
+        data-child-positionel="false"
+        data-width="md"
+      >
+        <div class="overlay"></div>
+        <div class="positionel-container modal-container">
+          <div class="modal-header">
+            <button class="btn-icon positionel-closebtn">
+              <i class="fa fa-times"></i>
+            </button>
+          </div>
+
+          <div class="modal-windows">
+            <div
+              class="modal-window"
+              data-window="review-photos-and-text"
+              data-active="true"
+            >
+              <!-- view all photos -->
+              <div
+                class="mg-b-lw modal-tab"
+                data-window="review-photos-gallery"
+              >
+                <i class="fa fa-th icon-bg"></i>
+                <p class="s-7 s-d">View Image Gallery</p>
+              </div>
+
+              <div class="modal-gallery-container">
+                <div
+                  class="modal-gallery"
+                  data-review-index="0"
+                  data-cur-img-index="0"
+                  data-total-imgs="5"
+                >
+                  <!-- gallery main img -->
+                  <div class="modal-gallery-cur-photo-container">
+                    <div class="modal-gallery-cur-photo-box">
+                      <img
+                        src="../../img/products/1.jpg"
+                        class="modal-gallery-cur-photo"
+                        alt="I at MrPena Seminar within 2 year."
+                      />
+
+                      <div class="modal-gallery-change-photo-btns">
+                        <button
+                          class="modal-gallery-change-photo-btn btn-icon"
+                          data-btn="left"
+                          style="display: none"
+                        >
+                          <i class="fa fa-angle-left" aria-hidden="true"></i>
+                        </button>
+                        <button
+                          class="modal-gallery-change-photo-btn btn-icon"
+                          data-btn="right"
+                        >
+                          <i class="fa fa-angle-right" aria-hidden="true"></i>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- gallery content => text | other related imgs -->
+                  <div class="modal-gallery-content">
+                    <!-- gallery details -->
+                    <div class="modal-gallery-text mg-b-sm-all mg-b-sm">
+                      <!-- review-author -->
+                      <div class="f-sm">
+                        <img
+                          src="../../img/users/default.png"
+                          alt="rohit the billionare man"
+                          class="img-avatar"
+                        />
+                        <p class="pt-md">rohit the billionare man</p>
+                      </div>
+
+                      <!-- stars and title -->
+                      <div>
+                        <div class="f-i product-rating-icons">
+                          <i class="fa fa-star" aria-hidden="true"></i>
+                          <i class="fa fa-star" aria-hidden="true"></i>
+                          <i class="fa fa-star" aria-hidden="true"></i>
+                          <i class="fa fa-star" aria-hidden="true"></i>
+                          <i class="fa fa-star" aria-hidden="true"></i>
+                        </div>
+
+                        <p class="s-7 s-d inline-span">
+                          I at MrPena Seminar within 2 year.
+                        </p>
+                      </div>
+
+                      <!-- date -->
+                      <p class="t-sm">
+                        Reviewed in <span>India</span> on
+                        <span>21/12/2022, 15:31:05</span>
+                      </p>
+
+                      <!-- review-text -->
+                      <p class="pt-md">I am the god</p>
+                    </div>
+
+                    <!-- gallery related imgs-->
+                    <div class="modal-gallery-all-photos grid-5 gap-lw">
+                      <div
+                        class="box"
+                        data-outline=""
+                        data-scale-img=""
+                        data-active="true"
+                      >
+                        <img src="../../img/products/1.jpg" alt="" />
+                      </div>
+                      <div
+                        class="box"
+                        data-outline=""
+                        data-scale-img=""
+                        data-active="false"
+                      >
+                        <img src="../../img/products/2.jpg" alt="" />
+                      </div>
+                      <div
+                        class="box"
+                        data-outline=""
+                        data-scale-img=""
+                        data-active="false"
+                      >
+                        <img src="../../img/products/3.jpg" alt="" />
+                      </div>
+                      <div
+                        class="box"
+                        data-outline=""
+                        data-scale-img=""
+                        data-active="false"
+                      >
+                        <img src="../../img/products/4.jpg" alt="" />
+                      </div>
+                      <div
+                        class="box"
+                        data-outline=""
+                        data-scale-img=""
+                        data-active="false"
+                      >
+                        <img src="../../img/products/5.jpg" alt="" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="modal-window"
+              data-window="review-photos-gallery"
+              data-active="false"
+            >
+              <div
+                class="modal-grid-photos grid grid-4 grid-img positionel-scroll"
+              >
+                <figure data-review-index="1" class="modal-grid-photo">
+                  <img src="../../img/products/1.jpg" alt="" />
+                </figure>
+                <figure data-review-index="2" class="modal-grid-photo">
+                  <img src="../../img/products/2.jpg" alt="" />
+                </figure>
+                <figure data-review-index="3" class="modal-grid-photo">
+                  <img src="../../img/products/3.jpg" alt="" />
+                </figure>
+                <figure data-review-index="4" class="modal-grid-photo">
+                  <img src="../../img/products/4.jpg" alt="" />
+                </figure>
+                <figure data-review-index="1" class="modal-grid-photo">
+                  <img src="../../img/products/1.jpg" alt="" />
+                </figure>
+                <figure data-review-index="1" class="modal-grid-photo">
+                  <img src="../../img/products/2.jpg" alt="" />
+                </figure>
+                <figure data-review-index="1" class="modal-grid-photo">
+                  <img src="../../img/products/3.jpg" alt="" />
+                </figure>
+                <figure data-review-index="1" class="modal-grid-photo">
+                  <img src="../../img/products/4.jpg" alt="" />
+                </figure>
+                <figure data-review-index="1" class="modal-grid-photo">
+                  <img src="../../img/products/1.jpg" alt="" />
+                </figure>
+                <figure data-review-index="1" class="modal-grid-photo">
+                  <img src="../../img/products/2.jpg" alt="" />
+                </figure>
+                <figure data-review-index="1" class="modal-grid-photo">
+                  <img src="../../img/products/3.jpg" alt="" />
+                </figure>
+                <figure data-review-index="1" class="modal-grid-photo">
+                  <img src="../../img/products/4.jpg" alt="" />
+                </figure>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ask-question-about-product -->
+      <div
+        class="positionel modal"
+        data-positionel-type="modal"
+        data-positionel-name="ask-question-about-product-form"
+        data-active="false"
+        data-load-spinner="true"
+        data-animation="scale-from-center"
+        data-pointer-position="none"
+        data-position="fixed"
+        data-delay-hide="false"
+        data-show-event="click"
+        data-static="false"
+        data-has-defined-class="true"
+        data-child-positionel="false"
+        data-width="sm"
+        data-form="true"
+        data-hide-form-after-submit="true"
+      >
+        <div class="overlay"></div>
+        <div class="positionel-container modal-container container-100">
+          <!-- header -->
+          <header class="positionel-header modal-header">
+            <p class="s-8">Post your question</p>
+            <button class="btn-icon positionel-closebtn static">
+              <i class="fa fa-times"></i>
+            </button>
+          </header>
+
+          <footer class="positionel-footer modal-footer">
+            <div class="spinner hide"></div>
+
+            <div class="positionel-content mg-b-lw-all">
+              <!-- ask-question -->
+              <form
+                class="form"
+                data-error="false"
+                onsubmit="return false;"
+                data-clear-inputs-when-hide="true"
+              >
+                <div class="form-group" data-error="false" data-required="true">
+                  <textarea name="text" id="" data-input></textarea>
+
+                  <div class="form-error">
+                    <i class="fa fa-exclamation-circle"></i>
+                    <p>Question is required</p>
+                  </div>
+                </div>
+
+                <p class="pt-sm mg-b-lw">
+                  Your question might be answered by sellers, manufacturers, or
+                  customers who bought this product.
+                </p>
+
+                <!-- modal-btns -->
+                <div class="form-btns">
+                  <button class="btn-outline btn-md" data-action="cancel">
+                    Cancel
+                  </button>
+                  <button class="btn-primary-light btn-md" data-action="submit">
+                    Post
+                  </button>
+                </div>
+              </form>
+            </div>
+          </footer>
+        </div>
+      </div>
+
+      <!-- create new shopping list -->
+      <div
+        class="positionel modal"
+        data-positionel-type="modal"
+        data-positionel-name="create-new-shopping-list"
+        data-active="false"
+        data-load-spinner="true"
+        data-animation="scale-from-center"
+        data-pointer-position="none"
+        data-position="fixed"
+        data-delay-hide="false"
+        data-show-event="click"
+        data-static="false"
+        data-has-defined-class="true"
+        data-child-positionel="false"
+        data-width="sm"
+        data-form="true"
+        data-hide-form-after-submit="false"
+      >
+        <div class="overlay"></div>
+        <div class="positionel-container modal-container container-100">
+          <!-- header -->
+          <header class="modal-header">
+            <p class="s-8">Create a new list</p>
+            <button class="btn-icon positionel-closebtn">
+              <i class="fa fa-times"></i>
+            </button>
+          </header>
+
+          <footer class="modal-footer">
+            <div class="spinner hide"></div>
+
+            <!-- first-content -->
+            <div
+              class="positionel-content mg-b-lw-all"
+              data-active="true"
+              data-first-content="create-new-shoplist"
+            >
+              <!-- list name -->
+              <h class="h-9">List name</h>
+
+              <form
+                class="form"
+                data-error="false"
+                onsubmit="return false;"
+                data-clear-inputs-when-hide="true"
+              >
+                <div class="form-group" data-error="false" data-required="true">
+                  <input type="text" name="shoppinglist_name" data-input />
+
+                  <div class="form-error">
+                    <i class="fa fa-exclamation-circle"></i>
+                    <p>Name is required</p>
+                  </div>
+                </div>
+
+                <p class="pt-sm mg-b-lw">
+                  Use lists to save items for later.All lists are private unless
+                  you share them with mothers
+                </p>
+
+                <!--  learn more tooltip -->
+                <div>
+                  <button
+                    class="btn-inline"
+                    data-positionel-btn
+                    data-positionel-name="shopping-list-learnmore-tooltip"
+                  >
+                    <p class="">Learn more</p>
+                    <i class="fa fa-angle-down"></i>
+                  </button>
+
+                  <!-- learn more tooltip -->
+                  <div
+                    class="positionel tooltip"
+                    data-positionel-type="tooltip"
+                    data-positionel-name="shopping-list-learnmore-tooltip"
+                    data-active="false"
+                    data-animation="fade"
+                    data-show-event="mouseover"
+                    data-delay-hide="false"
+                    data-load-spinner="false"
+                    data-static="false"
+                    data-has-defined-class="true"
+                    data-pointer-position="bottom"
+                    data-position="top"
+                    data-child-positionel="true"
+                  >
+                    <div class="positionel-container">
+                      <div class="positionel-square"></div>
+
+                      <!-- hide content -->
+                      <div class="positionel-content">
+                        <p class="pt-sm">
+                          Lists replaces wish lists and shopping lists, creating
+                          one place for all your lists. You can also share your
+                          lists with others by inviting them after you've
+                          created a list.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- modal-btns -->
+                <div class="form-btns">
+                  <button class="btn-outline btn-md" data-action="cancel">
+                    Cancel
+                  </button>
+                  <button class="btn-primary-light btn-md" data-action="submit">
+                    Create List
+                  </button>
+                </div>
+              </form>
+            </div>
+
+            <!-- second-content -->
+            <div
+              class="positionel-content mg-b-lw-all"
+              data-active="false"
+              data-second-content="item-add-to-shopping-list-preview"
+            >
+              <h8 class="h-7 h-m"
+                >1 item added to
+                <span class="modal-shopping-list-name"
+                  >Shopping List 8</span
+                ></h8
+              >
+
+              <!-- product -->
+              <div
+                class="list-item modal-new-added-item-to-shopping-list"
+                data-col="2"
+                data-hover="false"
+              >
+                <img src="../../img/products/1.jpg" />
+                <div>
+                  <p class="pt-md modal-item-name">
+                    Apple 2022 iPad Air M1 Chip (10.9-inch/27.69 cm, Wi-Fi,
+                    64GB) - Blue (5th Generation)
+                  </p>
+                  <p class="red pt-sm modal-item-price">Rs.54,900</p>
+                </div>
+              </div>
+
+              <!-- buttons -->
+              <div>
+                <button class="btn-outline btn-100 mg-b-lw">
+                  View Wish List
+                </button>
+                <button class="btn-primary-light btn-100">
+                  Continue Shopping
+                </button>
+              </div>
+            </div>
+          </footer>
+        </div>
+      </div>
+
+      <!-- add-to-wishlist modal -->
+      <div
+        class="positionel modal"
+        data-positionel-type="modal"
+        data-positionel-name="add-product-to-wishlist-modal"
+        data-active="false"
+        data-load-spinner="true"
+        data-animation="translate-fade"
+        data-pointer-position="none"
+        data-position="fixed"
+        data-delay-hide="false"
+        data-show-event="click"
+        data-static="false"
+        data-has-defined-class="true"
+        data-child-positionel="false"
+      >
+        <div class="overlay"></div>
+        <div class="positionel-container modal-container container-100">
+          <div class="spinner"></div>
+          <div class="positionel-content">
+            <!-- header -->
+            <header class="modal-header sticky-header">
+              <p class="s-8">Add to Wish List</p>
+              <button class="btn-icon positionel-closebtn static">
+                <i class="fa fa-times"></i>
+              </button>
+            </header>
+
+            <!-- footer -->
+            <div class="modal-content mg-b-sm-all">
+              <!-- item add to shopping-list -->
+              <div class="modal-item-add">
+                <!-- item add is already added -->
+                <div class="modal-item-duplicate hidden">
+                  <h6 class="h-6 h-m">
+                    The item was already in
+                    <a class="btn-inline-u">Shopping List</a>
+                  </h6>
+                  <p class="t-sm">We moved it to the top of list.</p>
+                </div>
+
+                <!-- new item add to wishlist -->
+                <div class="modal-item-new-add-box">
+                  <h class="h-m h-6"
+                    >One item added to
+                    <a class="btn-inline-u">Shopping List</a></h
+                  >
+                  <div class="modal-item modal-product-to-be-add g-m-1-max">
+                    <img
+                      class="modal-item-img img-sm"
+                      src="../../img/products/2.jpg"
+                      alt=""
+                    />
+                    <a class="modal-item-title btn-inline-u btn-md"
+                      >2021 Apple MacBook Pro (16-inch//41.05 cm, Apple M1 Max
+                      chip with 10‑core CPU and 32‑core GPU, 32GB RAM, 1TB SSD)
+                      - Space Grey</a
+                    >
+
+                    <div class="border-box">
+                      <a class="btn-outline">View Your List</a>
+                      <a class="btn-primary-light">Continue Shopping</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="line"></div>
+
+              <!-- suggested product to buy -->
+              <div class="card card-md" data-card-type="products-in-1-row">
+                <!-- cards -->
+                <p class="card-title">Customers who bought also bought</p>
+                <div class="card-content">
+                  <div class="card-btns">
+                    <button
+                      class="slider-btn"
+                      data-btn="left"
+                      data-active="true"
+                    ></button>
+                    <button
+                      class="slider-btn"
+                      data-btn="right"
+                      data-active="true"
+                    ></button>
+                  </div>
+
+                  <div class="card-list">
+                    <div class="card-item" data-border>
+                      <!-- imgs -->
+                      <img
+                        src="../../img/products/2.jpg"
+                        alt=""
+                        class="card-img mg-b-sl"
+                      />
+
+                      <!-- details -->
+                      <div class="card-item-details">
+                        <p class="blue capitalize">Elon must ki rudeness</p>
+
+                        <div class="product-rating-text">
+                          <!-- icons -->
+                          <div class="f-lw f-as">
+                            <div class="f product-rating-icons">
+                              <i
+                                class="fa fa-star icon-sm"
+                                aria-hidden="true"
+                              ></i>
+                              <i
+                                class="fa fa-star icon-sm"
+                                aria-hidden="true"
+                              ></i>
+                              <i
+                                class="fa fa-star icon-sm"
+                                aria-hidden="true"
+                              ></i>
+                              <i
+                                class="fa fa-star icon-sm"
+                                aria-hidden="true"
+                              ></i>
+                              <i
+                                class="fa fa-star icon-sm"
+                                aria-hidden="true"
+                              ></i>
+                            </div>
+
+                            <p class="pt-sm blue">190</p>
+                          </div>
+                        </div>
+
+                        <p class="card-price f-0 f-as red">$900</p>
+                      </div>
+
+                      <!-- buttons -->
+                      <div>
+                        <button class="btn-primary-light btn-100 mg-b-lw">
+                          Add to Cart
+                        </button>
+                        <button class="btn-outline btn-100">
+                          Add to Wish List
+                        </button>
+                      </div>
+                    </div>
+                    <div class="card-item" data-border>
+                      <!-- imgs -->
+                      <img
+                        src="../../img/products/2.jpg"
+                        alt=""
+                        class="card-img mg-b-sl"
+                      />
+
+                      <!-- details -->
+                      <div class="card-item-details">
+                        <p class="blue capitalize">Elon must ki rudeness</p>
+
+                        <div class="product-rating-text">
+                          <!-- icons -->
+                          <div class="f-lw f-as">
+                            <div class="f product-rating-icons">
+                              <i
+                                class="fa fa-star icon-sm"
+                                aria-hidden="true"
+                              ></i>
+                              <i
+                                class="fa fa-star icon-sm"
+                                aria-hidden="true"
+                              ></i>
+                              <i
+                                class="fa fa-star icon-sm"
+                                aria-hidden="true"
+                              ></i>
+                              <i
+                                class="fa fa-star icon-sm"
+                                aria-hidden="true"
+                              ></i>
+                              <i
+                                class="fa fa-star icon-sm"
+                                aria-hidden="true"
+                              ></i>
+                            </div>
+
+                            <p class="pt-sm blue">190</p>
+                          </div>
+                        </div>
+
+                        <p class="card-price f-0 f-as red">$900</p>
+                      </div>
+
+                      <!-- buttons -->
+                      <div>
+                        <button class="btn-primary-light btn-100 mg-b-lw">
+                          Add to Cart
+                        </button>
+                        <button class="btn-outline btn-100">
+                          Add to Wish List
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- product-img-overview-modal -->
+      <div
+        class="positionel modal"
+        data-positionel-type="modal"
+        data-modal-type="gallery"
+        data-positionel-name="product-overview-imgs"
+        data-active="false"
+        data-load-spinner="false"
+        data-animation="translate-fade"
+        data-pointer-position="none"
+        data-position="fixed"
+        data-show-event="click"
+        data-delay-hide="false"
+        data-static="false"
+        data-has-defined-class="true"
+        data-child-positionel="false"
+      >
+        <div class="overlay"></div>
+        <div class="positionel-container modal-container">
+          <div class="modal-tabs">
+            <button class="btn-icon positionel-closebtn">
+              <i class="fa fa-times"></i>
+            </button>
+            <button
+              class="btn-tab"
+              data-window="product-overview"
+              data-active="true"
+            >
+              Images
+            </button>
+          </div>
+          <div class="positionel-content">
+            <div class="modal-content">
+              <div class="modal-window" data-window="product-overview">
+                <div class="modal-gallery-container">
+                  <div class="modal-gallery">
+                    <!--  product-cur-img  -->
+                    <div class="modal-gallery-cur-photo-container">
+                      <div class="modal-gallery-cur-photo-box">
+                        <img
+                          src="../../img/products/3.jpg"
+                          class="modal-gallery-cur-photo"
+                          alt="iPhone"
+                        />
+                      </div>
+                    </div>
+
+                    <!-- product info | product imgs -->
+                    <div class="modal-gallery-content">
+                      <!-- info -->
+                      <div class="modal-gallery-text mg-b-sm-all mg-b-sm">
+                        <h class="h-6 h-l">Apple iPhone 13(64GB)- Black</h>
+
+                        <p class="t-md">
+                          Colour: <span class="letter-s">Black</span>
+                        </p>
+                        <p class="t-md">
+                          Size name: <span class="letter-s">64GB</span>
+                        </p>
+                        <p class="t-md">
+                          Patterm name: <span class="letter-s">iPhone 12</span>
+                        </p>
+                      </div>
+
+                      <!-- preview imgs -->
+                      <div class="grid-4 gap-lw modal-gallery-related-photos">
+                        <div class="box" data-outline data-active="false">
+                          <img src="../../img/products/1.jpg" alt="" />
+                        </div>
+                        <div class="box" data-outline data-active="false">
+                          <img src="../../img/products/2.jpg" alt="" />
+                        </div>
+                        <div class="box" data-outline data-active="false">
+                          <img src="../../img/products/3.jpg" alt="" />
+                        </div>
+                        <div class="box" data-outline data-active="false">
+                          <img src="../../img/products/4.jpg" alt="" />
+                        </div>
+                        <div class="box" data-outline data-active="false">
+                          <img src="../../img/products/5.jpg" alt="" />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ///////////// DROPDOWN /////////////////// -->
+      <!-- change-language-dropdown -->
+      <div
+        class="dropdown positionel"
+        data-positionel-name="choose-language"
+        data-positionel-type="dropdown"
+        data-active="false"
+        data-hover-show="true"
+        data-pointer-position="left"
+        data-position="bottom"
+        data-delay-hide="false"
+        data-load-spinner="false"
+        data-animation="fade"
+        data-show-event="mouseover"
+        data-static="false"
+        data-has-defined-class="false"
+        data-hide-by="default"
+        data-child-positionel="false"
+      >
+        <div class="overlay"></div>
+
+        <div class="dropdown-container positionel-container p-b-sm">
+          <div class="positionel-square"></div>
+
+          <div class="positionel-content">
+            <header class="list-item" data-col="2" data-hover="false">
+              <div
+                class="checkbox"
+                data-circle-at-center="true"
+                data-active="true"
+                data-
+              ></div>
+              <p>English - En</p>
+            </header>
+            <div class="line"></div>
+
+            <!-- content -->
+            <article>
+              <ul class="list" data-hover-underline="true">
+                <li class="list-item" data-col="2">
+                  <div
+                    class="checkbox"
+                    data-circle-at-center="true"
+                    data-active="false"
+                  ></div>
+                  <p>हिन्दी - HI - अनुवाद</p>
+                </li>
+                <li class="list-item" data-col="2">
+                  <div
+                    class="checkbox"
+                    data-circle-at-center="true"
+                    data-active="false"
+                  ></div>
+                  <p>ಕನ್ನಡ - KN - ಭಾಷಾಂತರ</p>
+                </li>
+                <li class="list-item" data-col="2">
+                  <div
+                    class="checkbox"
+                    data-circle-at-center="true"
+                    data-active="false"
+                  ></div>
+                  <p>తెలుగు - TE - అనువాదం</p>
+                </li>
+                <li class="list-item" data-col="2">
+                  <div
+                    class="checkbox"
+                    data-circle-at-center="true"
+                    data-active="false"
+                  ></div>
+                  <p>தமிழ் - TA - மொழிபெயர்ப்பு</p>
+                </li>
+                <li class="hovercard-header list-item" data-col="2">
+                  <div
+                    class="checkbox"
+                    data-circle-at-center="true"
+                    data-active="false"
+                  ></div>
+                  <p>മലയാളം - ML - വിവർത്തനം</p>
+                </li>
+                <li class="list-item" data-col="2">
+                  <div
+                    class="checkbox"
+                    data-circle-at-center="true"
+                    data-active="false"
+                  ></div>
+                  <p>বাংলা - BN - অনুবাদ</p>
+                </li>
+                <li class="list-item" data-col="2">
+                  <div
+                    class="checkbox"
+                    data-circle-at-center="true"
+                    data-active="false"
+                  ></div>
+                  <p>मराठी - MR - भाषांतर</p>
+                </li>
+              </ul>
+            </article>
+            <div class="line mg-b-lw"></div>
+            <footer>
+              <div class="list-item" data-col="2" data-hover="false">
+                <img
+                  src="https://countryflagsapi.com/png/india"
+                  alt=""
+                  class="height-1"
+                />
+                You are shopping on Amazon.in
+              </div>
+              <div class="center">
+                <p class="pt-sm blue hover-underline-blue">
+                  Change country/region
+                </p>
+              </div>
+            </footer>
+          </div>
+        </div>
+      </div>
+
+      <!-- user-options-dropdown -->
+      <div
+        class="dropdown positionel"
+        data-positionel-name="user-options"
+        data-active="false"
+        data-positionel-type="dropdown"
+        data-pointer-position="right"
+        data-position="right"
+        data-delay-hide="false"
+        data-load-spinner="false"
+        data-static="false"
+        data-has-defined-class="false"
+        data-hide-by="default"
+        data-animation="fade"
+        data-show-event="mouseover"
+        data-child-positionel="false"
+      >
+        <div class="overlay"></div>
+
+        <div class="dropdown-container positionel-container">
+          <div class="positionel-square"></div>
+
+          <div class="positionel-content">
+            <!-- grid -->
+            <div class="dropdown-grid">
+              <!-- buy again product -->
+              <div class="p-sm hovercard-product-box">
+                <h class="h-7 h-0">Buy it again</h>
+                <p class="blue pt-md mg-b-lw hover-primary">
+                  View All & Manage
+                </p>
+
+                <div class="f-sm f-as" data-col="2">
+                  <img class="img-lw" src="../../img/products/1.jpg" alt="" />
+                  <div>
+                    <p class="pt-sm blue hover-color-red w-500">
+                      Chewers Oven Baked Milk Puppu Dog Treat
+                    </p>
+                    <p class="red pt-sm w-500">$30</p>
+                    <button class="btn-primary btn-sm">Add to Cart</button>
+                  </div>
+                </div>
+              </div>
+
+              <ul class="list p-sm" data-col="1" data-hover-underline="true">
+                <h class="h-8 h-0">Your Lists</h>
+
+                <li class="list-item" href="/wishlist/create">
+                  <p>Your Account</p>
+                </li>
+
+                <li class="list-item" href="/discover">
+                  <p>Discover Your Style</p>
+                </li>
+              </ul>
+              <ul class="list p-sm" data-col="1" data-hover-underline="true">
+                <h class="h-8 h-0">Your Account</h>
+
+                <li class="list-item" href="/account">
+                  <p>Your Account</p>
+                </li>
+
+                <li class="list-item" href="/orders">
+                  <p>Discover Your Style</p>
+                </li>
+
+                <li class="list-item" href="/orders">
+                  <p>Your Orders</p>
+                </li>
+
+                <li class="list-item" href="/wishlist">
+                  <p>Your Wishlist</p>
+                </li>
+
+                <li class="list-item" href="/recommendation">
+                  <p>Your Recommendations</p>
+                </li>
+                <div class="line-dim"></div>
+
+                <li class="list-item" href="/switch-account">
+                  <p>Switch Accounts</p>
+                </li>
+
+                <li class="list-item" href="/logout">
+                  <p>Sign Out</p>
+                </li>
+              </ul>
+            </div>
+          </div> 
+        </div>
+      </div>
+
+      <!-- /////////////////////////////////////////////////// -->
+      <!-- search-products-dropdown -->
+      <div
+        class="positionel dropdown"
+        data-positionel-name="search-products"
+        data-positionel-type="dropdown"
+        data-active="false"
+        data-pointer-position="false"
+        data-position="bottom"
+        data-delay-hide="false"
+        data-load-spinner="false"
+        data-static="false"
+        data-has-defined-class="true"
+        data-hide-by="default"
+        data-animation="fade"
+        data-show-event="click"
+        data-child-positionel="false"
+      >
+        <div class="overlay"></div>
+        <div class="positionel-container">
+          <div class="positionel-content">
+            <div class="list">
+              <div class="list-item">wafters in all Categories</div>
+              <div class="list-item">iphone in all Categories</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- product ratings hovercard -->
+      <div
+        class="hovercard positionel"
+        data-positionel-name="product-ratings-overview"
+        data-positionel-type="hovercard"
+        data-active="false"
+        data-pointer-position="center"
+        data-position="bottom"
+        data-delay-hide="true"
+        data-load-spinner="true"
+        data-static="false"
+        data-has-defined-class="true"
+        data-hide-by="default"
+        data-animation="fade"
+        data-show-event="mouseover"
+        data-child-positionel="false"
+      >
+        <div class="overlay overlay-t"></div>
+
+        <div class="hovercard-container positionel-container r-md p-sm p-b-md">
+          <div class="positionel-square"></div>
+          <div class="spinner hide"></div>
+
+          <div class="positionel-content">
+            <div class="product-ratings-overview mg-b-sm-all">
+              <!-- rating text -->
+              <div class="product-rating-text">
+                <!-- icons -->
+                <div class="f-sm f-ac mg-b-sl">
+                  <div class="f-sl product-rating-icons">
+                    <i class="fa fa-star icon-sm" aria-hidden="true"></i>
+                    <i class="fa fa-star icon-sm" aria-hidden="true"></i>
+                    <i class="fa fa-star icon-sm" aria-hidden="true"></i>
+                    <i class="fa fa-star icon-sm" aria-hidden="true"></i>
+                    <i class="fa fa-star icon-sm" aria-hidden="true"></i>
+                  </div>
+
+                  <p class="s-6 h-m">4.7 out of 5</p>
+                </div>
+
+                <p class="t-md">158 global ratings</p>
+              </div>
+
+              <!-- rating in chart table -->
+              <div class="product-rating-chart mg-b-lw" data-race="false">
+                <!-- 5star -->
+                <div class="product-rating-chart-box f-md f-ac mg-b-lw">
+                  <p class="product-rating-star pt-md blue hover-primary">
+                    5 star
+                  </p>
+                  <div class="progressbar">
+                    <div class="progressbar-track-line" data-percent="83"></div>
+                  </div>
+                  <p class="product-rating-percent pt-md blue hover-primary">
+                    83%
+                  </p>
+                </div>
+
+                <!-- 4star -->
+                <div class="product-rating-chart-box f-md f-ac mg-b-lw">
+                  <p class="product-rating-star pt-md blue hover-primary">
+                    5 star
+                  </p>
+                  <div class="progressbar">
+                    <div class="progressbar-track-line" data-percent="83"></div>
+                  </div>
+                  <p class="product-rating-percent pt-md blue hover-primary">
+                    83%
+                  </p>
+                </div>
+                <!-- 4star -->
+                <div class="product-rating-chart-box f-md f-ac mg-b-lw">
+                  <p class="product-rating-star pt-md blue hover-primary">
+                    5 star
+                  </p>
+                  <div class="progressbar">
+                    <div class="progressbar-track-line" data-percent="83"></div>
+                  </div>
+                  <p class="product-rating-percent pt-md blue hover-primary">
+                    83%
+                  </p>
+                </div>
+                <!-- 4star -->
+                <div class="product-rating-chart-box f-md f-ac mg-b-lw">
+                  <p class="product-rating-star pt-md blue hover-primary">
+                    5 star
+                  </p>
+                  <div class="progressbar">
+                    <div class="progressbar-track-line" data-percent="83"></div>
+                  </div>
+                  <p class="product-rating-percent pt-md blue hover-primary">
+                    83%
+                  </p>
+                </div>
+                <!-- 4star -->
+                <div class="product-rating-chart-box f-md f-ac mg-b-lw">
+                  <p class="product-rating-star pt-md blue hover-primary">
+                    5 star
+                  </p>
+                  <div class="progressbar">
+                    <div class="progressbar-track-line" data-percent="83"></div>
+                  </div>
+                  <p class="product-rating-percent pt-md blue hover-primary">
+                    83%
+                  </p>
+                </div>
+              </div>
+
+              <div class="line mg-b-md"></div>
+
+              <a class="btn-inline mg-c">
+                <p>See all customer review</p>
+                <i class="fa fa-angle-right"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

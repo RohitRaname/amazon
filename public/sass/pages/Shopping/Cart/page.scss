@@ -1,0 +1,14 @@
+.cart {
+  &-container {
+    display: grid;
+    grid-template-columns: 1fr minmax(20rem, 34rem);
+    gap: $gap-md;
+    min-height: 100rem;
+  }
+
+  &-item-container {
+    display: grid;
+    grid-template-columns: min-content min-content 1fr min-content;
+    gap: $gap-md;
+  }
+}

@@ -1,0 +1,35 @@
+.footer {
+  color: var(--background-light);
+
+  &-container {
+  }
+
+  &-navigation {
+    padding: 4.8rem 3.2rem;
+    background: var(--color-tertiary);
+  }
+
+  .copyright {
+    background: var(--color-tertiary-dark);
+    &-container {
+      padding: 4.4rem 3.2rem;
+
+      display: grid;
+      grid-template-columns: repeat(3, max-content);
+      gap: 1.8rem;
+      row-gap: 0.5rem;
+      justify-content: center;
+      justify-items: center;
+      align-content: flex-start;
+
+      p:last-child {
+        grid-column: 1/-1;
+      }
+    }
+  }
+
+  h,
+  p {
+    color: inherit;
+  }
+}

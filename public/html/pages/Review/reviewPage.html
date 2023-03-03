@@ -1,0 +1,1417 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="shortcut icon"
+      href="../../img/amazon/favicon.png"
+      type="image/*"
+    />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../../style.css" />
+    <script
+      src="https://kit.fontawesome.com/28cd1ccca7.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script defer type="module" src="../../../script.js"></script>
+  </head>
+  <body data-page="review">
+    <!-- header -->
+    <header class="header sticky-header">
+      <div class="header-content f-sm">
+        <!-- logo -->
+        <div class="header-box">
+          <a href="/" class="logo-box">
+            <img src="../../img/amazon/logo.png" class="logo" alt="" />
+          </a>
+        </div>
+
+        <!-- delivery location -->
+        <a
+          class="header-box f-lw"
+          href="customer/change-delievery-location"
+          data-type="change-delievery-location"
+        >
+          <i class="fa fa-map-marker"></i>
+          <div>
+            <p class="pt-lw">Deliver to Rohit</p>
+            <h9 class="h-9">Merrut 250001</h9>
+          </div>
+        </a>
+
+        <!-- search form -->
+        <div class="search-form">
+          <div class="search-form-content">
+            <input
+              type="text"
+              class="search-input"
+              data-position-el-btn
+              data-position-el-name="search-products"
+              data-position-el-hover-show="false"
+            />
+
+            <button class="btn-icon" data-action="search">
+              <i class="fa fa-search"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- user language  -->
+        <div
+          class="header-box"
+          data-type="change-user-language"
+          data-position-el-btn
+          data-position-el-hover-show="true"
+          data-position-el-name="choose-language"
+        >
+          <!-- <img src="https://countryflagsapi.com/png/india" alt="" /> -->
+          <h9 class="h-9">EN</h9>
+          <div class="header-language-more-icon-box">
+            <i class="fa fa-caret-down" aria-="true"></i>
+          </div>
+        </div>
+
+        <!-- account and lists -->
+        <a
+          href="/my-accounts"
+          class="header-box"
+          data-type="account_and_lists"
+          data-position-el-btn
+          data-position-el-hover-show="true"
+          data-position-el-name="user-options"
+        >
+          <p class="pt-lw">Hello,mclaren</p>
+          <div class="f-lw f-ac">
+            <p class="h-9 h-0">Account & Lists</p>
+            <i class="fa fa-caret-down"></i>
+          </div>
+        </a>
+
+        <!-- returns and orders -->
+        <a href="/my-orders" class="header-box" data-type="return_and_orders">
+          <p class="pt-lw">Returns</p>
+          <div>
+            <p class="h-9 h-0">& Orders</p>
+          </div>
+        </a>
+
+        <!-- carts -->
+        <a href="/my-cart" class="header-box" data-type="carts">
+          <div class="header-cart-box">
+            <div class="header-cart-icon">
+              <i class="fa fa-cart-plus"></i>
+              <p class="header-cart-qty">9</p>
+            </div>
+            <h class="h-9 h-0">Cart</h>
+          </div>
+        </a>
+
+        <div></div>
+      </div>
+    </header>
+
+    <!-- navigation -->
+    <nav class="nav" data-active="false">
+      <div class="overlay"></div>
+      <div class="nav-list">
+        <div class="list-item nav-my-account f f-sb f-ac">
+          <a
+            href="/my-account"
+            class=""
+            data-link="/my-account"
+            data-hover="false"
+          >
+            <div class="f-lw">
+              <i class="fa fa-user-circle nav-user-icon"></i>
+
+              <h class="h-7 w-700 h-0"> Hello, mclaren </h>
+            </div>
+          </a>
+          <button class="btn-icon" data-action="close-nav">
+            <i class="fa fa-times"></i>
+          </button>
+        </div>
+
+        <!-- trending -->
+        <div class="list">
+          <p class="list-title">Trending</p>
+          <a href="/best-sellers" class="list-item" data-link="/best-sellers">
+            <p>Best sellers</p>
+          </a>
+          <a class="list-item" href="/new-products">
+            <p>New releases</p>
+          </a>
+          <a class="list-item" href="/trending-products">
+            <p>Movers and Shakers</p>
+          </a>
+        </div>
+
+        <div class="line-dim mg-b-lw mg-t-lw"></div>
+
+        <!-- settings -->
+        <div class="list">
+          <p class="list-title">Help & Settings</p>
+          <a class="list-item" href="/my-account">
+            <p>Your Account</p>
+          </a>
+          <a class="list-item" href="/customer-service">
+            <p>Customer Service</p>
+          </a>
+          <a class="list-item" href="/logout">
+            <p>Sign Out</p>
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- shortcut-navigation -->
+    <div class="shortcut-navigation f">
+      <div class="nav-btn-box border f" data-nav-btn>
+        <button class="nav-btn">
+          <p class="nav-btn-line"></p>
+          <p class="nav-btn-line"></p>
+          <p class="nav-btn-line"></p>
+        </button>
+        <h class="h-9 h-0">All</h>
+      </div>
+
+      <a href="/my-cart" class="border">
+        <h class="h-9 h-0"> Buy again </h>
+      </a>
+
+      <a href="/products" class="border">
+        <h class="h-9 h-0"> Heath,Household & Personal Care </h>
+      </a>
+
+      <a href="/my-orders" class="border">
+        <h class="h-9 h-0"> Orders </h>
+      </a>
+    </div>
+    <main>
+      <!-- section product -->
+      <section class="section-review p-lw">
+        <div class="route f-sm f-ab mg-sm">
+          <a href="/productUrl" class="default-color hover-primary"
+            >Apple iPhone 13 Mini (128GB) - Midnight</a
+          >
+          <i class="fa fa-angle-right default-color icon-lw"></i>
+          <p class="primary">Customer reviews</p>
+        </div>
+
+        <div class="review-container mg-md-all">
+          <!-- rating chart and product overview -->
+          <div class="review-product-overview f-sm">
+            <!-- rating chart -->
+            <div
+              class="product-ratings-overview mg-b-lg"
+              data-scroll-event-race=""
+            >
+              <h class="h-5 mg-0">Customer reviews</h
+              ><!-- rating text-->
+              <div class="product-rating-text mg-sm">
+                <!-- icons-->
+                <div class="f-sm f-ab mg-b-sl">
+                  <div class="f-sl product-rating-icons">
+                    <i class="fa fa-star-o undefined" aria-hidden="true"></i
+                    ><i class="fa fa-star-o undefined" aria-hidden="true"></i
+                    ><i class="fa fa-star-o undefined" aria-hidden="true"></i
+                    ><i class="fa fa-star-o undefined" aria-hidden="true"></i
+                    ><i class="fa fa-star-o undefined" aria-hidden="true"></i>
+                  </div>
+                  <p class="pt">0 out of 5</p>
+                </div>
+                <p class="t-md">0 global ratings</p>
+              </div>
+              <!-- rating in chart table-->
+              <div class="product-rating-chart" data-race="true">
+                <div class="product-rating-chart-box f-md f-ac mg-b-lw">
+                  <p class="product-rating-star pt-md blue hover-primary">
+                    5 star
+                  </p>
+                  <div class="progressbar">
+                    <div class="progressbar-track-line" style="width: 0%"></div>
+                  </div>
+                  <p class="product-rating-percent pt-md blue hover-primary">
+                    0 %
+                  </p>
+                </div>
+                <div class="product-rating-chart-box f-md f-ac mg-b-lw">
+                  <p class="product-rating-star pt-md blue hover-primary">
+                    4 star
+                  </p>
+                  <div class="progressbar">
+                    <div class="progressbar-track-line" style="width: 0%"></div>
+                  </div>
+                  <p class="product-rating-percent pt-md blue hover-primary">
+                    0 %
+                  </p>
+                </div>
+                <div class="product-rating-chart-box f-md f-ac mg-b-lw">
+                  <p class="product-rating-star pt-md blue hover-primary">
+                    3 star
+                  </p>
+                  <div class="progressbar">
+                    <div class="progressbar-track-line" style="width: 0%"></div>
+                  </div>
+                  <p class="product-rating-percent pt-md blue hover-primary">
+                    0 %
+                  </p>
+                </div>
+                <div class="product-rating-chart-box f-md f-ac mg-b-lw">
+                  <p class="product-rating-star pt-md blue hover-primary">
+                    2 star
+                  </p>
+                  <div class="progressbar">
+                    <div class="progressbar-track-line" style="width: 0%"></div>
+                  </div>
+                  <p class="product-rating-percent pt-md blue hover-primary">
+                    0 %
+                  </p>
+                </div>
+                <div class="product-rating-chart-box f-md f-ac mg-b-lw">
+                  <p class="product-rating-star pt-md blue hover-primary">
+                    1 star
+                  </p>
+                  <div class="progressbar">
+                    <div class="progressbar-track-line" style="width: 0%"></div>
+                  </div>
+                  <p class="product-rating-percent pt-md blue hover-primary">
+                    0 %
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- product overview -->
+            <div class="review-product">
+              <div class="review-product-info f-sm f-ac mg-10">
+                <img src="../../../img/products/1.jpg" class="img-sm" alt="" />
+
+                <!-- item details -->
+                <div class="wishlistCurrent-item-details">
+                  <!-- title -->
+                  <a
+                  href=""
+                    class="hover-primary blue s-6 s-m trunc-text"
+                    style="max-width: 40rem"
+                  >
+                    Apple iPhone 14 Pro 128GB Deep Purple
+                  </a>
+
+                  <!-- brand -->
+                  <p class="mg-sm">by <span class="blue">Apple</span></p>
+
+                  <!-- size & color -->
+                  <div class="box-with-v-line f-size-sm">
+                    <div>Size: <span>1 TB</span></div>
+                    <div>Colour: <span>Gold</span></div>
+                  </div>
+                </div>
+              </div>
+
+              <a
+                href="/review/create-review/productId"
+                class="btn-outline btn-md"
+                >Write a review</a
+              >
+            </div>
+          </div>
+          <div class="line-dim"></div>
+
+          <!-- search review -->
+          <div class="review-search f-sm">
+            <div class="common-search-input">
+              <i class="fa fa-search"></i>
+              <input
+                class="search-review-input"
+                type="text width-80"
+                placeholder="Search customer reviews"
+              />
+            </div>
+            <button class="btn-black search-review-btn">Search</button>
+          </div>
+
+          <!-- reviews -->
+          <div
+            class="modal review-list-modal container-80 mg-sm-all"
+            data-static="true"
+            data-modal-type="window"
+            data-load-spinner="true"
+            data-hide-spinner="true"
+            id="review-list"
+          >
+            <!-- sort and filter reviews options -->
+            <div class="review-filter-options f-md">
+              <!-- sort by -->
+              <div>
+                <p class="h-8">SORT BY</p>
+                <button
+                  class="btn-old btn-md r-bg trunc-text"
+                  style="width: 17rem"
+                  data-positionel-btn
+                  data-positionel-name="sort-by-top-reviews"
+                >
+                  <p>Top reviews</p>
+                  <i class="fa fa-angle-down"></i>
+                </button>
+              </div>
+
+              <!-- filter by stars -->
+              <div>
+                <p class="h-8">FILTER</p>
+                <button
+                  class="btn-old btn-md r-bg trunc-text"
+                  style="width: 19rem"
+                  data-positionel-btn
+                  data-positionel-name="filter-by-ratings"
+                >
+                  <p>All stars</p>
+                  <i class="fa fa-angle-down"></i>
+                </button>
+              </div>
+
+              <!-- filter by variant -->
+              <div>
+                <p class="h-8 hide">&nbsp;</p>
+                <button
+                  class="btn-old btn-md r-bg trunc-text"
+                  style="width: 19rem"
+                  data-positionel-btn
+                  data-positionel-name="filter-by-variants"
+                >
+                  <p>All formats</p>
+                  <i class="fa fa-angle-down"></i>
+                </button>
+              </div>
+
+              <!-- text or photo review -->
+              <div>
+                <p class="h-8 hide">&nbsp;</p>
+                <button
+                  class="btn-old btn-md r-bg trunc-text"
+                  style="width: 17rem"
+                  data-positionel-btn
+                  data-positionel-name="filter-by-text-and-photos"
+                >
+                  <p>All text,image reviews</p>
+                  <i class="fa fa-angle-down"></i>
+                </button>
+              </div>
+            </div>
+
+            <!-- filter total reviews load -->
+            <div class="review-filter-query-and-count mg-sm-lw hidden">
+              <h class="h-8 light">FILTERED BY</h>
+
+              <!-- queryStr and clear-filter-btn -->
+              <div class="f-sm">
+                <button
+                  class="btn-inline-span"
+                  data-action="clear-review-filter"
+                >
+                  Clear filter
+                </button>
+                <div class="review-filter-count">
+                  <p>2 total ratings, 1 with review</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="line-dim"></div>
+
+            <!-- windows -->
+            <div class="modal-windows">
+              <div class="spinner"></div>
+              <div
+                class="modal-window"
+                data-window="reviews"
+                data-active="true"
+                data-url="products/modelId/63bc126fb63b0ed0704a10e1/reviews"
+                data-filter-query=""
+                data-search-quer=""
+                data-limit="10"
+                data-page="0"
+                data-load-docs-till-page="4"
+              >
+                <!-- reviews-->
+                <ul class="modal-list reviews-list mg-md">
+                  <h6 class="h-6 mg-sm">Top reviews from</h6>
+                  <div
+                    class="review mg-b-md"
+                    data-data='{"_id":"63d0d714973711a1689b0597","modelId":"63bc126fb63b0ed0704a10e1","author":{"_id":"63ad447c3b31d43ac562d5d2","name":"rohit","country":"India"},"content":{"title":"I am more discipline","text":"I just need to follow the diary","photos":[]},"ts":"2023-01-25T07:15:27.596Z"}'
+                  >
+                    <!-- author | rating | review-title | review-date | product-spec-->
+                    <div class="review-header">
+                      <a class="f-sm f-ac mg-b-sl pointer" href="/profile/rohit"
+                        ><img
+                          class="img-sl round review-author-img"
+                          src="/img/users/default.png"
+                          alt=""
+                        />
+                        <p class="pt-md review-author-name">rohit</p></a
+                      ><!-- rating | review-title--><a
+                        class="f-sm f-ab pointer"
+                        href="/reviews/63d0d714973711a1689b0597"
+                        ><div class="f-sl product-rating-icons">
+                          <i class="fa fa-star-o icon-sm" aria-hidden="true"></i
+                          ><i
+                            class="fa fa-star-o icon-sm"
+                            aria-hidden="true"
+                          ></i
+                          ><i
+                            class="fa fa-star-o icon-sm"
+                            aria-hidden="true"
+                          ></i
+                          ><i
+                            class="fa fa-star-o icon-sm"
+                            aria-hidden="true"
+                          ></i
+                          ><i
+                            class="fa fa-star-o icon-sm"
+                            aria-hidden="true"
+                          ></i>
+                        </div>
+                        <p class="s-9 s-d hover-primary">
+                          I am more discipline
+                        </p></a
+                      ><!-- date-of-review-->
+                      <div>
+                        <p class="t-md review-postat">
+                          Reviewed in<span
+                            class="review-author-country letter-s"
+                            >India 1/25/2023, 12:45:27 PM</span
+                          >
+                        </p>
+                      </div>
+                      <!-- about-product-->
+                      <div class="f-sm review-product-details mg-b-sl">
+                        <p class="t-md">
+                          Colour: <span class="letter-s">red</span>
+                        </p>
+                        |
+                        <p class="t-md">
+                          Size name: <span class="letter-s">512 GB</span>
+                        </p>
+                        |
+                        <p class="pt-md primary w-600">Verified Purchase</p>
+                      </div>
+                    </div>
+                    <!-- review-text | review-img | review-stats-->
+                    <footer class="review-footer">
+                      <!-- review-text-->
+                      <div class="review-text-box pt-md">
+                        <p class="mg-b-sl">I just need to follow the diary</p>
+                      </div>
+                      <!-- review-imgs-->
+                      <div class="review-imgs mg-b-sl"></div>
+                      <!-- review-helpful-count-->
+                      <div class="review-helpful-box">
+                        <p class="t-sm mg-b-sm">
+                          <span class="review-helpful-count" data-value=""
+                            >0</span
+                          >
+                          found this helful
+                        </p>
+                        <!-- review-btns-->
+                        <div class="f-sm f-ab">
+                          <button
+                            class="btn-outline review-helpful-btn"
+                            data-url="products/63bc126fb63b0ed0704a10e1/reviews/63d0d714973711a1689b0597/count/increase?field=helpful"
+                            data-need-login-user=""
+                          >
+                            Helpful
+                          </button>
+                          <div class="dim">|</div>
+                          <button class="btn-text-dull" data-need-login-user="">
+                            Report abuse
+                          </button>
+                        </div>
+                      </div>
+                    </footer>
+                  </div>
+                  <div
+                    class="review mg-b-md"
+                    data-data='{"_id":"63d0ceea244bf4e03b3c0087","modelId":"63bc126fb63b0ed0704a10e1","author":{"_id":"63ad447c3b31d43ac562d5d2","name":"rohit","country":"India"},"content":{"title":"I am more discipline","text":"I just need to follow the diary","photos":[]},"ts":"2023-01-25T06:40:38.089Z"}'
+                  >
+                    <!-- author | rating | review-title | review-date | product-spec-->
+                    <div class="review-header">
+                      <a class="f-sm f-ac mg-b-sl pointer" href="/profile/rohit"
+                        ><img
+                          class="img-sl round review-author-img"
+                          src="/img/users/default.png"
+                          alt=""
+                        />
+                        <p class="pt-md review-author-name">rohit</p></a
+                      ><!-- rating | review-title--><a
+                        class="f-sm f-ab pointer"
+                        href="/reviews/63d0ceea244bf4e03b3c0087"
+                        ><div class="f-sl product-rating-icons">
+                          <i class="fa fa-star-o icon-sm" aria-hidden="true"></i
+                          ><i
+                            class="fa fa-star-o icon-sm"
+                            aria-hidden="true"
+                          ></i
+                          ><i
+                            class="fa fa-star-o icon-sm"
+                            aria-hidden="true"
+                          ></i
+                          ><i
+                            class="fa fa-star-o icon-sm"
+                            aria-hidden="true"
+                          ></i
+                          ><i
+                            class="fa fa-star-o icon-sm"
+                            aria-hidden="true"
+                          ></i>
+                        </div>
+                        <p class="s-9 s-d hover-primary">
+                          I am more discipline
+                        </p></a
+                      ><!-- date-of-review-->
+                      <div>
+                        <p class="t-md review-postat">
+                          Reviewed in<span
+                            class="review-author-country letter-s"
+                            >India 1/25/2023, 12:10:38 PM</span
+                          >
+                        </p>
+                      </div>
+                      <!-- about-product-->
+                      <div class="f-sm review-product-details mg-b-sl">
+                        <p class="t-md">
+                          Colour: <span class="letter-s">red</span>
+                        </p>
+                        |
+                        <p class="t-md">
+                          Size name: <span class="letter-s">512 GB</span>
+                        </p>
+                        |
+                        <p class="pt-md primary w-600">Verified Purchase</p>
+                      </div>
+                    </div>
+                    <!-- review-text | review-img | review-stats-->
+                    <footer class="review-footer">
+                      <!-- review-text-->
+                      <div class="review-text-box pt-md">
+                        <p class="mg-b-sl">I just need to follow the diary</p>
+                      </div>
+                      <!-- review-imgs-->
+                      <div class="review-imgs mg-b-sl"></div>
+                      <!-- review-helpful-count-->
+                      <div class="review-helpful-box">
+                        <p class="t-sm mg-b-sm">
+                          <span class="review-helpful-count" data-value=""
+                            >0</span
+                          >
+                          found this helful
+                        </p>
+                        <!-- review-btns-->
+                        <div class="f-sm f-ab">
+                          <button
+                            class="btn-outline review-helpful-btn"
+                            data-url="products/63bc126fb63b0ed0704a10e1/reviews/63d0ceea244bf4e03b3c0087/count/increase?field=helpful"
+                            data-need-login-user=""
+                          >
+                            Helpful
+                          </button>
+                          <div class="dim">|</div>
+                          <button class="btn-text-dull" data-need-login-user="">
+                            Report abuse
+                          </button>
+                        </div>
+                      </div>
+                    </footer>
+                  </div>
+                  <div
+                    class="review mg-b-md"
+                    data-data='{"_id":"63d0ce83d9ec38f9dd22a235","modelId":"63bc126fb63b0ed0704a10e1","author":{"_id":"63ad447c3b31d43ac562d5d2","name":"rohit","country":"India"},"content":{"title":"I am more discipline","text":"I just need to follow the diary","photos":[]},"ts":"2023-01-25T06:38:40.530Z"}'
+                  >
+                    <!-- author | rating | review-title | review-date | product-spec-->
+                    <div class="review-header">
+                      <a class="f-sm f-ac mg-b-sl pointer" href="/profile/rohit"
+                        ><img
+                          class="img-sl round review-author-img"
+                          src="/img/users/default.png"
+                          alt=""
+                        />
+                        <p class="pt-md review-author-name">rohit</p></a
+                      ><!-- rating | review-title--><a
+                        class="f-sm f-ab pointer"
+                        href="/reviews/63d0ce83d9ec38f9dd22a235"
+                        ><div class="f-sl product-rating-icons">
+                          <i class="fa fa-star-o icon-sm" aria-hidden="true"></i
+                          ><i
+                            class="fa fa-star-o icon-sm"
+                            aria-hidden="true"
+                          ></i
+                          ><i
+                            class="fa fa-star-o icon-sm"
+                            aria-hidden="true"
+                          ></i
+                          ><i
+                            class="fa fa-star-o icon-sm"
+                            aria-hidden="true"
+                          ></i
+                          ><i
+                            class="fa fa-star-o icon-sm"
+                            aria-hidden="true"
+                          ></i>
+                        </div>
+                        <p class="s-9 s-d hover-primary">
+                          I am more discipline
+                        </p></a
+                      ><!-- date-of-review-->
+                      <div>
+                        <p class="t-md review-postat">
+                          Reviewed in<span
+                            class="review-author-country letter-s"
+                            >India 1/25/2023, 12:08:40 PM</span
+                          >
+                        </p>
+                      </div>
+                      <!-- about-product-->
+                      <div class="f-sm review-product-details mg-b-sl">
+                        <p class="t-md">
+                          Colour: <span class="letter-s">red</span>
+                        </p>
+                        |
+                        <p class="t-md">
+                          Size name: <span class="letter-s">512 GB</span>
+                        </p>
+                        |
+                        <p class="pt-md primary w-600">Verified Purchase</p>
+                      </div>
+                    </div>
+                    <!-- review-text | review-img | review-stats-->
+                    <footer class="review-footer">
+                      <!-- review-text-->
+                      <div class="review-text-box pt-md">
+                        <p class="mg-b-sl">I just need to follow the diary</p>
+                      </div>
+                      <!-- review-imgs-->
+                      <div class="review-imgs mg-b-sl"></div>
+                      <!-- review-helpful-count-->
+                      <div class="review-helpful-box">
+                        <p class="t-sm mg-b-sm">
+                          <span class="review-helpful-count" data-value=""
+                            >0</span
+                          >
+                          found this helful
+                        </p>
+                        <!-- review-btns-->
+                        <div class="f-sm f-ab">
+                          <button
+                            class="btn-outline review-helpful-btn"
+                            data-url="products/63bc126fb63b0ed0704a10e1/reviews/63d0ce83d9ec38f9dd22a235/count/increase?field=helpful"
+                            data-need-login-user=""
+                          >
+                            Helpful
+                          </button>
+                          <div class="dim">|</div>
+                          <button class="btn-text-dull" data-need-login-user="">
+                            Report abuse
+                          </button>
+                        </div>
+                      </div>
+                    </footer>
+                  </div>
+                  <div
+                    class="review mg-b-md"
+                    data-data='{"_id":"63d0ce75d9ec38f9dd22a22e","modelId":"63bc126fb63b0ed0704a10e1","author":{"_id":"63ad447c3b31d43ac562d5d2","name":"rohit","country":"India"},"content":{"title":"I am more discipline","text":"I just need to follow the diary","photos":[]},"ts":"2023-01-25T06:38:40.530Z"}'
+                  >
+                    <!-- author | rating | review-title | review-date | product-spec-->
+                    <div class="review-header">
+                      <a class="f-sm f-ac mg-b-sl pointer" href="/profile/rohit"
+                        ><img
+                          class="img-sl round review-author-img"
+                          src="/img/users/default.png"
+                          alt=""
+                        />
+                        <p class="pt-md review-author-name">rohit</p></a
+                      ><!-- rating | review-title--><a
+                        class="f-sm f-ab pointer"
+                        href="/reviews/63d0ce75d9ec38f9dd22a22e"
+                        ><div class="f-sl product-rating-icons">
+                          <i class="fa fa-star-o icon-sm" aria-hidden="true"></i
+                          ><i
+                            class="fa fa-star-o icon-sm"
+                            aria-hidden="true"
+                          ></i
+                          ><i
+                            class="fa fa-star-o icon-sm"
+                            aria-hidden="true"
+                          ></i
+                          ><i
+                            class="fa fa-star-o icon-sm"
+                            aria-hidden="true"
+                          ></i
+                          ><i
+                            class="fa fa-star-o icon-sm"
+                            aria-hidden="true"
+                          ></i>
+                        </div>
+                        <p class="s-9 s-d hover-primary">
+                          I am more discipline
+                        </p></a
+                      ><!-- date-of-review-->
+                      <div>
+                        <p class="t-md review-postat">
+                          Reviewed in<span
+                            class="review-author-country letter-s"
+                            >India 1/25/2023, 12:08:40 PM</span
+                          >
+                        </p>
+                      </div>
+                      <!-- about-product-->
+                      <div class="f-sm review-product-details mg-b-sl">
+                        <p class="t-md">
+                          Colour: <span class="letter-s">red</span>
+                        </p>
+                        |
+                        <p class="t-md">
+                          Size name: <span class="letter-s">512 GB</span>
+                        </p>
+                        |
+                        <p class="pt-md primary w-600">Verified Purchase</p>
+                      </div>
+                    </div>
+                    <!-- review-text | review-img | review-stats-->
+                    <footer class="review-footer">
+                      <!-- review-text-->
+                      <div class="review-text-box pt-md">
+                        <p class="mg-b-sl">I just need to follow the diary</p>
+                      </div>
+                      <!-- review-imgs-->
+                      <div class="review-imgs mg-b-sl"></div>
+                      <!-- review-helpful-count-->
+                      <div class="review-helpful-box">
+                        <p class="t-sm mg-b-sm">
+                          <span class="review-helpful-count" data-value=""
+                            >0</span
+                          >
+                          found this helful
+                        </p>
+                        <!-- review-btns-->
+                        <div class="f-sm f-ab">
+                          <button
+                            class="btn-outline review-helpful-btn"
+                            data-url="products/63bc126fb63b0ed0704a10e1/reviews/63d0ce75d9ec38f9dd22a22e/count/increase?field=helpful"
+                            data-need-login-user=""
+                          >
+                            Helpful
+                          </button>
+                          <div class="dim">|</div>
+                          <button class="btn-text-dull" data-need-login-user="">
+                            Report abuse
+                          </button>
+                        </div>
+                      </div>
+                    </footer>
+                  </div>
+                  <div
+                    class="review mg-b-md"
+                    data-data='{"_id":"63d0ce634767922e20c0c933","modelId":"63bc126fb63b0ed0704a10e1","author":{"name":"rohit","country":"India"},"content":{"title":"I am more discipline","text":"I just need to follow the diary","photos":[]},"ts":"2023-01-25T06:38:23.513Z"}'
+                  >
+                    <!-- author | rating | review-title | review-date | product-spec-->
+                    <div class="review-header">
+                      <a class="f-sm f-ac mg-b-sl pointer" href="/profile/rohit"
+                        ><img
+                          class="img-sl round review-author-img"
+                          src="/img/users/default.png"
+                          alt=""
+                        />
+                        <p class="pt-md review-author-name">rohit</p></a
+                      ><!-- rating | review-title--><a
+                        class="f-sm f-ab pointer"
+                        href="/reviews/63d0ce634767922e20c0c933"
+                        ><div class="f-sl product-rating-icons">
+                          <i class="fa fa-star-o icon-sm" aria-hidden="true"></i
+                          ><i
+                            class="fa fa-star-o icon-sm"
+                            aria-hidden="true"
+                          ></i
+                          ><i
+                            class="fa fa-star-o icon-sm"
+                            aria-hidden="true"
+                          ></i
+                          ><i
+                            class="fa fa-star-o icon-sm"
+                            aria-hidden="true"
+                          ></i
+                          ><i
+                            class="fa fa-star-o icon-sm"
+                            aria-hidden="true"
+                          ></i>
+                        </div>
+                        <p class="s-9 s-d hover-primary">
+                          I am more discipline
+                        </p></a
+                      ><!-- date-of-review-->
+                      <div>
+                        <p class="t-md review-postat">
+                          Reviewed in<span
+                            class="review-author-country letter-s"
+                            >India 1/25/2023, 12:08:23 PM</span
+                          >
+                        </p>
+                      </div>
+                      <!-- about-product-->
+                      <div class="f-sm review-product-details mg-b-sl">
+                        <p class="t-md">
+                          Colour: <span class="letter-s">red</span>
+                        </p>
+                        |
+                        <p class="t-md">
+                          Size name: <span class="letter-s">512 GB</span>
+                        </p>
+                        |
+                        <p class="pt-md primary w-600">Verified Purchase</p>
+                      </div>
+                    </div>
+                    <!-- review-text | review-img | review-stats-->
+                    <footer class="review-footer">
+                      <!-- review-text-->
+                      <div class="review-text-box pt-md">
+                        <p class="mg-b-sl">I just need to follow the diary</p>
+                      </div>
+                      <!-- review-imgs-->
+                      <div class="review-imgs mg-b-sl"></div>
+                      <!-- review-helpful-count-->
+                      <div class="review-helpful-box">
+                        <p class="t-sm mg-b-sm">
+                          <span class="review-helpful-count" data-value=""
+                            >0</span
+                          >
+                          found this helful
+                        </p>
+                        <!-- review-btns-->
+                        <div class="f-sm f-ab">
+                          <button
+                            class="btn-outline review-helpful-btn"
+                            data-url="products/63bc126fb63b0ed0704a10e1/reviews/63d0ce634767922e20c0c933/count/increase?field=helpful"
+                            data-need-login-user=""
+                          >
+                            Helpful
+                          </button>
+                          <div class="dim">|</div>
+                          <button class="btn-text-dull" data-need-login-user="">
+                            Report abuse
+                          </button>
+                        </div>
+                      </div>
+                    </footer>
+                  </div>
+                  <div
+                    class="review mg-b-md"
+                    data-data='{"_id":"63d0cdb9efdef2203b6f9ba7","modelId":"63bc126fb63b0ed0704a10e1","author":{"name":"rohit","country":"India"},"content":{"title":"I am more discipline","text":"I just need to follow the diary","photos":[]},"ts":"2023-01-25T06:35:29.937Z"}'
+                  >
+                    <!-- author | rating | review-title | review-date | product-spec-->
+                    <div class="review-header">
+                      <a class="f-sm f-ac mg-b-sl pointer" href="/profile/rohit"
+                        ><img
+                          class="img-sl round review-author-img"
+                          src="/img/users/default.png"
+                          alt=""
+                        />
+                        <p class="pt-md review-author-name">rohit</p></a
+                      ><!-- rating | review-title--><a
+                        class="f-sm f-ab pointer"
+                        href="/reviews/63d0cdb9efdef2203b6f9ba7"
+                        ><div class="f-sl product-rating-icons">
+                          <i class="fa fa-star-o icon-sm" aria-hidden="true"></i
+                          ><i
+                            class="fa fa-star-o icon-sm"
+                            aria-hidden="true"
+                          ></i
+                          ><i
+                            class="fa fa-star-o icon-sm"
+                            aria-hidden="true"
+                          ></i
+                          ><i
+                            class="fa fa-star-o icon-sm"
+                            aria-hidden="true"
+                          ></i
+                          ><i
+                            class="fa fa-star-o icon-sm"
+                            aria-hidden="true"
+                          ></i>
+                        </div>
+                        <p class="s-9 s-d hover-primary">
+                          I am more discipline
+                        </p></a
+                      ><!-- date-of-review-->
+                      <div>
+                        <p class="t-md review-postat">
+                          Reviewed in<span
+                            class="review-author-country letter-s"
+                            >India 1/25/2023, 12:05:29 PM</span
+                          >
+                        </p>
+                      </div>
+                      <!-- about-product-->
+                      <div class="f-sm review-product-details mg-b-sl">
+                        <p class="t-md">
+                          Colour: <span class="letter-s">red</span>
+                        </p>
+                        |
+                        <p class="t-md">
+                          Size name: <span class="letter-s">512 GB</span>
+                        </p>
+                        |
+                        <p class="pt-md primary w-600">Verified Purchase</p>
+                      </div>
+                    </div>
+                    <!-- review-text | review-img | review-stats-->
+                    <footer class="review-footer">
+                      <!-- review-text-->
+                      <div class="review-text-box pt-md">
+                        <p class="mg-b-sl">I just need to follow the diary</p>
+                      </div>
+                      <!-- review-imgs-->
+                      <div class="review-imgs mg-b-sl"></div>
+                      <!-- review-helpful-count-->
+                      <div class="review-helpful-box">
+                        <p class="t-sm mg-b-sm">
+                          <span class="review-helpful-count" data-value=""
+                            >0</span
+                          >
+                          found this helful
+                        </p>
+                        <!-- review-btns-->
+                        <div class="f-sm f-ab">
+                          <button
+                            class="btn-outline review-helpful-btn"
+                            data-url="products/63bc126fb63b0ed0704a10e1/reviews/63d0cdb9efdef2203b6f9ba7/count/increase?field=helpful"
+                            data-need-login-user=""
+                          >
+                            Helpful
+                          </button>
+                          <div class="dim">|</div>
+                          <button class="btn-text-dull" data-need-login-user="">
+                            Report abuse
+                          </button>
+                        </div>
+                      </div>
+                    </footer>
+                  </div>
+                  <div
+                    class="review mg-b-md"
+                    data-data='{"_id":"63d0cd4d85dfb663534ef148","modelId":"63bc126fb63b0ed0704a10e1","author":{"name":"rohit","country":"India"},"content":{"title":"I am more discipline","text":"I just need to follow the diary","photos":[]},"ts":"2023-01-25T06:33:45.694Z"}'
+                  >
+                    <!-- author | rating | review-title | review-date | product-spec-->
+                    <div class="review-header">
+                      <a class="f-sm f-ac mg-b-sl pointer" href="/profile/rohit"
+                        ><img
+                          class="img-sl round review-author-img"
+                          src="/img/users/default.png"
+                          alt=""
+                        />
+                        <p class="pt-md review-author-name">rohit</p></a
+                      ><!-- rating | review-title--><a
+                        class="f-sm f-ab pointer"
+                        href="/reviews/63d0cd4d85dfb663534ef148"
+                        ><div class="f-sl product-rating-icons">
+                          <i class="fa fa-star-o icon-sm" aria-hidden="true"></i
+                          ><i
+                            class="fa fa-star-o icon-sm"
+                            aria-hidden="true"
+                          ></i
+                          ><i
+                            class="fa fa-star-o icon-sm"
+                            aria-hidden="true"
+                          ></i
+                          ><i
+                            class="fa fa-star-o icon-sm"
+                            aria-hidden="true"
+                          ></i
+                          ><i
+                            class="fa fa-star-o icon-sm"
+                            aria-hidden="true"
+                          ></i>
+                        </div>
+                        <p class="s-9 s-d hover-primary">
+                          I am more discipline
+                        </p></a
+                      ><!-- date-of-review-->
+                      <div>
+                        <p class="t-md review-postat">
+                          Reviewed in<span
+                            class="review-author-country letter-s"
+                            >India 1/25/2023, 12:03:45 PM</span
+                          >
+                        </p>
+                      </div>
+                      <!-- about-product-->
+                      <div class="f-sm review-product-details mg-b-sl">
+                        <p class="t-md">
+                          Colour: <span class="letter-s">red</span>
+                        </p>
+                        |
+                        <p class="t-md">
+                          Size name: <span class="letter-s">512 GB</span>
+                        </p>
+                        |
+                        <p class="pt-md primary w-600">Verified Purchase</p>
+                      </div>
+                    </div>
+                    <!-- review-text | review-img | review-stats-->
+                    <footer class="review-footer">
+                      <!-- review-text-->
+                      <div class="review-text-box pt-md">
+                        <p class="mg-b-sl">I just need to follow the diary</p>
+                      </div>
+                      <!-- review-imgs-->
+                      <div class="review-imgs mg-b-sl"></div>
+                      <!-- review-helpful-count-->
+                      <div class="review-helpful-box">
+                        <p class="t-sm mg-b-sm">
+                          <span class="review-helpful-count" data-value=""
+                            >0</span
+                          >
+                          found this helful
+                        </p>
+                        <!-- review-btns-->
+                        <div class="f-sm f-ab">
+                          <button
+                            class="btn-outline review-helpful-btn"
+                            data-url="products/63bc126fb63b0ed0704a10e1/reviews/63d0cd4d85dfb663534ef148/count/increase?field=helpful"
+                            data-need-login-user=""
+                          >
+                            Helpful
+                          </button>
+                          <div class="dim">|</div>
+                          <button class="btn-text-dull" data-need-login-user="">
+                            Report abuse
+                          </button>
+                        </div>
+                      </div>
+                    </footer>
+                  </div>
+                  <div
+                    class="review mg-b-md"
+                    data-data='{"_id":"63d0cc94fd35f5b806212865","modelId":"63bc126fb63b0ed0704a10e1","author":{"name":"rohit","country":"India"},"content":{"title":"I am more discipline","text":"I just need to follow the diary","photos":[]},"ts":"2023-01-25T06:30:32.944Z"}'
+                  >
+                    <!-- author | rating | review-title | review-date | product-spec-->
+                    <div class="review-header">
+                      <a class="f-sm f-ac mg-b-sl pointer" href="/profile/rohit"
+                        ><img
+                          class="img-sl round review-author-img"
+                          src="/img/users/default.png"
+                          alt=""
+                        />
+                        <p class="pt-md review-author-name">rohit</p></a
+                      ><!-- rating | review-title--><a
+                        class="f-sm f-ab pointer"
+                        href="/reviews/63d0cc94fd35f5b806212865"
+                        ><div class="f-sl product-rating-icons">
+                          <i class="fa fa-star-o icon-sm" aria-hidden="true"></i
+                          ><i
+                            class="fa fa-star-o icon-sm"
+                            aria-hidden="true"
+                          ></i
+                          ><i
+                            class="fa fa-star-o icon-sm"
+                            aria-hidden="true"
+                          ></i
+                          ><i
+                            class="fa fa-star-o icon-sm"
+                            aria-hidden="true"
+                          ></i
+                          ><i
+                            class="fa fa-star-o icon-sm"
+                            aria-hidden="true"
+                          ></i>
+                        </div>
+                        <p class="s-9 s-d hover-primary">
+                          I am more discipline
+                        </p></a
+                      ><!-- date-of-review-->
+                      <div>
+                        <p class="t-md review-postat">
+                          Reviewed in<span
+                            class="review-author-country letter-s"
+                            >India 1/25/2023, 12:00:32 PM</span
+                          >
+                        </p>
+                      </div>
+                      <!-- about-product-->
+                      <div class="f-sm review-product-details mg-b-sl">
+                        <p class="t-md">
+                          Colour: <span class="letter-s">red</span>
+                        </p>
+                        |
+                        <p class="t-md">
+                          Size name: <span class="letter-s">512 GB</span>
+                        </p>
+                        |
+                        <p class="pt-md primary w-600">Verified Purchase</p>
+                      </div>
+                    </div>
+                    <!-- review-text | review-img | review-stats-->
+                    <footer class="review-footer">
+                      <!-- review-text-->
+                      <div class="review-text-box pt-md">
+                        <p class="mg-b-sl">I just need to follow the diary</p>
+                      </div>
+                      <!-- review-imgs-->
+                      <div class="review-imgs mg-b-sl"></div>
+                      <!-- review-helpful-count-->
+                      <div class="review-helpful-box">
+                        <p class="t-sm mg-b-sm">
+                          <span class="review-helpful-count" data-value=""
+                            >0</span
+                          >
+                          found this helful
+                        </p>
+                        <!-- review-btns-->
+                        <div class="f-sm f-ab">
+                          <button
+                            class="btn-outline review-helpful-btn"
+                            data-url="products/63bc126fb63b0ed0704a10e1/reviews/63d0cc94fd35f5b806212865/count/increase?field=helpful"
+                            data-need-login-user=""
+                          >
+                            Helpful
+                          </button>
+                          <div class="dim">|</div>
+                          <button class="btn-text-dull" data-need-login-user="">
+                            Report abuse
+                          </button>
+                        </div>
+                      </div>
+                    </footer>
+                  </div>
+                </ul>
+
+                <div class="modal-page-btns f-sl f-jc">
+                  <button
+                    class="btn-page"
+                    data-action="prev"
+                    data-active="false"
+                  >
+                    <i class="fa fa-angle-left"></i>
+                    <span>Previous page</span>
+                  </button>
+                  <button
+                    class="btn-page"
+                    data-action="next"
+                    data-active="true"
+                  >
+                    <span>Next page</span>
+                    <i class="fa fa-angle-right"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <div class="positionels">
+      <!-- REVIEW FILTER DROPDOWNS  -->
+      <div class="review-filter-dropdowns">
+        <!-- sort & filter dropdown -->
+        <div
+          class="positionel dropdown"
+          data-dropdown-type="select-options-dropdown"
+          data-positionel-name="sort-by-top-reviews"
+          data-positionel-type="dropdown"
+          data-active="false"
+          data-position-type="fixed"
+          data-load-spinner="false"
+          data-animation="fade"
+          data-pointer-position="none"
+          data-position="cover"
+          data-delay-hide="false"
+          data-show-event="click"
+          data-static="false"
+          data-has-defined-class="false"
+          data-child-positionel="false"
+          data-set-positionbtn-width="true"
+          data-change-positionbtn-text="true"
+        >
+          <div class="overlay overlay-t"></div>
+          <div
+            class="positionel-container"
+            style="
+              max-height: unset;
+              max-width: 25rem;
+              width: 100%;
+              overflow-y: auto;
+              top: 10rem;
+              left: 30rem;
+            "
+          >
+            <div class="positionel-content">
+              <!-- list -->
+
+              <ul class="list" data-text-wrap>
+                <li
+                  class="list-item"
+                  data-value="sort=-rating"
+                  data-active="true"
+                >
+                  <p>Top reviews</p>
+                </li>
+                <li class="list-item" data-value="sort=-ts" data-active="false">
+                  <p>Most recent</p>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- filter-by-text-and-photos -->
+        <div
+          class="positionel dropdown"
+          data-dropdown-type="select-options-dropdown"
+          data-positionel-name="filter-by-text-and-photos"
+          data-positionel-type="dropdown"
+          data-active="false"
+          data-position-type="fixed"
+          data-load-spinner="false"
+          data-animation="fade"
+          data-pointer-position="none"
+          data-position="cover"
+          data-delay-hide="false"
+          data-show-event="click"
+          data-static="false"
+          data-has-defined-class="false"
+          data-child-positionel="false"
+          data-set-positionbtn-width="false"
+          data-change-positionbtn-text="true"
+        >
+          <div class="overlay overlay-t"></div>
+          <div class="positionel-container" style="width: auto">
+            <div class="positionel-content">
+              <!-- list -->
+
+              <ul class="list" data-text-wrap data-query="filter">
+                <li class="list-item" data-value="" data-active="true">
+                  <p>All text,image reviews</p>
+                </li>
+                <li
+                  class="list-item"
+                  data-value="content.photos[gt]=[]"
+                  data-active="false"
+                >
+                  <p>Image reviews</p>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- filter-by-variants -->
+        <div
+          class="positionel dropdown"
+          data-dropdown-type="select-options-dropdown"
+          data-positionel-name="filter-by-variants"
+          data-positionel-type="dropdown"
+          data-active="false"
+          data-position-type="fixed"
+          data-load-spinner="false"
+          data-animation="fade"
+          data-pointer-position="none"
+          data-position="cover"
+          data-delay-hide="false"
+          data-show-event="click"
+          data-static="false"
+          data-has-defined-class="false"
+          data-child-positionel="false"
+          data-set-positionbtn-width="false"
+          data-change-positionbtn-text="true"
+        >
+          <div class="overlay overlay-t"></div>
+          <div class="positionel-container" style="width: auto">
+            <div class="positionel-content">
+              <!-- list -->
+
+              <ul class="list" data-text-wrap data-query="filter">
+                <li
+                  class="list-item"
+                  data-value="modelId=63bc126fb63b0ed0704a10e1"
+                  data-active="true"
+                >
+                  <p>All formats</p>
+                </li>
+                <li
+                  class="list-item"
+                  data-value="modelId=63bc126fb63b0ed0704a10e1&product._id=63bc126fb63b0ed0704a10e6"
+                  data-active="false"
+                >
+                  <p>
+                    Show only reviews for Apple iPhone 13 (128GB) - (Product)
+                    RED
+                  </p>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- filter-by-ratings -->
+        <div
+          class="positionel dropdown"
+          data-dropdown-type="select-options-dropdown"
+          data-positionel-name="filter-by-ratings"
+          data-positionel-type="dropdown"
+          data-active="false"
+          data-position-type="fixed"
+          data-load-spinner="false"
+          data-animation="fade"
+          data-pointer-position="none"
+          data-position="cover"
+          data-delay-hide="false"
+          data-show-event="click"
+          data-static="false"
+          data-has-defined-class="false"
+          data-child-positionel="false"
+          data-set-positionbtn-width="true"
+          data-change-positionbtn-text="true"
+        >
+          <div class="overlay overlay-t"></div>
+          <div
+            class="positionel-container"
+            style="max-height: unset; overflow-y: auto; top: 10rem; left: 30rem"
+          >
+            <div class="positionel-content">
+              <!-- list -->
+
+              <ul class="list" data-text-wrap data-query="filter">
+                <li class="list-item" data-value="" data-active="true">
+                  <p>All stars</p>
+                </li>
+                <li class="list-item" data-value="rating=5" data-active="false">
+                  <p>5 star only</p>
+                </li>
+                <li class="list-item" data-value="rating=4" data-active="false">
+                  <p>4 star only</p>
+                </li>
+                <li class="list-item" data-value="rating=3" data-active="false">
+                  <p>3 star only</p>
+                </li>
+                <li class="list-item" data-value="rating=2" data-active="false">
+                  <p>2 star only</p>
+                </li>
+                <li class="list-item" data-value="rating=1" data-active="false">
+                  <p>1 star only</p>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

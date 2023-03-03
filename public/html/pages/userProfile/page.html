@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="shortcut icon"
+      href="../../img/amazon/favicon.png"
+      type="image/*"
+    />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../../style.css" />
+    <script
+      src="https://kit.fontawesome.com/28cd1ccca7.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script defer type="module" src="../../../script.js"></script>
+  </head>
+  <body data-page="my-profile">
+    <!-- header -->
+    <header class="header sticky-header">
+      <div class="header-content f-sm">
+        <!-- logo -->
+        <div class="header-box">
+          <a href="/" class="logo-box">
+            <img src="../../img/amazon/logo.png" class="logo" alt="" />
+          </a>
+        </div>
+
+        <!-- delivery location -->
+        <a
+          class="header-box f-lw"
+          href="customer/change-delievery-location"
+          data-type="change-delievery-location"
+        >
+          <i class="fa fa-map-marker"></i>
+          <div>
+            <p class="pt-lw">Deliver to Rohit</p>
+            <h9 class="h-9">Merrut 250001</h9>
+          </div>
+        </a>
+
+        <!-- search form -->
+        <div class="search-form">
+          <div class="search-form-content">
+            <input
+              type="text"
+              class="search-input"
+              data-position-el-btn
+              data-position-el-name="search-products"
+              data-position-el-hover-show="false"
+            />
+
+            <button class="btn-icon" data-action="search">
+              <i class="fa fa-search"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- user language  -->
+        <div
+          class="header-box"
+          data-type="change-user-language"
+          data-position-el-btn
+          data-position-el-hover-show="true"
+          data-position-el-name="choose-language"
+        >
+          <!-- <img src="https://countryflagsapi.com/png/india" alt="" /> -->
+          <h9 class="h-9">EN</h9>
+          <div class="header-language-more-icon-box">
+            <i class="fa fa-caret-down" aria-="true"></i>
+          </div>
+        </div>
+
+        <!-- account and lists -->
+        <a
+          href="/my-accounts"
+          class="header-box"
+          data-type="account_and_lists"
+          data-position-el-btn
+          data-position-el-hover-show="true"
+          data-position-el-name="user-options"
+        >
+          <p class="pt-lw">Hello,mclaren</p>
+          <div class="f-lw f-ac">
+            <p class="h-9 h-0">Account & Lists</p>
+            <i class="fa fa-caret-down"></i>
+          </div>
+        </a>
+
+        <!-- returns and orders -->
+        <a href="/my-orders" class="header-box" data-type="return_and_orders">
+          <p class="pt-lw">Returns</p>
+          <div>
+            <p class="h-9 h-0">& Orders</p>
+          </div>
+        </a>
+
+        <!-- carts -->
+        <a href="/my-cart" class="header-box" data-type="carts">
+          <div class="header-cart-box">
+            <div class="header-cart-icon">
+              <i class="fa fa-cart-plus"></i>
+              <p class="header-cart-qty">9</p>
+            </div>
+            <h class="h-9 h-0">Cart</h>
+          </div>
+        </a>
+
+        <div></div>
+      </div>
+    </header>
+
+    <!-- navigation -->
+    <nav class="nav" data-active="false">
+      <div class="overlay"></div>
+      <div class="nav-list">
+        <div class="list-item nav-my-account f f-sb f-ac">
+          <a
+            href="/my-account"
+            class=""
+            data-link="/my-account"
+            data-hover="false"
+          >
+            <div class="f-lw">
+              <i class="fa fa-user-circle nav-user-icon"></i>
+
+              <h class="h-7 w-700 h-0"> Hello, mclaren </h>
+            </div>
+          </a>
+          <button class="btn-icon" data-action="close-nav">
+            <i class="fa fa-times"></i>
+          </button>
+        </div>
+
+        <!-- trending -->
+        <div class="list">
+          <p class="list-title">Trending</p>
+          <a href="/best-sellers" class="list-item" data-link="/best-sellers">
+            <p>Best sellers</p>
+          </a>
+          <a class="list-item" href="/new-products">
+            <p>New releases</p>
+          </a>
+          <a class="list-item" href="/trending-products">
+            <p>Movers and Shakers</p>
+          </a>
+        </div>
+
+        <div class="line-dim mg-b-lw mg-t-lw"></div>
+
+        <!-- settings -->
+        <div class="list">
+          <p class="list-title">Help & Settings</p>
+          <a class="list-item" href="/my-account">
+            <p>Your Account</p>
+          </a>
+          <a class="list-item" href="/customer-service">
+            <p>Customer Service</p>
+          </a>
+          <a class="list-item" href="/logout">
+            <p>Sign Out</p>
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- shortcut-navigation -->
+    <div class="shortcut-navigation f">
+      <div class="nav-btn-box border f" data-nav-btn>
+        <button class="nav-btn">
+          <p class="nav-btn-line"></p>
+          <p class="nav-btn-line"></p>
+          <p class="nav-btn-line"></p>
+        </button>
+        <h class="h-9 h-0">All</h>
+      </div>
+
+      <a href="/my-cart" class="border">
+        <h class="h-9 h-0"> Buy again </h>
+      </a>
+
+      <a href="/products" class="border">
+        <h class="h-9 h-0"> Heath,Household & Personal Care </h>
+      </a>
+
+      <a href="/my-orders" class="border">
+        <h class="h-9 h-0"> Orders </h>
+      </a>
+    </div>
+    <main>
+      <!-- section product -->
+      <section class="section-my-profile bg-fade">
+        <div class="userProfile container-100 mg-c">
+          <header class="mg-lw border-light r-sm bg-light">
+            <!-- coverpic -->
+            <div class="userProfile-cover-pic" style="position: relative">
+              <!-- coverPic imgEl -->
+              <img
+                src="../../../img/reviews/review-63ad447c3b31d43ac562d5d2-1674791153329.jpeg"
+                alt=""
+                data-input-id="cover_pic"
+              />
+              <input
+                type="file"
+                id="cover_pic"
+                class="hidden"
+                name="cover_pic"
+                data-img-set="false"
+              />
+
+              <!-- camera icon -->
+              <img
+                src="//d1k8kvpjaf8geh.cloudfront.net/gp/profile/assets/camera-desktop-4aba2c5ff428bad7bee93a2e61a2ad5128cbdd58b770618a1fd108abca1e2f31.png"
+                class="pointer"
+                data-positionel-btn
+                data-positionel-name="set-userprofile-imgs"
+                data-input-id="cover_pic"
+                style="
+                  position: absolute;
+                  bottom: 1.6rem;
+                  right: 1.6rem;
+                  height: 3.6rem;
+                  width: 4.5rem;
+                "
+              />
+            </div>
+
+            <div class="userProfile-preview f f-md p-lw">
+              <!-- profilepic -->
+              <div class="userProfile-pic" style="position: relative">
+                <!-- profilePic Imgel -->
+                <img
+                  src="../../../img/users/default.png"
+                  class="img-round"
+                  alt=""
+                  data-input-id="pic"
+                />
+                <input type="file" class="hidden" id="pic" name="pic" />
+
+                <!-- camera img  -->
+                <img
+                  src="//d1k8kvpjaf8geh.cloudfront.net/gp/profile/assets/camera-desktop-4aba2c5ff428bad7bee93a2e61a2ad5128cbdd58b770618a1fd108abca1e2f31.png"
+                  class="pointer"
+                  data-positionel-btn
+                  data-positionel-name="set-userprofile-imgs"
+                  data-input-id="pic"
+                  style="
+                    position: absolute;
+                    bottom: 2.2rem;
+                    left: 43%;
+                    height: 3.6rem;
+                    width: 4.5rem;
+                    border: unset;
+                  "
+                />
+              </div>
+              <div>
+                <h class="h-4 h-m mg-0">Andrew Tate</h>
+                <p class="mg-hg">Romania</p>
+
+                <button
+                  class="btn-g mg-t link hidden"
+                  data-action="follow-user"
+                  data-url="users/me/follow-user"
+                  data-method="patch"
+                  data-data='{_id:this,name:"Andrew-tate",pic:"default.png"}'
+                  data-change-text-to="Following"
+                >
+                  +Follow
+                </button>
+
+                <div class="f-lw">
+                  <a href="/review/create-review/productId">
+                    <button class="btn-primary-light">Create review</button>
+                  </a>
+
+                  <a href="/me/profile/edit" class="btn-outline"
+                    >Edit your profile</a
+                  >
+                </div>
+              </div>
+            </div>
+          </header>
+
+          <div class="userProfile-container">
+            <!-- left -->
+            <div class="userProfile-left mg-lw-all">
+              <!-- check your profile  -->
+              <div
+                class="userProfile-update-your-profile p-sm border-light r-sm bg-light"
+              >
+                <div class="right">
+                  <i
+                    class="fa fa-times pointer"
+                    data-action="hide-update-your-profile=box"
+                  ></i>
+                </div>
+                <p class="mg-md">
+                  Have you checked out your Public Profile yet? Make sure that
+                  it is up to date!
+                </p>
+                <div class="center">
+                  <a
+                    href="/profile/myId"
+                    class="btn-inline-span border-light r-sm bg-dim"
+                    >View your public profile</a
+                  >
+                </div>
+              </div>
+
+              <!-- following users  -->
+              <div
+                class="userProfile-update-your-profile p-sm border-light r-sm bg-dim"
+              >
+                <h class="h-9 mg-sm">Following</h>
+
+                <div class="f-sm f-ac">
+                  <a href="/profile/id/following">
+                    <img
+                      class="img-round userProfile-following-userPic"
+                      src="../../../img/users/default.png"
+                    />
+                  </a>
+                  <a href="/profile/id/following">
+                    <img
+                      class="img-round userProfile-following-userPic"
+                      src="../../../img/users/default.png"
+                    />
+                  </a>
+                  <a href="/profile/id/following">
+                    <img
+                      class="img-round userProfile-following-userPic"
+                      src="../../../img/users/default.png"
+                    />
+                  </a>
+                </div>
+              </div>
+
+              <!-- about -->
+              <div class="userProfile-about p-sm border-light r-sm bg-dim">
+                <h class="h-9">About</h>
+              </div>
+            </div>
+
+            <!-- right -->
+            <div class="userProfile-right mg-lw-all">
+              <!-- review helpful vote count -->
+              <div
+                class="userProfile-helpfulVote p-sm border-light r-sm bg-light"
+              >
+                <h class="h-9 mg-sm">Impact</h>
+                <div class="f-sm f-ac">
+                  <div class="userProfile-helpfulVote-icon-box">
+                    <i class="fas fa-thumbs-up primary-light icon-bg"></i>
+                  </div>
+                  <h class="s-4 h-m">6</h>
+                </div>
+              </div>
+
+              <!-- review  count -->
+              <div
+                class="userProfile-review-activity border-light r-sm bg-light"
+              >
+                <div class="p-sm">
+                  <h class="h-9 mg-sm">Community activity</h>
+                  <h class="h-4 h-m mg-0 userProfile-review-count">25</h>
+                  <p class="w-300 mg-md">Reviews</p>
+                </div>
+                <div class="line"></div>
+              </div>
+
+              <div class="userProfile-reviews mg-lw">
+                <div class="review mg-b-md bg-light border-light r-md">
+                  <div class="review-header">
+                    <!-- user -->
+                    <div class="f-sm f-ac mg-b-sl p-lw">
+                      <img
+                        class="img-sl round review-author-img"
+                        src="../../../img/users/default.png"
+                        alt=""
+                      />
+                      <p class="pt-md review-author-name">rohit</p>
+                      <p class="light f-size-sm f f-ac">
+                        <span> reviewd a product </span>
+                        <span class="dot-m"></span>
+                        <span>22 Jan 2023</span>
+                      </p>
+                    </div>
+                    <div class="line-dim"></div>
+
+                    <!-- rating | review-title-->
+                    <div class="p-lw mg-sl-all">
+                      <a
+                        class="f-sm f-ab pointer"
+                        href="/reviews/63d0d714973711a1689b0597"
+                      >
+                        <div class="f product-rating-icons">
+                          <i class="fa fa-star-o icon-sm" aria-hidden="true"></i
+                          ><i
+                            class="fa fa-star-o icon-sm"
+                            aria-hidden="true"
+                          ></i
+                          ><i
+                            class="fa fa-star-o icon-sm"
+                            aria-hidden="true"
+                          ></i
+                          ><i
+                            class="fa fa-star-o icon-sm"
+                            aria-hidden="true"
+                          ></i
+                          ><i
+                            class="fa fa-star-o icon-sm"
+                            aria-hidden="true"
+                          ></i>
+                        </div>
+                        <p class="s-10 s-d primary">Verifed purchase</p></a
+                      >
+
+                      <!-- title -->
+                      <p class="s-9">Simply driven powerful</p>
+
+                      <p class="mg-sm">Nice</p>
+
+                      <!-- about-product-->
+                      <a
+                        href="productId"
+                        class="p-lw border-light f-sm f-ac pointer mg-sm"
+                      >
+                        <img
+                          src="../../../img/products/1.jpg"
+                          alt=""
+                          class="img-lw"
+                        />
+                        <div>
+                          <p class="hover-color-primary">
+                            Rohit the powerful name
+                          </p>
+                          <div class="f-lw f-ab">
+                            <div class="f product-rating-icons">
+                              <i
+                                class="fa fa-star-o icon-lw"
+                                aria-hidden="true"
+                              ></i
+                              ><i
+                                class="fa fa-star-o icon-lw"
+                                aria-hidden="true"
+                              ></i
+                              ><i
+                                class="fa fa-star-o icon-lw"
+                                aria-hidden="true"
+                              ></i
+                              ><i
+                                class="fa fa-star-o icon-lw"
+                                aria-hidden="true"
+                              ></i
+                              ><i
+                                class="fa fa-star-o icon-lw"
+                                aria-hidden="true"
+                              ></i>
+                            </div>
+                            <p class="pt-lw">14</p>
+                          </div>
+                        </div>
+                      </a>
+
+                      <p class="userProfile-review-heplfulVote t-sm">
+                        <span>19</span> helpful votes
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <div class="positionels">
+      <!-- setUserProfileCover modal -->
+      <div
+        class="positionel modal"
+        data-positionel-type="modal"
+        data-positionel-name="upload-cover-photo"
+        data-active="false"
+        data-load-spinner="true"
+        data-animation="translate-fade"
+        data-pointer-position="none"
+        data-position="fixed"
+        data-delay-hide="false"
+        data-show-event="click"
+        data-static="false"
+        data-has-defined-class="true"
+        data-child-positionel="false"
+        data-width="md"
+        data-form="true"
+        data-hide-form-after-submit="false"
+        data-data=""
+      >
+        <div class="overlay"></div>
+        <div class="positionel-container modal-container container-100">
+          <!-- header -->
+          <header class="modal-header">
+            <p class="s-8">Upload a cover photo</p>
+            <button class="btn-icon positionel-closebtn">
+              <i class="fa fa-times"></i>
+            </button>
+          </header>
+
+          <footer class="modal-footer">
+            <div class="positionel-content">
+              <p class="mg-sm">
+                Please use a JPG or PNG file. Your photo must be at least 640px
+                by 244px.
+              </p>
+
+              <div
+                class="model-user-profile-cover"
+                style="height: 44rem; background: #000; padding: 4rem 3rem"
+              >
+                <img class="img-100" alt="" data-input-id="cover_pic" />
+              </div>
+            </div>
+          </footer>
+
+          <div class="modal-btns-container">
+            <button class="btn-white btn-md" data-positionel-hide-btn>
+              Cancel
+            </button>
+            <div class="f-lw">
+              <label
+                for="cover_pic"
+                class="btn-white btn-md"
+                data-action="pick-another-photo"
+                >Pick a different photo</label
+              >
+              <button
+                class="btn-primary-light btn-md"
+                data-action="upload"
+                data-url="users/me"
+              >
+                Upload
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- set userProfilePic userProfileCoverPic tooltip -->
+      <div
+        class="tooltip positionel"
+        data-positionel-type="tooltip"
+        data-positionel-name="set-userprofile-imgs"
+        data-active="false"
+        data-pointer-position="center"
+        data-position="bottom"
+        data-animation="fade"
+        data-show-event="click"
+        data-delay-hide="false"
+        data-load-spinner="false"
+        data-static="false"
+        data-has-defined-class="true"
+        data-child-positionel="false"
+        data-width="auto"
+      >
+        <!-- data-set-position-manual  -->
+        <div
+          class="positionel-container p-lw"
+          style="
+            /* top: 0;
+          left: 0; */
+            transform: translate(-40%, 18%) !important;
+          "
+        >
+          <div class="positionel-square"></div>
+
+          <div class="positionel-content" style="min-height: unset">
+            <label for="cover_pic" class="pointer list-item p-sl">Upload</label>
+            <li
+              data-action="delete"
+              data-field="cover_pic"
+              class="pointer list-item p-sl"
+            >
+              Delete
+            </li>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

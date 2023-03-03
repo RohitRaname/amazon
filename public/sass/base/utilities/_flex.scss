@@ -1,0 +1,115 @@
+.f {
+    &-center,
+    &-col,
+    &-space,
+    &-i {
+      @include f-center;
+    }
+  
+    &-i {
+      display: inline-flex !important;
+    }
+  
+    &-col {
+      flex-direction: column !important;
+    }
+    &-space {
+      justify-content: space-between !important;
+    }
+    &-js {
+      justify-content: start !important;
+    }
+    &-je {
+      justify-content: end !important;
+    }
+    &-as {
+      align-items: start !important;
+    }
+    &-ae {
+      align-items: end !important;
+    }
+    &-jc {
+      justify-content: center !important;
+    }
+    &-ac {
+      align-items: center !important;
+    }
+    &-ab {
+      align-items: baseline !important;
+    }
+  
+    &-sa {
+      justify-content: space-around;
+    }
+    &-se {
+      justify-content: space-evenly;
+    }
+    &-sb {
+      justify-content: space-between;
+    }
+  
+    &-d-row {
+      flex-direction: row;
+    }
+    &-d-col {
+      flex-direction: column;
+    }
+  
+    &,
+    &-0,
+    &-sl,
+    &-lw,
+    &-sm,
+    &-md,
+    &-bg,
+    &-hg,
+    &-lg,
+    &-5,
+    &-8,
+    &-10 {
+      display: flex !important;
+    }
+  
+    &-flex-1 {
+      flex: 1 !important;
+    }
+  
+    &-0 {
+      gap: 0 !important;
+    }
+  
+    &-sl {
+      gap: 0.4rem !important;
+    }
+  
+    &-lw {
+      gap: 1.2rem !important;
+    }
+  
+    &-sm {
+      gap: 1.6rem !important;
+    }
+    &-md {
+      gap: 2.4rem !important;
+    }
+    &-bg {
+      gap: 3.2rem !important;
+    }
+    &-hg {
+      gap: 4.8rem !important;
+    }
+    &-lg {
+      gap: 6.4rem !important;
+    }
+  
+    &-5 {
+      gap: 5rem !important;
+    }
+    &-8 {
+      gap: 8rem !important;
+    }
+    &-10 {
+      gap: 10rem !important;
+    }
+  }
+  

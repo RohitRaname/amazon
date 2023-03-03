@@ -1,0 +1,68 @@
+<!-- ask-question-about-product -->
+<div
+  class="positionel modal"
+  data-positionel-type="modal"
+  data-positionel-name="ask-question-about-product-form"
+  data-active="false"
+  data-load-spinner="true"
+  data-animation="scale-from-center"
+  data-pointer-position="none"
+  data-position="fixed"
+  data-delay-hide="false"
+  data-show-event="click"
+  data-static="false"
+  data-has-defined-class="true"
+  data-child-positionel="false"
+  data-width="sm"
+  data-form="true"
+  data-hide-form-after-submit="true"
+>
+  <div class="overlay"></div>
+  <div class="positionel-container modal-container container-100">
+    <!-- header -->
+    <header class="positionel-header modal-header">
+      <p class="s-8">Post your question</p>
+      <button class="btn-icon positionel-closebtn static">
+        <i class="fa fa-times"></i>
+      </button>
+    </header>
+
+    <footer class="positionel-footer modal-footer">
+      <div class="spinner hide"></div>
+
+      <div class="positionel-content mg-b-lw-all">
+        <!-- ask-question -->
+        <form
+          class="form"
+          data-error="false"
+          onsubmit="return false;"
+          data-clear-inputs-when-hide="true"
+        >
+          <div class="form-group" data-error="false" data-required="true">
+            <textarea name="text" id="" data-input></textarea>
+
+            <div class="form-error">
+              <i class="fa fa-exclamation-circle"></i>
+              <p>Question is required</p>
+            </div>
+          </div>
+
+          <p class="pt-sm mg-b-lw">
+            Your question might be answered by sellers, manufacturers, or
+            customers who bought this product.
+          </p>
+
+          <!-- modal-btns -->
+          <div class="form-btns">
+            <button class="btn-outline btn-md" data-action="cancel">
+              Cancel
+            </button>
+            <button class="btn-primary-light btn-md" data-action="submit">
+              Post
+            </button>
+          </div>
+        </form>
+      </div>
+    </footer>
+  </div>
+</div>

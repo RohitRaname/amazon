@@ -1,0 +1,281 @@
+.positionel {
+  font-size: $font-size-md;
+
+  .overlay {
+    z-index: 50;
+  }
+
+  .spinner {
+    @include abs-center;
+    top: 40%;
+    left: 44%;
+  }
+  &-closebtn {
+    position: absolute;
+    right: 0.6rem;
+    height: 3.5rem;
+    width: 3.5rem;
+    right: 1.5rem;
+
+    outline: 0.3rem solid transparent;
+
+    &:hover {
+      outline: 0.3rem solid var(--color-secondary-light);
+    }
+    i {
+      font-size: 1.4rem;
+      color: var(--default-text);
+    }
+  }
+
+  &-square {
+    height: 1.6rem;
+    width: 1.6rem;
+    background: var(--default-background);
+    position: absolute;
+    top: 0;
+    right: 20%;
+    transform: translateY(-50%) rotate(45deg);
+    z-index: 100;
+  }
+
+  &-header {
+    @include sticky;
+    height: 6rem;
+
+    .positionel-closebtn {
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  }
+
+  // to cover the space for square so when mouse over in height of pointer the container not hide
+  &-container {
+    border: var(--border-line);
+    background: var(--background-light);
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+    z-index: 150;
+    top: 100%;
+    left: 0;
+  }
+
+  &-content {
+    // min-height: 10rem;
+    position: relative;
+
+    &[data-active='true'] {
+      display: block;
+    }
+    &[data-active='false'] {
+      display: none;
+    }
+  }
+
+  &-scroll {
+    overflow-y: scroll;
+    height: 58rem;
+  }
+
+  &[data-pointer-position='left'] &-square {
+    left: 12%;
+  }
+  &[data-pointer-position='right'] &-square {
+    right: 12%;
+  }
+  &[data-pointer-position='center'] &-square {
+    left: 50%;
+  }
+  &[data-pointer-position='bottom'] &-square {
+    top: unset;
+    right: unset;
+    bottom: 0;
+    left: 50%;
+    transform: translateY(50%) rotate(45deg);
+  }
+
+  //////////////////////////////////////////////////////////////////
+  /// [data-positionel-relative="false"]
+  //////////////////////////////////////////////////////////////////
+  // abs small components like dropdown | hovercard |  tooltip
+
+  .positionel-container::before {
+    content: '';
+    display: inline-block;
+    position: absolute;
+    top: -2rem;
+    background: transparent;
+    width: 100%;
+    height: 2rem;
+    left: 0;
+  }
+
+  &[data-positionel-type='dropdown'],
+  &[data-positionel-type='hovercard'],
+  &[data-positionel-type='tooltip'] {
+    .positionel-closebtn {
+      height: 2rem;
+      width: 2rem;
+    }
+    .positionel-container {
+      min-height: 3rem;
+      display: inline-block;
+      position: absolute;
+      border: var(--border-line) !important;
+
+      box-shadow: var(--shadow-medium) !important;
+    }
+  }
+
+  // modal
+  &[data-positionel-type='modal'] {
+    .positionel-container {
+      border-radius: $radius-bg;
+      padding-top: $padding-sm;
+      @include fixed-center;
+      box-shadow: 0 0 3rem 1rem rgba(var(--text-v), 0.3);
+      // padding: 2.4rem 2.4rem;
+
+      .positionel-content::-webkit-scrollbar {
+        display: block;
+      }
+
+      max-width: 120rem;
+      max-height: 65rem;
+      border-radius: $radius-lg;
+      width: 100%;
+    }
+  }
+
+  &[data-positionel-type='tooltip'] {
+    .positionel-container {
+      max-width: 50rem !important;
+      padding: 2rem;
+      width: 100%;
+      transform: translateX(-40%);
+    }
+  }
+
+  &[data-active='true'] {
+    .overlay {
+      @include show;
+    }
+
+    &[data-animation='translate-fade'] > .positionel-container {
+      animation: 0.25s ease-in 0.2s backwards fade-move-up;
+    }
+    &[data-animation='fade'] > .positionel-container {
+      animation: 0.15s ease-in 0.04s both fade-show;
+    }
+    &[data-animation='scale-from-center'] > .positionel-container {
+      transform-origin: center center;
+
+      animation: 0.3s ease-in 0.04s both scale-from-center-to-100;
+    }
+  }
+
+  &[data-active='false'] {
+    .overlay {
+      @include hide;
+    }
+
+    .spinner {
+      animation: unset;
+    }
+
+    &[data-animation='translate-fade'] > .positionel-container {
+      animation: 0.2s ease-in 0.15s forwards fade-move-down;
+    }
+
+    &[data-animation='fade'] > .positionel-container {
+      animation: 0.15s ease-in 0.02s forwards fade-hide;
+    }
+
+    &[data-animation='scale-from-center'] > .positionel-container {
+      animation: 0.2s ease-in 0.15s forwards fade-move-down;
+    }
+  }
+
+  &[data-static='true'] &-container {
+    border: unset;
+    background: unset;
+    z-index: unset;
+
+    &::before {
+      display: none;
+    }
+  }
+
+  // variation
+  &[data-width='sm'] .positionel-container {
+    max-width: 45rem !important;
+
+    overflow-y: unset;
+  }
+  &[data-width='md'] .positionel-container {
+    max-width: 75rem !important;
+  }
+  &[data-width='bg'] .positionel-container {
+    max-width: 100rem !important;
+  }
+  &[data-width='hg'] .positionel-container {
+    max-width: 120rem !important;
+  }
+  &[data-width='auto'] .positionel-container {
+    max-width: unset !important;
+    width: unset !important;
+  }
+
+  &[data-child-positionel='true'] {
+    .positionel-container {
+      position: absolute !important;
+      top: unset;
+      left: unset;
+      transform: translate(0);
+    }
+
+    &[data-position='top'] .positionel-container {
+      transform: translateY(-125%) translateX(-40%);
+    }
+  }
+
+  &[data-has-child-positionel='true'] {
+    .positionel-container {
+      overflow: visible;
+    }
+  }
+
+  &[data-position-type='absolute'] .positionel-container {
+    position: absolute !important;
+  }
+
+  &[data-position-type='fixed'] .positionel-container {
+    position: fixed !important;
+  }
+
+  // spinner
+  &[data-hide-spinner='false'] {
+    .positionel-content {
+      @include hide;
+    }
+    .spinner {
+      display: block;
+      @include show;
+    }
+  }
+  &[data-hide-spinner='true'] {
+    .spinner {
+      display: none;
+      opacity: 0;
+    }
+    .positionel-content {
+      opacity: 1;
+    }
+  }
+
+  //////////////////////////////////////////////////////////////////
+  /// [data-positionel-relative="true"]
+  //////////////////////////////////////////////////////////////////
+}
